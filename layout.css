@@ -1,0 +1,23 @@
+@import url("/css/reset.css");
+
+#s1 ul{
+    background: yellow;
+    height: 300px;
+    position: relative;
+    left:50px;
+    top:50px;
+}
+
+#s1 li:nth-child(1) {
+    background: red;
+    position: relative;
+    left:50px;
+    top:30px;
+    
+}
+#s1 li:nth-child(2) {
+    background: green;
+}
+#s1 li:nth-child(3) {
+    background: blue;
+}

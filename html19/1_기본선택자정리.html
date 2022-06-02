@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS2 선택자</title>
+        <style>
+            /* 1. 전체선택자 - *{ } */
+            *{ border: 3px solid black; }
+
+            /* 2. 태그선택자 - 태그명{ } */
+            h3{ color: red; }
+
+            /* 3. 아이디선택자 - #아이디값{ } */
+            #text01{ color: lightblue; }
+            #text02{ color: pink; }
+
+            /* 4. 클래스선택자 - .클래스값{ } */
+            .odd{ background-color: lightblue; }
+            .even{ background-color: pink; }
+        </style>
+    </head>
+    <body>
+        <h3>제목태그</h3>
+        <p id="text01">문단태그</p>
+        <p id="text02">문단태그</p>
+        <ul>
+            <li class="odd">리스트태그</li>
+            <li class="even">리스트태그</li>
+            <li class="odd">리스트태그</li>
+            <li class="even">리스트태그</li>
+        </ul>
+    </body>
+</html>

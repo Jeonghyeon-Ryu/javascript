@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS2 선택자</title>
+        <style>
+            /* 1. 자손선택자 - 부모요소 > 자손요소{ } */
+            .box01 > li{ color: red; } /* 잘못된 선택 */
+            .box01 > ul > li{ color: blue; } /* 잘된 선택 */
+            .box01 > ul{ border: 3px solid blue; }
+
+            /* 2. 후손선택자 - 조상요소 후손요소{ } */
+            .box02 li{ color: red; }
+            .box02 ul{ border: 3px solid red; } /* ul은 자손이자 후손 */
+        </style>
+    </head>
+    <body>
+        <div class="box01"><!-- 기준 -->
+            <ul><!-- 자손 -->
+                <li>리스트태그1</li><!-- 후손 -->
+                <li>리스트태그1</li>
+                <li>리스트태그1</li>
+            </ul>
+        </div>
+        <div class="box02">
+            <ul>
+                <li>리스트태그1</li>
+                <li>리스트태그1</li>
+                <li>리스트태그1</li>
+            </ul>
+        </div>
+    </body>
+</html>

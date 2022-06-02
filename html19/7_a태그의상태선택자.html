@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS2 선택자</title>
+        <style>
+            /* 1. a:link{ } - 링크걸린상태 */
+            .ex01 > a:link{ color: gray; text-decoration: none; }
+
+            /* 2. a:hover{ } - 마우스올린상태 */
+            .ex01 > a:hover{ text-decoration: underline; }
+
+            /* 3. a:active{ } - 꾹누르고있는상태 */
+            .ex01 > a:active{ color: red; }
+
+            /* 4. a:visited{ } - 링크방문한상태 */
+            .ex01 > a:visited{ color: green; }
+
+            /* 5. 4가지 상태 한번에 처리 */
+            .ex02 > a{ color: gray; text-decoration: none;}
+        </style>
+    </head>
+    <body>
+        <h1 class="ex01"><a href="#">링크태그1</a></h1>
+        <h1 class="ex02"><a href="#">링크태그2</a></h1>
+    </body>
+</html>

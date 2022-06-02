@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSS테두리속성</title>
+        <style>
+            div{
+                width: 100px; height: 100px;
+                background-color: orange;
+                margin-bottom: 20px;
+                border: 3px solid black;
+            }
+            
+            /* border-radius : 모서리를 둥글게 처리하는 속성 */
+
+            /* 1. 4방면 전부 처리 */
+            .box01{ border-radius: 20px; } 
+
+            /* 2. 각각 처리 - 좌측상단 기준 시계방향 */
+            .box02{ border-radius: 10px 20px 30px 40px; } 
+
+            /* 3. 테두리와 관계없이 요소에도 들어감 */
+            .box03{
+                border: none;
+                border-radius: 20px;
+            }
+
+            /* 4. 원형 + overflow */
+            .box04{
+                border-radius: 60px;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box01"></div>
+        <div class="box02"></div>
+        <div class="box03"></div>
+        <div class="box04">
+            <img src="coffee.jpg" height="100" alt="테스트이미지">
+        </div>
+    </body>
+</html>
+
+
+
+
+
+

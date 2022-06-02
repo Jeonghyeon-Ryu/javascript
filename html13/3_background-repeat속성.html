@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS 배경속성</title>
+        <style>
+            div{
+                width: 400px; height: 120px;
+                border: 3px solid black;
+                margin-bottom: 10px;
+                background-image: url(images/cat.png);
+            }
+
+            /* background-repeat: 요소의 배경이미지 반복을 지정 하는 속성 */
+
+            /* 1. repeat : 반복 - 기본값 */
+            .box01{ background-repeat: repeat; }
+
+            /* 2. no-repeat : 반복안함 */
+            .box02{ background-repeat: no-repeat; }
+
+            /* 3. repeat-x : x축반복 */
+            .box03{ background-repeat: repeat-x; }
+
+            /* 4. repeat-y : y축반복 */
+            .box04{ background-repeat: repeat-y; }
+
+            /* 5. space : 잘리는 것 없이 처리 - 비율고정 여백으로 처리 */
+            .box05{ background-repeat: space; }
+
+            /* 6. round : 잘리는 것 없이 처리 - 픽셀 비율 변경 처리 */
+            .box06{ background-repeat: round; }
+        </style>
+    </head>
+    <body>
+        <div class="box01"></div>
+        <div class="box02"></div>
+        <div class="box03"></div>
+        <div class="box04"></div>
+        <div class="box05"></div>
+        <div class="box06"></div>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS text속성</title>
+        <style>
+            h1{ margin: 30px; }
+
+            /* text-decoration : 글자 줄지정 속성 */
+
+            /* 1. underline : 밑줄처리 */
+            .test01{ text-decoration: underline; }
+
+            /* 2. line-through : 가운데줄처리 */
+            .test02{ text-decoration: line-through; }
+
+            /* 3. overline : 윗줄처리 */
+            .test03{ text-decoration: overline; }
+
+            /* 4. none : 줄 제거 */
+            a{ text-decoration: none; }
+
+            /* 줄 색상과 스타일 변경 */
+            .test04{
+                text-decoration-line: underline;
+                text-decoration-color: red;
+                text-decoration-style: dashed;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="test01">오쌤의 니가스터디</h1>
+        <h1 class="test02">오쌤의 니가스터디</h1>
+        <h1 class="test03">오쌤의 니가스터디</h1>
+        <h1><a href="#">링크테스트</a></h1>
+        <h1 class="test04">오쌤의 니가스터디</h1>
+    </body>
+</html>

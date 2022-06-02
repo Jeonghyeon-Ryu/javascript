@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS 위치속성</title>
+        <style>
+            *{ padding: 0; margin: 0; }
+
+            div{
+                width: 100px; height: 100px;
+                border: 5px solid black;
+                text-align: center; line-height: 100px;
+
+                position: absolute; /* 모든 요소 앱솔루트처리 */
+            }
+
+            /* 1. 우측상단처리 */
+            .box01{
+                background-color: pink;
+                top: 0; right: 0;
+            }
+
+            /* 2. 우측하단처리 */
+            .box02{
+                background-color: lightblue;
+                bottom: 0; right: 0;
+            }
+
+            /* 3. 좌측하단처리 */
+            .box03{
+                background-color: coral;
+                left: 0; bottom: 0;
+            }
+
+            /* 4. 정가운데 처리 */
+            .box04{
+                background-color: yellowgreen;
+                left: 0; right: 0; top: 0; bottom: 0;
+                margin: auto;
+            }
+
+            /* 5. 음수처리 */
+            .box05{
+                background-color: steelblue;
+                left: -50px; top: -50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box01">박스1</div>
+        <div class="box02">박스2</div>
+        <div class="box03">박스3</div>
+        <div class="box04">박스4</div>
+        <div class="box05">박스5</div>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS2 선택자</title>
+        <style>
+            /* 1. 클래스로만 선택 */
+            .text{ text-decoration: underline; }
+
+            /* 2. 태그명과 클래스명 조합 선택 */
+            h3.text{ color: red; }
+            p.text{ color: blue; }
+        </style>
+    </head>
+    <body>
+        <h3>제목태그</h3>
+        <h3 class="text">제목태그</h3>
+        <p class="text">문단태그</p>
+        <p>문단태그</p>
+    </body>
+</html>

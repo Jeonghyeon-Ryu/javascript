@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS2 선택자</title>
+        <style>
+            /* 형요소 + 동생요소{ } : 바로 뒤 동생요소만 선택 */
+            h1 + h2{ color: red; }
+
+            /* 형요소 ~ 동생요소{ } : 뒤에 있는 모든 동생요소 선택 */
+            h1 ~ h2{ text-decoration: underline; }
+        </style>
+    </head>
+    <body>
+        <h1>제목태그1</h1><!-- 기준 -->
+        <h2>제목태그2</h2><!-- 동위선택자 -->
+        <h2>제목태그2</h2>
+        <h2>제목태그2</h2>
+        <h2>제목태그2</h2>
+        <h2>제목태그2</h2>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS2 선택자</title>
+        <style>
+            /* 1. 요소[태그속성명] */
+            a[target]{ text-decoration: none; }
+
+            /* 2. 요소[태그속성명=값] */
+            a[target="_self"]{ color: red; }
+            a[target="_blank"]{ color: green; }
+
+            /* 3. 요소[태그속성명^=값] - 접두사가 같은 경우 */
+            img[src^="cat"]{ border: 3px solid black; }
+
+            /* 4. 요소[태그속성명$=값] - 접미사가 같은 경우 */
+            img[src$="gif"]{ border-color: red; }
+            img[src$="jpg"]{ border-color: green; }
+            img[src$="png"]{ border-color: blue; }
+        </style>
+    </head>
+    <body>
+        <a href="#">target없음</a><br>
+        <a href="#" target="_self">현재창열기</a><br>
+        <a href="#" target="_blank">새창열기</a><br>
+        <a href="#" target="_self">현재창열기</a><br>
+        <a href="#" target="_blank">새창열기</a>
+        <hr>
+        <img src="cat.gif" alt="">
+        <img src="cat.jpg" alt="">
+        <img src="cat.png" alt="">
+        <img src="dog.png" alt="">
+    </body>
+</html>

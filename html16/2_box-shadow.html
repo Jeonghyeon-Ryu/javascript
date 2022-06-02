@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS 박스모델</title>
+        <style>
+            div{
+                width: 200px; height: 200px;
+                margin: 20px; 
+                background-color: orange;
+                font-size: 24px; font-weight: bold;
+            }
+
+            /* box-shadow: x축위치 y축위치 번짐 색상;  */
+
+            /* 1. 위치를 양수로 처리 */
+            .box01{ box-shadow: 5px 5px 5px gray; }
+            /* 2. 위치를 음수로 처리 */
+            .box02{ box-shadow: -5px -5px 5px gray; }
+            /* 3. 안쪽그림자 */
+            .box03{ box-shadow: inset 5px 5px 5px gray}
+        </style>
+    </head>
+    <body>
+        <div class="box01">우측하단그림자</div>
+        <div class="box02">좌측상단그림자</div>
+        <div class="box03">안쪽그림자</div>
+    </body>
+</html>

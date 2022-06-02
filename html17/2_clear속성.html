@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS위치속성</title>
+		<style>
+            *{ padding: 0; margin: 0; }
+            .box{
+                /* width: 500px; padding: 20px;
+                border: 1px solid gray; */
+                width : 600px;
+                padding : 20px;
+                border : 2px solid black;
+            }
+            img{ float:left; margin-right : 20px; }
+            p{ text-align: justify; }
+
+            /* 형 요소가 float를 받으면 동생요소들이 나머지 부모 공간으로 따라 올라감 */
+            /* clear : 형요소가 float를 받아도 따라올라가지 않게 하는 속성 */
+            /* left, right, both, none */
+
+            .bottom{ clear:both; }
+		</style>
+	</head>
+	<body>
+		<div class="box">
+            <img src="flower.jpg" width="200" alt="국화" />
+            <h4>국화 [Chrysanthemum]</h4>
+            <p>[특징] 개화형태에 따라 하나의 꽃대에 하나의 꽃을 피우는 스탠더드국화로 흔히 장례식이나 제례용으로 사용되는 흰색, 노란색이 국내에서는 유통되고 있으며, 하나의...</p>
+            <p class="bottom">경기도농업기술원식물백과 &gt; 속씨식물</p>
+        </div>
+	</body>
+</html>
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS text속성</title>
+        <style>
+            p{
+                width: 250px;
+                border: 3px solid black;
+                padding: 20px; color: orange;
+            }
+
+            /* white-space : 요소 내부의 공백을 처리하는 방법을 지정 */
+            /* 기본값 - normal */
+            
+            
+            /* 1. normal : 부모 영역보다 넘어가는 텍스트는 내려감 */
+            .para01{ white-space: normal; }
+            
+            /* 2. nowrap : 부모 영역보다 넘어가는 텍스트가 안내려감 */
+            .para02{ white-space: nowrap; }
+
+            /* 3. pre : 엔터처리한 곳이 텍스트가 내려감 */
+            .para03{ white-space: pre; }
+        </style>
+    </head>
+    <body>
+        <p class="para01">
+            오쌤의 니가 스터디
+            오쌤의 니가 스터디
+            오쌤의 니가 스터디
+        </p>
+        <p class="para02">
+            오쌤의 니가 스터디
+            오쌤의 니가 스터디
+            오쌤의 니가 스터디
+        </p>
+        <p class="para03">
+            오쌤의 니가 스터디
+            오쌤의 니가 스터디
+            오쌤의 니가 스터디
+        </p>
+    </body>
+</html>

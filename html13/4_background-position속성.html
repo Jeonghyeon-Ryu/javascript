@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS 배경속성</title>
+        <style>
+            div{
+                width: 400px; height: 120px;
+                border: 3px solid black;
+                margin-bottom: 10px;
+                background-image: url(images/cat.png);
+                background-repeat: no-repeat;
+            }
+
+            /* background-position: 요소의 배경이미지 위치를 지정 하는 속성 */
+            /* background-position: x축위치 y축위치; */
+            /* 기본값은 좌측상단 즉 background-position: 0 0; */
+
+            /* 1. 키워드로 처리  */
+            .box01{ background-position: right bottom; }
+            .box02{ background-position: center center; }
+
+            /* 2. 둘 다 center이면 값을 한개만 작성 */
+            .box03{ background-position: center; }
+
+            /* 3. 수치 - px */
+            .box04{ background-position: 100px 50px; }
+
+            /* 4. 수치 - % */
+            .box05{ background-position: 100% 100%; }
+
+            /* 5. 여러 형태를 섞어서 사용가능 */
+            .box06{ background-position: right 50%; }
+        </style>
+    </head>
+    <body>
+        <div class="box01"></div>
+        <div class="box02"></div>
+        <div class="box03"></div>
+        <div class="box04"></div>
+        <div class="box05"></div>
+        <div class="box06"></div>
+    </body>
+</html>

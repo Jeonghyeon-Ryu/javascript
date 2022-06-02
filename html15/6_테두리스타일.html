@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSS테두리속성</title>
+        <style>
+            body{ height: 2000px; }
+            div{
+                width: 100px; height: 100px;
+                text-align: center; line-height: 100px;
+                background-color: orange;
+                margin-bottom: 20px;
+                border: 5px solid lightblue;
+            }
+            
+            .box01{ border-style: solid; } /* 실선 */
+            .box02{ border-style: dashed; } /* 긴점선 */
+            .box03{ border-style: dotted; } /* 짧은점선 */
+            .box04{ border-style: groove; } /* 테두리가 파인듯한 음영효과 */
+            .box05{ border-style: ridge; } /* 테두리가 튀어나온듯한 음영효과 */
+            .box06{ border-style: double; } /* 두줄처리 */
+            .box07{ background-color: lightblue; border-style: inset; } /* 요소를 파인듯한 느낌 처리 */
+            .box08{ background-color: lightblue; border-style: outset; } /* 요소를 튀어나온 듯한 느낌 처리 */
+            .box09{ border: none; } /* 있던 테두리를 제거 */
+        </style>
+    </head>
+    <body>
+        <div class="box01">solid</div>
+        <div class="box02">dashed</div>
+        <div class="box03">dotted</div>
+        <div class="box04">groove</div>
+        <div class="box05">ridge</div>
+        <div class="box06">double</div>
+        <div class="box07">inset</div>
+        <div class="box08">outset</div>
+        <div class="box09">none</div>
+    </body>
+</html>
+
+
+
+
+
+

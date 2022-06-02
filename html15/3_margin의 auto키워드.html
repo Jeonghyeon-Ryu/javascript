@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS 여백 테두리 속성</title>
+        <style>
+            *{ padding: 0; margin: 0; }
+            div{ 
+                width: 100px; height: 100px;
+                border: 3px solid black;
+                background-color: orange;
+                margin: 20px;
+            }
+            p{ 
+                width: 50px; height: 50px; 
+                background-color: navy; color: white; 
+            }
+            
+            /* 자손요소를 가로 가운데 처리  */
+
+            /* 1. 텍스트 */
+            .box01{ text-align: center;}
+
+            /* 2. 이미지 */
+            .box02{ text-align: center; }
+
+            /* 3. 블록요소 */
+            .box03{ text-align: center; } /* 블록요소는 처리X */
+            p{ margin: auto auto;}
+ 
+            /* 부모가 body인 경우 */
+            .box04{ margin: 0 auto; }
+        </style>
+    </head>
+    <body>
+        <!-- 1. 텍스트 혹은 인라인요소 -->
+        <div class="box01">텍스트</div>
+
+        <!-- 2. 인라인블록요소 -->
+        <div class="box02">
+            <img src="http://via.placeholder.com/50x50" alt="">
+        </div>
+
+        <!-- 3. 블록요소 -->
+        <div class="box03">
+            <p>블록</p>
+        </div>
+
+        <!-- 4. 부모가 body : 화면 100% -->
+        <div class="box04"></div>
+    </body>
+</html>

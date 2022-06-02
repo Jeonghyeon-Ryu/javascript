@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS text속성</title>
+        <style>
+            p{
+                width: 400px; padding: 20px;
+                border: 3px solid black;
+            }
+            div{
+                width: 100px; 
+                padding: 20px; margin: 10px;
+                border: 3px solid black;
+            }
+
+            /* text-indent : 문단 첫줄 들여쓰기 속성 */
+
+            /* 1. 들여쓰기 : 양수처리 */
+            .para01{ text-indent: 20px; }
+
+            /* 2. 내어쓰기 : 음수처리 */
+            .para02{ text-indent: -20px; }
+
+            /* 3. 요소에서 글자만 안보이게 처리 - left인경우 */
+            .box01{
+                text-align: left;
+                text-indent: -999em;
+            }
+
+            /* 4. 요소에서 글자만 안보이게 처리 - right인경우 */
+            .box02{
+                text-align: right;
+                text-indent: 120%; white-space: nowrap; 
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="para01">
+            시인의 나의 딴은 무성할 있습니다. 한 아무 별에도 새워 자랑처럼 봄이 나의 까닭입니다. 가난한 나는 사람들의 까닭이요, 같이 묻힌 까닭입니다. 어머님, 마디씩 그리워 어머니 하나에 이 너무나 지나고 버리었습니다.
+        </p>
+        <p class="para02">
+            시인의 나의 딴은 무성할 있습니다. 한 아무 별에도 새워 자랑처럼 봄이 나의 까닭입니다. 가난한 나는 사람들의 까닭이요, 같이 묻힌 까닭입니다. 어머님, 마디씩 그리워 어머니 하나에 이 너무나 지나고 버리었습니다.
+        </p>
+        <div class="box01">테스트</div>
+        <div class="box02">테스트</div>
+    </body>
+</html>

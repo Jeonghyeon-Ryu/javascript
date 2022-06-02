@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS 배경속성</title>
+        <style>
+            *{ padding: 0; margin: 0; } /* 모든 태그 여백 제거 */
+
+            div{ 
+                width: 100%; height: 500px; 
+                background-repeat: no-repeat; /* 배경이미지반복안함 */
+                background-size: cover; /* 배경이미지 영역 꽉 채움 */
+                background-position: center; /* 배경이미지 위치 정가운데 */
+            }
+            .box01{ background-color: pink; }
+            .box03{ background-color: lightblue; }
+            .box05{ background-color: orange; }
+
+            /* 1. 강아지 이미지 처리 - scroll값처리 */
+            .box02{
+                background-image: url(images/fixed_img01.jpg);
+            }
+
+            /* 2. 빙산 이미지 처리 - fixed값처리 */
+            .box04{
+                background-image: url(images/fixed_img02.jpg);
+                background-attachment: fixed;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box01"></div>
+        <div class="box02"></div>
+        <div class="box03"></div>
+        <div class="box04"></div>
+        <div class="box05"></div>
+    </body>
+</html>

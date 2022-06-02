@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS text속성</title>
+        <style>
+            h1{
+                border: 3px solid black;
+                padding: 20px; color: orange;
+            }
+
+            /* text-shadow : 글자의 그림자 속성 */
+            /* text-shadow: x축위치 y축위치 번짐 색상 */
+
+            /* 1. 그림자 방향 */
+            .test01{ text-shadow: 3px 3px 3px gray; }
+            .test02{ text-shadow: -3px -3px 3px gray; }
+            .test03{ text-shadow: 0 0 3px gray; }
+
+            /* 2. 그림자 번짐 */
+            .test04{ text-shadow: 3px 3px 0 gray; }
+            .test05{ text-shadow: 3px 3px 3px gray; }
+            .test06{ text-shadow: 3px 3px 7px gray; }
+        </style>
+    </head>
+    <body>
+        <h2>그림자 방향비교</h2>
+        <h1 class="test01">오쌤의 니가스터디</h1>
+        <h1 class="test02">오쌤의 니가스터디</h1>
+        <h1 class="test03">오쌤의 니가스터디</h1>
+        <hr>
+        <h2>그림자 번짐비교</h2>
+        <h1 class="test04">오쌤의 니가스터디</h1>
+        <h1 class="test05">오쌤의 니가스터디</h1>
+        <h1 class="test06">오쌤의 니가스터디</h1>
+    </body>
+</html>

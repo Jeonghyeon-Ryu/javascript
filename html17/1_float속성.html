@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS위치속성</title>
+		<style>
+            *{ padding: 0; margin: 0; }
+            .box{
+                border: 2px solid black;
+                width : 600px;
+                padding : 30px;
+                margin : 20px;
+
+            }
+
+            /* float : 요소를 부모영역의 왼쪽 혹은 오른쪽으로 띄우는 속성 */
+            /* 다른 요소의 컨텐츠와 겹치지 않음 */
+            /* 값 : left, right, none */     
+            
+            /* 1. left */
+            .img01{ float:left; margin-right: 20px; }
+
+            /* 2. right */
+            .img02{ float:right; margin-left: 20px; }
+            
+		</style>
+	</head>
+	<body>
+		<div class="box">
+            <img src="flower.jpg" width="200" alt="국화" class="img01" />
+            <h4>국화 [Chrysanthemum]</h4><!-- 블록요소 -->
+            <p>[특징] 개화형태에 따라 하나의 꽃대에 하나의 꽃을 피우는 스탠더드국화로 흔히 장례식이나 제례용으로 사용되는 흰색, 노란색이 국내에서는 유통되고 있으며, 하나의...</p>
+            <p class="bottom">경기도농업기술원식물백과 &gt; 속씨식물</p>
+        </div>
+        <div class="box">
+            <img src="flower.jpg" width="200" alt="국화" class="img02" />
+            <h4>국화 [Chrysanthemum]</h4><!-- 블록요소 -->
+            <p>[특징] 개화형태에 따라 하나의 꽃대에 하나의 꽃을 피우는 스탠더드국화로 흔히 장례식이나 제례용으로 사용되는 흰색, 노란색이 국내에서는 유통되고 있으며, 하나의...</p>
+            <p class="bottom">경기도농업기술원식물백과 &gt; 속씨식물</p>
+        </div>
+	</body>
+</html>
+
+
+
+

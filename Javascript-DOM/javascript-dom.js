@@ -44,6 +44,20 @@ window.addEventListener("load", function() {
 1  
     input1.value="hello";
     input2.value="okey";
+});
 
+// Ex5 : Element 노드의 속성 변경
+window.addEventListener("load", function() {
+    var section = this.document.querySelector("#section5");
+    var srcInput = document.querySelector(".src-input");
+    var changebutton = document.querySelector(".change-button");
+    var img = document.querySelector(".img");
+    var colorInput = document.querySelector(".color-input");
 
+    srcInput.style.width = "300px";
+    changebutton.onclick = function() {
+        img.src = "images/" + srcInput.value;
+        // img.style["border-color"] = colorInput.value;
+        img.style.borderColor = colorInput.value;
+    };
 });

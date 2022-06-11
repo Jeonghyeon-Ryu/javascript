@@ -6,8 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="javascript-dom.js"></script>
+    <style>
+        .table {
+            border-width: 1px;
+            border-style: solid;
+            display: block;
+            width : 90%;
+         }
+         .table thead, .table tbody {
+            padding : 10px;
+         }
+         .table td{
+
+             padding : -100%;
+             border-bottom: 1px solid red;
+             display: block;
+            
+             text-align: right;
+             float : left;
+             font-weight: bold;
+         }
+    </style>
 </head>
 <body>
+    <section id="section7">
+        <h1>Ex7 : 노드 복제와 템플릿 태그</h1>
+        <div>
+            <input type="button" class="clone-node" value="복제">
+            <input type="button" class="clone-templete" value="템플릿 복제"> 
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>번호</td>
+                    <td>제목</td>
+                    <td>작성일</td>
+                    <td>작성자</td>
+                    <td>조회수</td>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr>
+                    <td>1</td>
+                    <td><a href="1">테스트 1</a></td>
+                    <td>2019-01-25</td>
+                    <td>찌니</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><a href="1">테스트 2</a></td>
+                    <td>2019-01-26</td>
+                    <td>나</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><a href="1">테스트 3</a></td>
+                    <td>2019-01-27</td>
+                    <td>콩이</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <hr>
     <section id="section6">
         <h1>Ex6 : 노드 조작 : 메뉴추가</h1>
         <div>
@@ -16,9 +79,9 @@
             <input type="button" class="del-button" value="삭제">
             
         </div>
-        <div class="menu-list">
+        <ul class="menu-list">
             
-        </div>
+        </ul>
     </section>
     <hr>
     <section id="section5">

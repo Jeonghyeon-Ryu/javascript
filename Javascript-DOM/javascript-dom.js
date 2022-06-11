@@ -1,3 +1,20 @@
+// Ex7 : 노드 복제와 템플릿 태그
+window.addEventListener("load", function() {
+    var section7 = document.querySelector("#section7");
+    var cloneNode = document.querySelector(".clone-node");
+    var cloneTemplete = document.querySelector(".clone-templete");
+    var tbody = document.querySelector(".tbody");
+
+    cloneNode.onclick = function() {
+        var clone = tbody.children[0].cloneNode(true);
+        tbody.append(clone);
+    };
+
+    cloneTemplete.onclick = function() {
+
+    };
+})
+
 // Ex6 : 노드 조작 : 메뉴추가
 window.addEventListener("load", function() {
     var section6 = document.querySelector("#section6");
@@ -7,9 +24,24 @@ window.addEventListener("load", function() {
     var menuList = document.querySelector(".menu-list");
 
     addButton.onclick = function() {
+        
+        var title = titleInput.value;
+        var html = '<a href="">' + title + '</a>';
+        var li =  document.createElement("li");
+        li.innerHTML = html;
+        menuList.appendChild(li);
+        
+
+        /*
         var title = titleInput.value;
         var textNode = document.createTextNode(title);
-        menuList.appendChild(textNode);
+        var aNode = document.createElement("a");
+        aNode.href="";
+        aNode.appendChild(textNode);
+        var liNode = document.createElement("li");
+        liNode.appendChild(aNode);
+        menuList.appendChild(liNode);
+        */
         
         // var title = titleInput.value;
         // var textNode = document.createTextNode(title);
@@ -17,7 +49,10 @@ window.addEventListener("load", function() {
     };
 
     delButton.onclick = function() {
-        menuList.removeChild(menuList.childNodes[0]);
+        // var textNode = menuList.childNodes[0];
+        var liNode = menuList.children[0];
+
+        menuList.removeChild(liNode);
     };
 })
 // Ex5 : Element 노드의 속성 변경

@@ -1,3 +1,83 @@
+var now = new Date();
+var year = now.getFullYear();
+var month = now.getMonth();
+var day = now.getDate();
+var date = year + "-" + month + "-" + day;
+
+var notice = [
+    {title: "띠니가 쓴 글", date: date, writer:"띠니", views : 3 },
+    {title: "콩식이가 쓴 글", date: date, writer:"콩식이", views : 5 },
+    {title: "유니가 쓴 글", date: date, writer:"유니", views : 7 },
+    {title: "내가 쓴 글", date: date, writer:"나", views : 9 },
+    {title: "찌식이가 쓴 글", date: date, writer:"찌식이", views : 11 }
+];
+var noticeCount = 0;
+
+
+// Ex10 : 클릭한 컬럼을 기준으로 레코드 정렬하기 #1
+window.addEventListener("load", function(){
+    var section = document.querySelector(".section10");
+    var createBtn = document.querySelector(".create-btn");
+    var boardList = document.querySelector(".board-list");
+    var titleBtn = boardList.querySelector("thead tr").children[1];
+
+    createBtn.onclick = function() {
+        var templete = boardList.querySelector("thead tr").cloneNode(true);
+        if(noticeCount >= notice.length){
+            alert("추가할 게시글이 없습니다.");
+            return;
+        }
+        templete.children[0].innerText = noticeCount+1;
+        templete.children[1].innerHTML = '<a href="">'+notice[noticeCount].title+'</a>';
+        templete.children[2].innerText = notice[noticeCount].date;
+        templete.children[3].innerText = notice[noticeCount].writer;
+        templete.children[4].innerText = notice[noticeCount].views;
+        noticeCount++;
+
+        boardList.querySelector("tbody").append(templete);
+    };
+    var bindData = function() {
+        for(var i=0; i<notice.length; i++){
+            var templete = boardList.querySelector("thead tr").cloneNode(true);
+            if(noticeCount >= notice.length){
+                alert("추가할 게시글이 없습니다.");
+                return;
+            }
+            templete.children[0].innerText = noticeCount+1;
+            templete.children[1].innerHTML = '<a href="">'+notice[noticeCount].title+'</a>';
+            templete.children[2].innerText = notice[noticeCount].date;
+            templete.children[3].innerText = notice[noticeCount].writer;
+            templete.children[4].innerText = notice[noticeCount].views;
+            noticeCount++;
+
+            boardList.querySelector("tbody").append(templete);
+        }
+    };
+
+    var boardListSorted = false;
+    titleBtn.onclick = function() {
+        // 초기화
+        boardList.querySelector("tbody").innerHTML = "";
+        noticeCount = 0;
+
+        // 정렬
+        if(!boardListSorted){
+            notice.sort(function(a,b){
+                if(a.title > b.title)
+                    return 1;
+                else if(a.title < b.title)
+                    return -1;
+                else 
+                    return 0;
+            });
+            boardListSorted = true;
+        } else {
+            notice.reverse();
+        }
+        bindData();
+    };
+});
+
 // Ex7 : 노드 복제와 템플릿 태그
 window.addEventListener("load", function() {
     var section7 = document.querySelector("#section7");
@@ -13,7 +93,7 @@ window.addEventListener("load", function() {
     cloneTemplete.onclick = function() {
 
     };
-})
+});
 
 // Ex6 : 노드 조작 : 메뉴추가
 window.addEventListener("load", function() {
@@ -54,7 +134,7 @@ window.addEventListener("load", function() {
 
         menuList.removeChild(liNode);
     };
-})
+});
 // Ex5 : Element 노드의 속성 변경
 window.addEventListener("load", function() {
     var section = this.document.querySelector("#section5");

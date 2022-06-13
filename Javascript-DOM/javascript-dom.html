@@ -6,36 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="javascript-dom.js"></script>
-    <style>
-        .table {
-            border-width: 1px;
-            border-style: solid;
-            display: block;
-            width : 90%;
-         }
-         .table thead, .table tbody {
-            padding : 10px;
-         }
-         .table td{
 
-             padding : -100%;
-             border-bottom: 1px solid red;
-             display: block;
-            
-             text-align: right;
-             float : left;
-             font-weight: bold;
-         }
-    </style>
 </head>
 <body>
+    <section id="section10">
+        <h1>Ex10 : 클릭한 컬럼을 기준으로 레코드 정렬하기 #1</h1>
+        <div>
+            <input type="button" class="create-btn" value="글 생성">
+        </div>
+        <table border="1px" class="board-list">
+            <thead>
+                <tr>
+                    <td>번호</td>
+                    <td>제목</td>
+                    <td>작성일</td>
+                    <td>작성자</td>
+                    <td>조회수</td>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </section>
+    <hr>
     <section id="section7">
         <h1>Ex7 : 노드 복제와 템플릿 태그</h1>
         <div>
             <input type="button" class="clone-node" value="복제">
             <input type="button" class="clone-templete" value="템플릿 복제"> 
         </div>
-        <table class="table">
+        <table border="1px" class="table">
             <thead>
                 <tr>
                     <td>번호</td>

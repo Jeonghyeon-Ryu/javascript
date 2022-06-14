@@ -6,6 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="javascript-event.js"></script>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        .img-list {
+            border : 1px solid blueviolet;
+            height : 20%;
+            width : 90%;
+            padding: 5px;
+            margin : 10px;
+        }
+        .img-list .add-btn {
+            
+        }
+        .img {
+            width: 33%; height: 100%;
+            object-fit:cover;
+        }
+    </style>
 </head>
 <body>
     <section id="section4">
@@ -32,10 +51,12 @@
     <hr>
     <section id="section3" style="width:100vw;">
         <h1>Ex3 : 버블링 이벤트 멈추기</h1>
-        <div class="img-list" style="display:flex">
-            <img class="img" src="images/img1.jpg" style="width:30%">
-            <img class="img" src="images/img2.jpg" style="width:30%">
-            <img class="img" src="images/img3.jpg" style="width:30%">
+        <div>
+            <div class="img-list">
+                <img class="img" src="images/img1.jpg" style="float:left;">
+                <img class="img" src="images/img2.jpg" width:30%">
+                <img class="img" src="images/img3.jpg">
+            </div>
             <input class="add-btn" type="button" value="추가">
         </div>
         <div>

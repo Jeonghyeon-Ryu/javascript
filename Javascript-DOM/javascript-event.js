@@ -12,14 +12,29 @@ var notice = [
     {title: "찌식이가 쓴 글", date: date, writer:"찌식이", views : 11 }
 ];
 var noticeCount = 0;
-// 연습문제 1 : 선택된 레코드 삭제하기 : event target
+// Ex5 : Trigger
+window.addEventListener("load", function() {
+    var section = document.querySelector("#section5");
+    var fileButton = section.querySelector(".file-button");
+    var fileTriggerButton = section.querySelector(".file-trigger-button");
+
+    fileTriggerButton.onclick = function() {
+        var event = new MouseEvent("click",{
+            'view' : window,
+            'bubbles' : true,
+            'cancelable' : true
+        });
+        fileButton.dispatchEvent(event);
+    };
+});
+
+// Ex4 : 선택된 레코드 삭제하기 : event target
 window.addEventListener("load", function(){
     var section = document.querySelector("#section4");
     var createBtn = section.querySelector(".create-btn2");
     var boardList = section.querySelector(".board-list");
     var deleteBtn;
-
-    createBtn.onclick = function() {
+    createBtn.onclick = function(e) {
         var templete = section.querySelector("thead tr").cloneNode(true);
         if(noticeCount >= notice.length){
             alert("추가할 게시글이 없습니다.");
@@ -32,11 +47,19 @@ window.addEventListener("load", function(){
         templete.children[4].innerText = notice[noticeCount].views;
         templete.children[5].innerHTML = '<input type="button" value="선택" class="select-btn"><input type="button" value="수정" class="modify-btn"><input type="button" value="삭제" class="delete-btn">';
         noticeCount++;
-
         boardList.querySelector("tbody").append(templete);
         
-        templete.cildren[5].onclick = function(e) {
-            if(e.target.)
+        section.querySelector("tbody").onclick = function(e) {
+            if(e.target.nodeName!="INPUT") return;
+            var tr = e.target.parentElement;
+            if(e.target.classList.contains("select-btn")){
+                for( ; tr.nodeName!="TR"; tr=tr.parentElement ){};
+                tr.style.background = "yellow";
+            } else if(e.target.classList.contains("modify-btn")){
+
+            } else if(e.target.classList.contains("delete-btn")){
+                
+            }
         };
     };
 });

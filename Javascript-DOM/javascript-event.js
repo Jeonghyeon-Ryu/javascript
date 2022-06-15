@@ -12,7 +12,78 @@ var notice = [
     {title: "찌식이가 쓴 글", date: date, writer:"찌식이", views : 11 }
 ];
 var noticeCount = 0;
-// 연습문제 1 : 선택된 레코드 삭제하기 : event target
+// Ex8 : 마우스 이벤트 : 여러개 박스 마우스 드래그로 옮기기
+window.addEventListener("load",function() {
+    var section = document.querySelector("#section8");
+    var container = section.querySelector(".container");
+    var box = section.querySelector(".box");
+    var dragging = false;
+    var offset = {x:0,y:0};
+    var current = null;
+
+    container.onmousedown = function(e){
+        
+        if(e.target.classList.contains("box")){
+            dragging=true;
+            current = e.target;
+            offset.x = e.offsetX;
+            offset.y = e.offsetY;
+        }
+            
+    };
+
+    container.onmousemove = function(e){
+        if(!dragging) return;
+        current.style.left = (e.pageX-offset.x) + 'px';
+        current.style.top = (e.pageY-offset.y) + 'px';
+    };
+
+    container.onmouseup = function(e) {
+        dragging=false;
+    };
+});
+// Ex7 : 마우스 이벤트 : 마우스 드래그 박스 옮기기
+window.addEventListener("load",function() {
+    var section = document.querySelector("#section7");
+    var container = section.querySelector(".container");
+    var box = section.querySelector(".box");
+    var dragging = false;
+    var offset = {x:0,y:0}
+    container.onmousedown = function(e){
+        if(e.target === box)
+            dragging=true;
+    };
+
+    container.onmousemove = function(e){
+        if(!dragging) return;
+        box.style.left = (e.pageX-offset.x) + 'px';
+        box.style.top = (e.pageY-offset.y) + 'px';
+    };
+
+    container.onmouseup = function(e) {
+        dragging=false;
+    };
+
+    box.onmousedown = function(e) {
+        offset.x = e.offsetX;
+        offset.y = e.offsetY;
+    }
+});
+// Ex6 : 마우스 이벤트 : 마우스 좌표
+window.addEventListener("load",function() {
+    var section = document.querySelector("#section6");
+    var container = section.querySelector(".container");
+    var box = section.querySelector(".box");
+    
+    container.onclick = function(e){
+        console.log(e.x);
+        console.log("client : " + e.clientX +", " +e.clientY);
+        console.log("page : " + e.pageX + ", " + e.pageY)
+        box.style.left = e.pageX + 'px';
+        box.style.top = e.pageY + 'px';
+    };
+});
+// Ex4 : 선택된 레코드 삭제하기 : event target
 window.addEventListener("load", function(){
     var section = document.querySelector("#section4");
     var createBtn = section.querySelector(".create-btn2");
@@ -34,9 +105,17 @@ window.addEventListener("load", function(){
         noticeCount++;
 
         boardList.querySelector("tbody").append(templete);
-        
-        templete.cildren[5].onclick = function(e) {
-            if(e.target.)
+        boardList.querySelector("tbody").onclick = function(e) {
+            if(e.target.nodeName != "INPUT") return;
+            if(e.target.classList.contains("select-btn")){
+                var tr = e.target.parentElement;
+                for( ; tr.nodeName != "TR"; tr=tr.parentElement){}
+                tr.style.background="yellow";
+            } else if(e.target.classList.contains("delete-btn")){
+
+            } else if(e.target.classList.contains("modify-btn")){
+
+            }
         };
     };
 });

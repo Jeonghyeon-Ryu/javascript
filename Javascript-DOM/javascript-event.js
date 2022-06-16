@@ -12,7 +12,44 @@ var notice = [
     {title: "찌식이가 쓴 글", date: date, writer:"찌식이", views : 11 }
 ];
 var noticeCount = 0;
+// Ex9 : 마우스 이벤트 : 박스의 옵셋 좌표 이동
+window.addEventListener("load",function() {
+    var section = document.querySelector("#section9");
+    var container = section.querySelector(".container");
+    var status = section.querySelector(".status");
+    var dragging = false;
+    var offset = {x:0,y:0};
+    var current = null;
+    var left = container.offsetLeft;    // 컨테이너 시작 왼쪽지점
+    var top = container.offsetTop;      // 컨테이너 시작 위쪽지점
 
+    console.log(left + " : " + top);
+    section.onmousedown = function(e){
+        
+        if(e.target.classList.contains("box")){
+            dragging=true;
+            current = e.target;
+            offset.x = e.offsetX;
+            offset.y = e.offsetY;
+            console.log(e.offsetX + " : " + e.offsetY);
+        }
+    };
+
+    section.onmousemove = function(e){
+        if(!dragging) return;
+
+        var x = e.pageX-offset.x- left;
+        var y = e.pageY-offset.y- top;
+        current.style.left = x + 'px';
+        current.style.top = y + 'px';
+
+        status.innerText="( x , y ) : ( " +x+" : "+y+" )";
+    };
+
+    section.onmouseup = function(e) {
+        dragging=false;
+    };
+});
 // Ex8 : 마우스 이벤트 : 여러개 박스 마우스 드래그로 옮기기
 window.addEventListener("load",function() {
     var section = document.querySelector("#section8");

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height:3000px;
+        }
+
+        .img{
+            height : 100px;
+            width : 100px;
+            background : red;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .hex {
+            position : absolute;
+        }
+        .c1 {
+            margin-left : 50px;
+            margin-top : 52px;
+        }
+        .c2 {
+            margin-left : 130px;
+        }
+    </style>
+    <script>
+        document.write("innerWidth : " + window.innerWidth +'<br>');
+        document.write("outerWidth : " + window.outerWidth +'<br>');
+        
+        ////////////////////////////////////////////// Mobile 기기 접속 확인
+        // var mobile_keys = new Array('iPhone','iPad','Android','BlackBerry','Windows Phone','Windows CE','LG','MOT','SAMSUNG','SonyEricsson','Nokia');
+        // for(var i in mobile_keys){
+        //     if(navigator.userAgent.match(mobile_keys[i])){
+        //         alert('모바일 기기에 접속하였습니다.');
+        //         location.href = 'http://m.daum.net';
+        //     }
+        // }
+        ////////////////////////////////////////////// navigator
+        // var txt = '';
+        // txt += '<p> Browser Codename : ' + navigator.appCodeName + '</p>';
+        // txt += '<p> Browser Name : ' + navigator.appName + '</p>';
+        // txt += '<p> Browser Version : ' + navigator.appVersion + '</p>';
+        // txt += '<p> Browser Languige : ' + navigator.language + '</p>';
+        // txt += '<p> User-agent Header : ' + navigator.userAgent + '</p>';
+        // txt += '<p> Java Enabled : ' + navigator.javaEnabled() + '</p>';
+        // document.write(txt);
+        ///////////////////////////////////////////// window Full Screen
+        // var newWindow = window.open('','','width=300,height=300');
+        // var w = screen.width;
+        // var h = screen.height;
+        // setTimeout(function(){
+        //     newWindow.resizeTo(w,h);
+        // },3000)
+        /////////////////////////////////////////////
+        // var num = 1;
+        // setInterval(function() {
+        //     document.write('<p>' + num + '초가 지났습니다</p>');
+        //     num++
+        // },1000);
+        // setTimeout(function(){
+        //     location.reload();
+        // },10001);
+        //////////////////////////////////////////////
+        // var url = location.href;
+        // document.write(url);
+
+        // setTimeout(function(){
+        //     location.href = 'http://youtube.com';
+        // },3000);
+        //////////////////////////////////////////////
+        // function forward() {
+        //     history.forward();
+        // }
+        // function num() {
+        //     alert(history.length);
+        // }
+        ///////////////////////////////////////////////
+    </script>
+</head>
+<body>
+    <div class="hex c1">
+        <img class="img">
+    </div>
+    <div class="hex c2">
+        <img class="img">
+    </div>
+</body>
+</html>

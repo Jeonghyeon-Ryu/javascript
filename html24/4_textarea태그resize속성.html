@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>폼관련 CSS</title>
+        <style>
+            /* 1. none : 리사이즈안되게 처리 */
+            .box01 { resize: none;}
+            /* 2. horizontal : 수평으로만 리사이즈 처리 */
+            .box02{ resize:horizontal; }
+            /* 3. vertical : 수직으로만 리사이즈 처리 */
+            .box03{ resize:vertical; }
+            /* 3. both : 기본값, 수직수평모두 리사이즈 처리 */
+            .box04{ resize:both; }
+        </style>
+    </head>
+    <body>
+        <form action="#">
+           <textarea cols="30" rows="10" class="box01"></textarea>
+           <hr>
+           <textarea cols="30" rows="10" class="box02"></textarea>
+           <hr>
+           <textarea cols="30" rows="10" class="box03"></textarea>
+           <hr>
+           <textarea cols="30" rows="10" class="box04"></textarea>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>transform 속성</title>
+        <style>
+            *{ padding: 0; margin: 0; }
+            .box{
+                float: left;
+                width: 150px; height: 150px;
+                border: 3px solid black;
+                margin: 40px;
+                perspective: 300px;
+            }
+            .box > div{ 
+                width: 100%; height: 100%;
+                background-color: orange;
+                transition: 1s;
+                
+            }
+            .child01:hover { transform: rotateX(180deg); }
+            .child02:hover { transform: rotateY(180deg); }
+            .child03:hover { transform: rotateZ(180deg); }
+            body {
+                background: #f2f2f2;
+            }
+
+            ul {
+                position: relative;
+                transform: rotate(-35deg) skew(20deg,5deg);
+            }
+            .list-item {
+                background: #000;
+                color: #575757;
+                text-align: center;
+                height: 2.5em;
+                width: 4em;
+                vertical-align: middle;
+                line-height: 2.5em;
+                border-bottom: 1px solid #060606;
+                position: relative;
+                display: block;
+                text-decoration: none;
+                box-shadow: -2em 1.5em 0 #e1e1e1;
+                transition: all .25s linear;
+                
+            }
+            .list-item:hover {
+                background: #ff6e42;
+                color: #fffcfb;
+                transform: translate(.9em, -.9em);
+                transition: all .25s linear;
+                box-shadow: -2em 2em 0 #e1e1e1;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- <div class="box"><div class="child01"></div></div>
+        <div class="box"><div class="child02"></div></div>
+        <div class="box"><div class="child03"></div></div> -->
+        <ul>
+            <li>
+              <a class='list-item' href=''>
+                <i class='icon-reorder'></i>
+              </a>
+            </li>
+            <li>
+              <a class='list-item' href=''>
+                <i class='icon-th-large'></i>
+              </a>
+            </li>
+            <li>
+              <a class='list-item' href=''>
+                <i class='icon-bar-chart'></i>
+              </a>
+            </li>
+            <li>
+              <a class='list-item' href=''>
+                <i class='icon-tasks'></i>
+              </a>
+            </li>
+            <li>
+              <a class='list-item' href=''>
+                <i class='icon-bell'></i>
+              </a>
+            </li>
+            <li>
+              <a class='list-item' href=''>
+                <i class='icon-archive'></i>
+              </a>
+            </li>
+            <li>
+              <a class='list-item' href=''>
+                <i class='icon-comment'></i>
+              </a>
+            </li>
+            <li>
+              <a class='list-item' href=''>
+                <i class='icon-sitemap'></i>
+              </a>
+            </li>
+            <li>
+              <a class='list-item' href=''>
+                <i class='icon-thumbs-up'></i>
+              </a>
+            </li>
+            <li>
+              <a class='list-item' href=''>
+                <i class='icon-tumblr'></i>
+              </a>
+            </li>
+          </ul>
+    </body>
+</html>

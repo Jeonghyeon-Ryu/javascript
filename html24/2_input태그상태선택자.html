@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>폼관련 CSS</title>
+        <style>
+            /* 1. :enabled - 사용가능한 input선택 */
+            .box01 input:enabled{ background-color: pink; }
+            /* 2. :disabled - 사용불가능한 input선택 */
+            .box01 input:disabled { background-color: lightgray; }
+            /* 3. :focus - 초점받은 input선택 */
+            .box02 input:focus { background-color: yellow; }
+            /* 4. :checked - 체크한 input선택 */
+            .box03 input:checked + label {color:red;}
+            /* 5. ::placeholder - input 예시텍스트선택  */
+            .box04 { background-color: #000; }
+            .box04 input { background-color: transparent; color:#fff; }
+            .box04 input::placeholder { color : #fff; }
+        </style>
+    </head>
+    <body>
+        <form action="#">
+            <fieldset class="box01">
+                <legend>주소입력</legend>
+                <input type="text" value="서울시 강남구 역삼동" disabled>
+                <input type="text" placeholder="나머지 주소입력">
+            </fieldset>
+            <fieldset class="box02">
+                <legend>로그인창</legend>
+                <input type="text" placeholder="아이디입력">
+                <input type="password" placeholder="비밀번호입력">
+            </fieldset>
+            <fieldset class="box03">
+                <legend>체크박스</legend>
+                <input type="checkbox" id="chk">
+                <label for="chk">아이디저장</label>
+            </fieldset>
+            <fieldset class="box04">
+                <legend>검색창</legend>
+                <input type="text" placeholder="검색할 단어를 입력하세요.">
+            </fieldset>
+        </form>
+    </body>
+</html>

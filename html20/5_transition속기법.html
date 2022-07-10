@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>transition 속성</title>
+        <style>
+            .box{ 
+                border: 5px solid black; padding: 20px;
+            }
+            .box > div{ 
+                width: 10px; /* 변화1 */
+                height: 50px; 
+                margin-bottom: 10px;
+                background-color: orange; /* 변화2 */
+
+                /* transition :  속성 | duration | timing-function | delay */
+                transition : width 3s, background-color 1s;
+            }
+            
+            /* 마우스 hover 효과 */
+            .box:hover > div{ width: 100%; }
+            .box:hover > .child01{ 
+                background-color: red; 
+            }
+            .box:hover > .child02{ 
+                background-color: green; 
+            }
+            .box:hover > .child03{ 
+                background-color: blue; 
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="child01"></div>
+            <div class="child02"></div>
+            <div class="child03"></div>
+        </div>
+    </body>
+</html>

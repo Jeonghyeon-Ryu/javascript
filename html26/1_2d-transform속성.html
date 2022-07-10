@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>transform 속성</title>
+        <style>
+            *{ padding: 0; margin: 0; }
+            .box{
+                float: left;
+                width: 150px; height: 150px;
+                border: 3px solid black;
+                margin: 20px;
+            }
+            .box > div{ 
+                width: 100%; height: 100%;
+                background-color: orange;
+            }
+
+            /* 1. scale() - xy모두 크기 변경 */
+            .child01 { transform: scale(0.5,0.5); }
+            
+            /* 2. scaleX() - X축 크기 변경 */
+            .child02 { transform: scaleX(0.5); }
+
+            /* 3. scaleY() - Y축 크기 변경 */
+            .child03 { transform: scaleY(0.5); }
+
+            /* 4. translate() - xy 모두 이동 */
+            .child04 { transform: translate(20px,20px); }
+
+            /* 5. translateX() - X축 이동 */
+            .child05 { transform: translateX(20px); }
+
+            /* 6. translateY() - Y축 이동 */
+            .child06 { transform: translateY(20px); }
+
+            /* 7. skew() - xy 모두 기울기 */
+            .child07 { transform: skew(20deg,20deg); }
+
+            /* 8. skewX() - X축 기울기 */
+            .child08 { transform: skewX(20deg); }
+
+            /* 9. skewY() - Y축 기울기 */
+            .child09 { transform: skewY(20deg); }
+
+            /* 10. rotate() - 회전 */
+            .child10 { transform: rotate(30deg); }
+
+            /* 11. matrix() - 2D transform값 한번에 처리 */
+            /* 6개의 값은 순서대로 scaleX, skewX, skewY, scaleY, translateX, translateY */
+            /* 단위를 쓰지는 않음 */
+            .child11 { transform: matrix(0.5,0.3,0.2,0.5,10,10); }
+            
+        </style>
+    </head>
+    <body>
+        <div class="box"><div class="child01"></div></div>
+        <div class="box"><div class="child02"></div></div>
+        <div class="box"><div class="child03"></div></div>
+        <div class="box"><div class="child04"></div></div>
+        <div class="box"><div class="child05"></div></div>
+        <div class="box"><div class="child06"></div></div>
+        <div class="box"><div class="child07"></div></div>
+        <div class="box"><div class="child08"></div></div>
+        <div class="box"><div class="child09"></div></div>
+        <div class="box"><div class="child10"></div></div>
+        <div class="box"><div class="child11"></div></div>
+    </body>
+</html>

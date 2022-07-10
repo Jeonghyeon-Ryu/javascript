@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>transition 속성</title>
+        <style>
+            .box{ 
+                border: 5px solid black; padding: 20px;
+            }
+            .box > img{ 
+                 margin-bottom: 10px;
+                 position: relative; left: 0;
+                 transition-duration: 3s;
+            }
+            
+            /* 마우스 hover 효과 */
+            .box:hover > img{ left: 100%; }
+
+            /* 속도감 지정 */
+            .car01 { transition-timing-function: ease;}
+            .car02 { transition-timing-function: ease-in;}
+            .car03 { transition-timing-function: ease-out;}
+            .car04 { transition-timing-function: ease-in-out;}
+            .car05 { transition-timing-function: linear;}
+            .car06 { transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);}
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <img src="car.png" alt="자동차" class="car01"><br>
+            <img src="car.png" alt="자동차" class="car02"><br>
+            <img src="car.png" alt="자동차" class="car03"><br>
+            <img src="car.png" alt="자동차" class="car04"><br>
+            <img src="car.png" alt="자동차" class="car05"><br>
+            <img src="car.png" alt="자동차" class="car06">
+        </div>
+    </body>
+</html>

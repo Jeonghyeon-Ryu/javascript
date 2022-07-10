@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>transform 속성</title>
+        <style>
+            *{ padding: 0; margin: 0; }
+            .box{
+                float: left;
+                width: 150px; height: 150px;
+                border: 3px solid black;
+                margin: 40px;
+            }
+            .box > div{ 
+                width: 100%; height: 100%;
+                background-color: orange;
+
+                transform: scale(0.5);
+            }
+            .child01 { transform-origin: left top; }
+            .child02 { transform-origin: center; }
+            .child03 { transform-origin: right bottom; }
+            
+        </style>
+    </head>
+    <body>
+        <div class="box"><div class="child01"></div></div>
+        <div class="box"><div class="child02"></div></div>
+        <div class="box"><div class="child03"></div></div>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>폼관련 CSS</title>
+        <style>
+            /* 속성선택자 - 요소[태그속성명="값"]{ } */
+            input[type="text"] {
+                border:1px solid red;
+            }
+            input[type="password"] {
+                border:1px solid blue;
+            }
+            input[type="button"],
+            input[type="submit"],
+            input[type="reset"] {
+                border: none;
+                background-color: navy;
+                color:#fff;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="#">
+            <fieldset>
+                <legend>텍스트상자</legend>
+                <input type="text">
+                <input type="password">
+            </fieldset>
+            <fieldset>
+                <legend>버튼</legend>
+                <input type="button" value="버튼1">
+                <input type="submit" value="버튼2">
+                <input type="reset" value="버튼3">
+            </fieldset>
+        </form>
+    </body>
+</html>

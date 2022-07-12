@@ -37,13 +37,11 @@
         .box2 > div {
             background-color : orange;
             position:absolute;
-            transition-property: width, background-color;
-            transition-duration: 3s,1s;
+            transition-duration: 1s;
         }
         .box2 > .child01 {   /* 상단막대 */
             width:0; height:30px;
             top:0; left:0;
-            transition-delay: 0s;
         }
         .box2 > .child02 {   /* 왼쪽막대 */
             width:30px; height:0;
@@ -68,6 +66,43 @@
             height: 200px;
             background-color: lavenderblush;
         }
+        /* BOX3 */ 
+        .box3 { 
+            position:absolute;
+            bottom:10em; left: 10em; 
+            display : flex;
+        }
+        .box3 div {
+            border: 3px solid black;
+            box-shadow: -1em 1em 0 #e1e1e1;
+            cursor:pointer;
+            background-color: black;
+        }
+        .box3 div:hover {
+            transform : translate(0.9em, -0.9em);
+            transition : all 0.25s linear;
+            background-color: orange;
+        }
+        .box3 .child01 {
+            width:2em;
+            height: 3em;
+            z-index: 4;
+        }
+        .box3 .child02 {
+            width:2em;
+            height: 3em;
+            z-index: 3;
+        }
+        .box3 .child03 {
+            width:2em;
+            height: 3em;
+            z-index: 2;
+        }
+        .box3 .child04 {
+            width:2em;
+            height: 3em;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
@@ -78,6 +113,12 @@
     </div>
     <hr>
     <div class="box2">
+        <div class="child01"></div>
+        <div class="child02"></div>
+        <div class="child03"></div>
+        <div class="child04"></div>
+    </div>
+    <div class="box3">
         <div class="child01"></div>
         <div class="child02"></div>
         <div class="child03"></div>

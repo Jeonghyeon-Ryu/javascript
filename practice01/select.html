@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/label_input_button.css">
+    <style>
+        h1 { 
+            position:relative;
+            font-size: 2rem;
+            width:fit-content;
+            padding:0 1.5rem;
+            border-radius: 1rem;
+            background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+            animation: rotate 1.5s linear infinite;
+        }
+        @keyframes rotate {
+            0%{
+                filter: hue-rotate(0deg);
+            }
+            100%{
+                filter: hue-rotate(360deg);
+            }
+        }
+        .sixth-fieldset {
+            text-align: center;
+            border: none;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>여름방학 특강 신청</h1> 
+    <form>
+        <fieldset>
+            <legend>수강과목</legend>
+                <ul>
+                    <li><label class="label label-20">영어회화(초급)</label><input type="text" value="오전 9:00~11:00" readonly></li>
+                    <li><label class="label label-20">관심분야(영어)</label><input type="text" list="list-id"></li>
+                </ul>
+            <datalist id="list-id">
+                <option value="grammar" label="문법"></option>
+                <option value="voca" label="어휘"></option>
+                <option value="speaking" label="회화"></option>
+                <option value="listening" label="리스닝"></option>
+                <option value="news" label="뉴스청취"></option>
+            </datalist>
+        </fieldset>
+        <fieldset>
+            <legend>신청자</legend>
+            <ul>
+                <li><label for="u-id" class="label label-20">아이디 : <span>*</span></label><input id="u-id" type="text" maxlength="10"></li>
+                <li><label for="u-pw" class="label label-20">비밀번호 : <span>*</span></label><input id="u-pw" type="password"></li>
+                <li><label for="name" class="label label-20">이름 : <span>*</span></label><input id="name" type="text" placeholder="공백없이 입력하세요"></li>
+                <li><label for="student-num" class="label label-20">학번 : <span>*</span></label><input id="student-num" type="text" placeholder="8자리학번" maxlength="8"></li>
+                <li><label for="s_hak" class="label label-20">학과 : </label><select>
+                        <optgroup label="공과대학">
+                            <option value="archi">건축공학과</option>
+                            <option value="mechanic">기계공학과</option>
+                            <option value="indust">산업공학과</option>
+                            <option value="elec">전기공학과</option>
+                            <option value="computer">컴퓨터공학과</option>
+                            <option value="chemical">화학공학과</option>
+                        </optgroup>
+                        <optgroup label="인문대학">
+                            <option value="history">사학과</option>
+                            <option value="lang">어문학부</option>
+                            <option value="philo">철학과</option>
+                        </optgroup>
+                    </select></li>
+            </ul>
+        </fieldset>
+        <fieldset class="sixth-fieldset">
+            <button type="submit">확인</button>
+            <button type="reset">취소</button>
+        </fieldset>
+    </form>
+</body>
+</html>

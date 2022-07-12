@@ -1,0 +1,25 @@
+/*************** Common CSS ****************/
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Jua&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'Jua', sans-serif;
+    font-size: 1rem;
+}
+body{ 
+    min-width: 30rem;
+    max-width:40rem;
+    margin:0 auto;
+    padding:20px;
+}
+ul {
+    list-style: none;
+    padding-left:1rem;
+}
+li {
+    margin:0.5rem auto;
+}
+fieldset {
+    margin-bottom: 1rem;
+    box-shadow: 5px 9px 8px gray;
+}
+span{ color:red; font-weight: bold;}

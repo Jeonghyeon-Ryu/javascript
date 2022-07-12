@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Jua&display=swap');
+        *{ box-sizing: border-box; }
+        body {
+            height:500px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow:wrap;
+            background-color: black;
+            font-size: 2.5rem;
+            font-family: 'Jua', sans-serif;
+            color:white;
+        }
+        .btn {
+            position:relative;
+            width:22rem;
+            height:4rem;
+            border:3px solid white;
+            border-radius: 4rem;
+            text-align: center;
+            cursor:pointer;
+            
+        }
+        span{
+            line-height: 4rem;
+        }
+        .dot {
+            content:'';
+            position:absolute;
+            left:1.5rem;
+            top:0;
+            width:0.5rem;
+            height:100%;
+            border-radius: 100%;
+            transition: all 300ms ease;
+            /* display:none; */
+        }
+        .dot:after {
+            content:'';
+            position:absolute;
+            /* left:50%; */
+            top:-0.5rem;
+            height:0.5rem;
+            width:0.5rem;
+            background-color:aqua;
+            border-radius: 0.5rem;
+            border:0.25rem solid white;
+            box-shadow: 0 0 0.2rem aqua, 0 0 0.5rem white;
+        }
+        .btn:hover .dot {
+            animation: aaa 2s infinite linear;
+            display: block;
+        }
+
+        @keyframes aaa {
+            0% {transform: translateX(0) rotate(0); }
+            30% {transform: translateX(18rem) rotate(0); }
+            50% {transform: translateX(18rem) rotate(180deg); }
+            80% {transform: translateX(0) rotate(180deg); }
+            100% {transform: translateX(0) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container ">
+        <div class="btn">
+            <span>버튼</span>
+            <div class="dot"></div>
+        </div>
+    </div>
+</body>
+</html>

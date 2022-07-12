@@ -1,0 +1,69 @@
+/**************** Label CSS ****************/
+.label {
+    display: inline-block;
+    text-align: left;
+    padding-right:1rem;
+    margin-left:1rem;
+}
+.label-15{
+    width:6rem;
+}
+.label-20{
+    width:10rem;
+}
+.label-30{
+    width:12rem; 
+}
+/**************** Input CSS ****************/
+input, select{
+    position:relative;
+    padding:2px;
+}
+input:focus,textarea:focus, select:focus{
+    transform:scale(1);
+    outline: 0;
+    border: none;
+    box-shadow: inset 0 0 0 3px #fff,
+                0 0 0 4px #fff,
+                3px -3px 30px #1beabd, 
+                -3px 3px 30px #10abff;
+    transition:all 0.2s linear;
+}
+
+.input-10{
+    width:4rem;
+}
+.input-20{
+    width:8rem;
+}
+/**************** Button CSS ****************/
+button {
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),7px 7px 20px 0px rgba(0,0,0,.1),4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    border-radius: 5px;
+    background: rgb(0,172,238);
+    background: linear-gradient(0deg, rgb(0,172,238) 0%, rgb(2,126,251) 100%);
+    width: 4rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    padding: 0;
+    border: none;
+    color:white;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+    margin-left:0.5rem;
+}
+button:hover {
+    color:rgb(2,126,251);
+    /* font-weight: bold; */
+    background: white;
+    border:2px solid rgb(2,126,251);
+    transition: all 0.3s linear;
+}
+button:active {
+    border:inset;
+}
+.button-15{
+    width:6rem;
+}

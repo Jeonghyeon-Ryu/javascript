@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form TEST</title>
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>로그인 정보</legend>
+            <ul>
+                <li><label for="name">이름</label>
+                    <input id="name" type="text" placeholder="이름" autofocus required></li>
+                <li><label for="password">비밀번호</label>
+                    <input id="password" type="password"></li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>가입자 정보</legend>
+            <ul>
+                <li><label for="u-name">이름</label>
+                    <input id="u-name" type="number" min="1" max="5" step="2"></li>
+                <li><label for="u-mail">이메일</label>
+                    <input id="u-mail" type="range"></li>
+                <li><label for="u-birth">생년월일</label>
+                    <input id="u-birth" type="color"></li>
+            </ul>
+        </fieldset>
+        <fieldset class="radio">
+            <legend>수강과목을 선택하세요 <small>(1과목 선택가능)</small></legend>
+            <ul>
+                <li><label><input type="radio" name="speak-subject" value="low" checked>영어회화<small>(초급)</small></label></li>
+                <li><label><input type="radio" name="speak-subject" value="middle">영어회화<small>(중급)</small></label></li>
+            </ul>
+        </fieldset>
+        <fieldset class="check">
+            <legend>관심분야는 ?</legend>
+            <ul>
+                <li><label><input type="checkbox" name="gram" value="gram" checked>문법</label></li>
+                <li><label><input type="checkbox" name="voca" value="voca">어휘</label></li>
+            </ul>
+        </fieldset>
+        <fieldset class="center">
+            <input type="submit" value="가입하기">
+            <input type="reset" value="다시입력">
+        </fieldset>
+    </form>
+</body>
+</html>

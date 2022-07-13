@@ -6,31 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
-            height:3000px;
+        *{
+            box-sizing: border-box;
         }
-
-        .img{
-            height : 100px;
-            width : 100px;
-            background : red;
-            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        body{
+            width:100%;
+            margin:0;
+            overflow: hidden;
+        }
+        #container {
+            width:500px;
+            height: 100vh;
+            position:relative;
+            overflow: hidden;
+            margin:0 auto;
         }
         .hex {
-            position : absolute;
+            position:absolute;
         }
-        .c1 {
-            margin-left : 50px;
-            margin-top : 52px;
+        .img{
+            width : calc(7*1.732vw);
+            height : 14vw;
+            background : #2139f3;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
         }
-        .c2 {
-            margin-left : 130px;
-        }
+        
+        .c1 { left:0; }
+        .c2 { left:calc(7*1.732vw + 0.5vw); }
+        .c3 { left:calc((7*1.732vw + 0.5vw)*2); }
+        .c4 { left:calc((7*1.732vw + 0.5vw)*3); }
+        .c5 { left:calc((7*1.732vw + 0.5vw)*4); }
+        .c6 { left:calc((7*1.732vw + 0.5vw)*5); }
+        .c7 { left:calc((7*1.732vw + 0.5vw)*6); }
+        .c8 { left:calc((7*1.732vw + 0.5vw)*7); }
+        .c9 { left:calc((-7*1.732vw - 0.5vw)/2); top:11vw; }
+        .c10 { left:calc((7*1.732vw + 0.5vw)*1 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
+        .c11 { left:calc((7*1.732vw + 0.5vw)*2 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
+        .c12 { left:calc((7*1.732vw + 0.5vw)*3 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
+        .c13 { left:calc((7*1.732vw + 0.5vw)*4 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
+        .c14 { left:calc((7*1.732vw + 0.5vw)*5 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
+        .c15 { left:calc((7*1.732vw + 0.5vw)*6 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
+        .c16 { left:calc((7*1.732vw + 0.5vw)*7 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
+        .c17 { left:calc((7*1.732vw + 0.5vw)*8 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
+        .c18 { left:0; top:22vw; }
     </style>
     <script>
-        const a = prompt('첫번째 숫자를 입력해주세요.')
-        const b = prompt('두번째 숫자를 입력해주세요.')
-        alert('${a} + ${b} = ${a+b}')
+        // const a = prompt('첫번째 숫자를 입력해주세요.')
+        // const b = prompt('두번째 숫자를 입력해주세요.')
+        // alert('${a} + ${b} = ${a+b}')
         // document.write("innerWidth : " + window.innerWidth +'<br>');
         // document.write("outerWidth : " + window.outerWidth +'<br>');
         
@@ -85,11 +108,41 @@
     </script>
 </head>
 <body>
-    <div class="hex c1">
-        <img class="img">
-    </div>
-    <div class="hex c2">
-        <img class="img">
+    <div id="container">
+        <div class="hex c1"><img class="img"></div>
+        <div class="hex c2"><img class="img"></div>
+        <div class="hex c3"><img class="img"></div>
+        <div class="hex c4"><img class="img"></div>
+        <div class="hex c5"><img class="img"></div>
+        <div class="hex c6"><img class="img"></div>
+        <div class="hex c7"><img class="img"></div>
+        <div class="hex c8"><img class="img"></div>
+        <div class="hex c9"><img class="img"></div>
+        <div class="hex c10"><img class="img"></div>
+        <div class="hex c11"><img class="img"></div>
+        <div class="hex c12"><img class="img"></div>
+        <div class="hex c13"><img class="img"></div>
+        <div class="hex c14"><img class="img"></div>
+        <div class="hex c15"><img class="img"></div>
+        <div class="hex c16"><img class="img"></div>
+        <div class="hex c17"><img class="img"></div>
+        <div class="hex c18"><img class="img"></div>
+        <div class="hex c19"><img class="img"></div>
+        <div class="hex c20"><img class="img"></div>
+        <div class="hex c21"><img class="img"></div>
+        <div class="hex c22"><img class="img"></div>
+        <div class="hex c23"><img class="img"></div>
+        <div class="hex c24"><img class="img"></div>
+        <div class="hex c25"><img class="img"></div>
+        <div class="hex c26"><img class="img"></div>
+        <div class="hex c27"><img class="img"></div>
+        <div class="hex c28"><img class="img"></div>
+        <div class="hex c29"><img class="img"></div>
+        <div class="hex c30"><img class="img"></div>
+        <div class="hex c31"><img class="img"></div>
+        <div class="hex c32"><img class="img"></div>
+        <div class="hex c33"><img class="img"></div>
+        <div class="hex c34"><img class="img"></div>
     </div>
 </body>
 </html>

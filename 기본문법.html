@@ -129,55 +129,161 @@
     // }
 
     /******************** This 접근 연습 ***********************/
-    let obj = {};
-    obj.act = function() {
-      this.value = 'default value';
-      // console.log(this.value);
-      function innerAct() {
-        console.log(`1. this.value : ${this.value}`);
-        this.value = 'innerAct value';
-        console.log(`2. this.value : ${this.value}`);
-      }
-      function innerReact(caller){
-        caller.value = 'innerReact value';
-        console.log(`4. this.value : ${this.value}`);
-        console.log(`5. caller.value : ${caller.value}`);
-      }
-      innerAct();
-      console.log(`3. obj 객체의 this.value : ${this.value}`);
+    // let obj = {};
+    // obj.act = function() {
+    //   this.value = 'default value';
+    //   // console.log(this.value);
+    //   function innerAct() {
+    //     console.log(`1. this.value : ${this.value}`);
+    //     this.value = 'innerAct value';
+    //     console.log(`2. this.value : ${this.value}`);
+    //   }
+    //   function innerReact(caller){
+    //     caller.value = 'innerReact value';
+    //     console.log(`4. this.value : ${this.value}`);
+    //     console.log(`5. caller.value : ${caller.value}`);
+    //   }
+    //   innerAct();
+    //   console.log(`3. obj 객체의 this.value : ${this.value}`);
 
-      innerReact(this);
-      console.log(`6. obj 객체의 this.value : ${this.value}`);
-    }
-    obj.act();
-    console.log(`7. this.value : ${this.value}`);
+    //   innerReact(this);
+    //   console.log(`6. obj 객체의 this.value : ${this.value}`);
+    // }
+    // obj.act();
+    // console.log(`7. this.value : ${this.value}`);
 
 
-    console.log(''); /**********************************************/
+    // console.log(''); /**********************************************/
 
-    let obj2 = {};
-    obj2.act = function() {
-      this.value ='default value';
+    // let obj2 = {};
+    // obj2.act = function() {
+    //   this.value ='default value';
 
-      outerFunc();
-      outerFuncRef(this);
-    }
+    //   outerFunc();
+    //   outerFuncRef(this);
+    // }
 
-    function outerFunc() {
-      this.value = 'outerFunc value';
-      console.log(`1. outerFunc this.value : ${this.value}`);
-      console.log(`2. obj.value : ${obj2.value}`);
-    }
-    function outerFuncRef(caller){
-      caller.value = 'outerFuncRef value';
+    // function outerFunc() {
+    //   this.value = 'outerFunc value';
+    //   console.log(`1. outerFunc this.value : ${this.value}`);
+    //   console.log(`2. obj.value : ${obj2.value}`);
+    // }
+    // function outerFuncRef(caller){
+    //   caller.value = 'outerFuncRef value';
 
-      console.log(`3. outerFuncRef this.value : ${this.value}`);
-      console.log(`4. caller.value : ${caller.value}`);
-      console.log(`5. obj.value : ${obj2.value}`);
-    }
-    obj2.act();
+    //   console.log(`3. outerFuncRef this.value : ${this.value}`);
+    //   console.log(`4. caller.value : ${caller.value}`);
+    //   console.log(`5. obj.value : ${obj2.value}`);
+    // }
+    // obj2.act();
 
-    /******************** *********************/
+    /******************** 객체의 참조와 복사 *********************/
+    // let originalObj = {name:"ryon", age:5, changeAge(){ this.age+=1; }};
+    // let referenceObj = originalObj;
+    // referenceObj.age = 6;
+    // console.log(originalObj.age);
+    // let copyObj = Object.assign({},originalObj);
+    // copyObj.age = 7;
+    // console.log(originalObj.age);
+    // console.log(copyObj.age);
+
+    // let obj1 = {item1: "ryon", item2:"two", item5:"five"};
+    // let obj2 = {item3: "three", item4:"four", item6:"six"};
+    // Object.assign(obj1,obj2);
+    // console.log(obj1);
+    
+    /********************* Module *********************/
+    /***** ES5 방식 - 모듈 비슷하게 따라한것 *****/
+    // let module = (function() {
+    //   let _str = 'Module Variable';
+    //   return {
+    //     myfunc: function() {
+    //       return _str;
+    //     }
+    //   }
+    // })();
+
+    // console.log(module.myfunc());
+    /***** ES6 Import Export 를 이용한 모듈 사용 *****/
+    // export const moduleA = 'moduleA';
+    // export function moduleB(){
+    //   console.log('moduleB');
+    // }
+    // export class moduleC {
+    //   constructor() {
+    //     console.log('moduleC');
+    //   }
+    // }
+    // import{moduleA, moduleB, moduleC} from './qqq.js';
+    // console.log(moduleA);
+    // moduleB();
+    // const modulec = new moduleC();
+    /*************내일 물어볼것★★★★★★★★★****/
+    /************* 문자열 *************/
+    // const s1 = '1+2*3';
+    // const s2 = new String('1+2*311');
+    // console.log(eval(s1));
+    // console.log(eval(s2));
+    // console.log(eval(s2.valueOf()));
+    
+    // let trimstr = ' awefinawefun ewafina eavc wae   ';
+    // console.log(trimstr);  // 공백제거 X 
+    // console.log(trimstr.trimStart()); // 앞쪽만 공백 제거
+    // console.log(trimstr.trimEnd());   // 뒤쪽만 공백 제거
+    // console.log(trimstr.trim());      // 앞뒤 모두 공백 제거
+
+    // console.log(trimstr.replaceAll(' ',''));
+    // console.log(trimstr.toUpperCase());
+    // console.log(trimstr.concat(s2));
+    // let strarr = ['Good',' ','Morning','!'];
+    // console.log(''.concat(...strarr));
+    // let str1 = `this 
+    // is
+    // the
+    // only
+    // story`;
+    // console.log(str1);
+    // let s3 = ['a','b','c'];
+    // console.log(s3.join()); // 모든 배열을 하나로 통합시킴
+    
+    /************** 날짜 ****************/
+    // let today = new Date();
+    // console.log(today);
+    // console.log(today.getDate());
+    // console.log(today.getDay()); 
+    // console.log(today.getMonth());
+    // console.log(today.getFullYear());
+
+    // let start = Date.now();
+    // let end = Date.now();
+
+    // console.log(start);
+    // console.log(end);
+
+    /*************** 배열 *****************/
+    // let arr1 = [];
+    // arr1.push('라이언');
+    // arr1.push('어피치');
+    // arr1.push('콘');
+    // console.log(arr1);
+    
+    // let arr2 = [];
+    // arr1.forEach(x=>arr2.push(x));
+    // console.log(arr2);
+    
+    // arr1.splice(0,2,'치니','콩이','찌식');
+    // console.log(arr1);
+    // arr1.splice(0,arr1.length);
+    // console.log(arr1);
+
+    /**************** 배열 합계 ***************/
+
+    // let arr1 = [1,2,3,4,5]; // reduce((누적변수,현재변수)=>{return 누적+현재},누적초기값) -> 하나씩 순차 서칭 후 더함(용례 외우기)
+    // let result = arr1.reduce((stack,num) => { return stack+num; }, 0);
+    // console.log(result);
+
+    /**************** 배열 모든 요소 순차검색 *****************/
+    
   </script>
 </head>
 <body>

@@ -6,9 +6,178 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>기본문법</title>
   <script>
-    document.write('Hello Javascript!');
-    console.log('Hello Javascript!');
-    alert('Hello Javascript!');
+    // let a = prompt('입력');
+    // let re = typeof(a);
+    // console.log(re);
+    // a = confirm('알림');
+    // console.log(a);
+
+    /******************* Type Change *********************/
+    // let input = prompt('입력하시게');
+    // let num = Number(input);
+    // let str = String(input);
+    // console.log('-------더하기-------');
+    // console.log('input+str : ' + (+input+(+str)));
+    // console.log('input+num : ' + (+input+num));
+    // console.log('num + num : ' + (num+num));
+    // console.log('-------빼기-------');
+    // console.log('input-str : ' + (input-str));
+    // console.log('input-num : ' + (input-num));
+    // console.log(`num + num : ${num-num}`);
+
+    /******************* Ractangle Calc ********************/
+    // let x = prompt('가로');
+    // let y = prompt('세로');
+    // console.log('넓이 : ' + (+x+(+y)));
+
+    /******************* Age Calc *********************/
+    // let year = prompt('태어난 연도');
+    // let now = new Date().getFullYear();
+    // document.write(`태어난 연도는 ${year}년이고, 나이는 ${now-year}살 입니다.`);
+
+    /******************* Curring **********************/
+    // function first(a){
+    //   return function second(b){
+    //     console.log('first : '+ a + ' second : ' + b);
+    //   }
+    // }
+
+    // let test = first('처음');
+    // test('나중');
+    // test('와우');
+    // test('이런기능이?');
+
+    /******************* Scope Chain ********************/
+    // var a=1;
+    // var b=5;
+    // function func() {
+    //   function innerfunc() {
+    //     a=b;
+    //   }
+    //   console.log(a);
+    //   a=3;
+    //   b=4;
+    //   innerfunc();
+    //   console.log(a);
+    //   var b=2;
+    // }
+    // console.log(b);
+    // func();
+
+    /********************* Class **********************/
+    // class Food {
+    //   constructor(){
+    //     this.a=10;  
+    //   }
+    //   // 변수선언
+    //   set eat(food){
+    //     this.food = food;
+    //   }
+    //   // = private food
+    //   get eat() {
+    //     return this.food;
+    //   }
+    // }
+
+    // let breakfast = new Food();
+    // breakfast.eat = 'noodle';
+    
+    // console.log(breakfast.a);
+    // console.log(breakfast.eat);
+    // console.log(breakfast.food);
+
+    /******************** 기타 연습 *******************/
+    // let a = { a:123, b:234, c:function(x,y){
+    //   console.log(x+y)} }
+    // console.log(a.a);
+    // console.log(a.b);
+    // a.c(1,2);
+    
+    /******************** 수업 도전 문제 1 ********************/
+    // let a = prompt('입력');
+    // if(a%2==0) alert('짝수');
+    // else if(a%2==1) alert('홀수');
+    // else alert('잘못된 값을 입력하였습니다');
+    /******************** 수업 도전 문제 2 ********************/
+    // let subjects = [{name:'수학', score:0},{name:'국어',score:0},{name:'영어',score:0}];
+    // let sum=0;
+    // for(subject of subjects){
+    //   subject.score = +prompt(`${subject.name} 점수를 입력하세요.`);
+    //   sum+=subject.score;
+    // }
+    // let avg=sum/subjects.length;
+
+    // if(avg>=90) alert('수');
+    // else if(avg>=80) alert('우');
+    // else if(avg>=70) alert('미');
+    // else if(avg>=60) alert('양');
+    // else alert('가');
+    
+    /******************* 짧은 조건문 *********************/
+    // 2%2 != 0 || alert('짝수');
+
+    /********************** 수업 도전 문제 3 ********************/
+    // let day = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
+    // let input = day[(+prompt('숫자입력'))%7];
+    // console.log(input);
+
+    /********************** 수업 도전 문제 4 ********************/
+    // let input2 = +prompt('나이를 입력하세요.');
+    // switch((input2>=18)){
+    //   case true: console.log(`${input2}세 판매가능`); break;
+    //   case false: typeof(input2)=='string'?console.log(`${input2}세 판매불가`):console.log('잘못입력하였습니다.'); break;
+    // }
+
+    /******************** This 접근 연습 ***********************/
+    let obj = {};
+    obj.act = function() {
+      this.value = 'default value';
+      // console.log(this.value);
+      function innerAct() {
+        console.log(`1. this.value : ${this.value}`);
+        this.value = 'innerAct value';
+        console.log(`2. this.value : ${this.value}`);
+      }
+      function innerReact(caller){
+        caller.value = 'innerReact value';
+        console.log(`4. this.value : ${this.value}`);
+        console.log(`5. caller.value : ${caller.value}`);
+      }
+      innerAct();
+      console.log(`3. obj 객체의 this.value : ${this.value}`);
+
+      innerReact(this);
+      console.log(`6. obj 객체의 this.value : ${this.value}`);
+    }
+    obj.act();
+    console.log(`7. this.value : ${this.value}`);
+
+
+    console.log(''); /**********************************************/
+
+    let obj2 = {};
+    obj2.act = function() {
+      this.value ='default value';
+
+      outerFunc();
+      outerFuncRef(this);
+    }
+
+    function outerFunc() {
+      this.value = 'outerFunc value';
+      console.log(`1. outerFunc this.value : ${this.value}`);
+      console.log(`2. obj.value : ${obj2.value}`);
+    }
+    function outerFuncRef(caller){
+      caller.value = 'outerFuncRef value';
+
+      console.log(`3. outerFuncRef this.value : ${this.value}`);
+      console.log(`4. caller.value : ${caller.value}`);
+      console.log(`5. obj.value : ${obj2.value}`);
+    }
+    obj2.act();
+
+    /******************** *********************/
   </script>
 </head>
 <body>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // let stars = '';
+    // for(let i=0; i<5; i++){
+    //   for(let j=0; j<i+1; j++){
+    //     stars+='*';
+    //   }
+    //   stars+='<br>';
+    // }
+    // document.write(stars);
+
+    /*************** 1~100까지 홀수합 짝수합 ****************/
+    // let input = prompt('입력');
+    // let odd=0,even=0;
+    // for(let i=1; i<=(+input); i++){
+    //   (i%2)?odd+=i:even+=i;
+    // }
+    // document.write(`${odd} / ${even}`);
+    /*************** 구구단 *****************/
+    // let result ='<table border="1">';
+    // for(let i=1; i<=9; i++){
+    //   result += '<tr>'
+    //   for(let j=2; j<=9; j++){
+    //     result += `<td>${j}*${i}</td><td>${i*j}</td>`;
+    //   }
+    //   result+='</tr>';
+    // }
+    // result += '</table>';
+    // document.write(result);
+    /*************** 다이아몬드 *****************/
+    // let result='';
+    // for(let i=0; i<9; i++){
+    //   for(let j=Math.abs(4-i); j>0; j--){
+    //     result+=' ';
+    //   }
+    //   for(let k=10-Math.abs(9-n); k>0; k--){
+    //     result+='*';
+    //   }
+    //   n==8?n+=4:n+=2;
+    //   result+='\n';
+    // }
+
+    // for(let i=0; i<9; i++){
+    //   for(let j=Math.abs(4-i); j>0; j--){
+    //     result+=' ';
+    //   }
+    //   result+='*';
+    //   for(let k=4; k>Math.abs(4-i); k--){
+    //     result+='**';
+    //   }
+    //   result+='\n';
+    // }
+    
+    // for(let i=4; i>0; i--){
+    //   for(let j=5-i; j>=1; j--){
+    //     result+=' ';
+    //   }
+    //   for(let k=0; k<(2*i-1); k++){
+    //     result+='*';
+    //   }
+    //   result+='\n';
+    // }
+    // console.log(result);
+
+    // for(let i=0; i<10; i++){
+    //   for(let j=10; j>i+1; j--){
+    //     document.write('&nbsp');
+    //   }
+    //   document.write('*');
+    //   for(let k=0; k<i; k++){
+    //     document.write('&nbsp');
+    //     document.write('*');
+    //   }
+    //   document.write('<br>');
+    // }
+    let friends = {brand: "카카오", original: [{name: "라이언", age:5}, {name: "어피치", age:4}], newbee: {name: "네온", age:3}};
+    console.log(friends.original[0]);
+    console.log(friends.original[1]["age"]);
+    console.log(friends.original[1].age);
+    console.log(friends.original.length);
+    console.log(friends.newbee.length);
+
+    friends.newbee["sex"] = 'femaie';
+    console.log(friends.newbee);
+    friends["newbee"] = [friends["newbee"], {name:"콘", age:2}];
+    console.log(friends.newbee);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

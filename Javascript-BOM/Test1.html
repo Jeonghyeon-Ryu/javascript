@@ -17,41 +17,87 @@
             overflow: hidden;
         }
         #container {
-            width:500px;
+            width:100vw;
             height: 100vh;
             position:relative;
             overflow: hidden;
             margin:0 auto;
+            background: linear-gradient(45deg,black,white);
         }
         .hex {
             position:absolute;
         }
         .img{
-            width : calc(7*1.732vw);
-            height : 14vw;
-            background : #2139f3;
+            width : calc(13*1.732vw);
+            height : 26vw;
+            background : yellow;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
         }
         
-        .c1 { left:0; }
-        .c2 { left:calc(7*1.732vw + 0.5vw); }
-        .c3 { left:calc((7*1.732vw + 0.5vw)*2); }
-        .c4 { left:calc((7*1.732vw + 0.5vw)*3); }
-        .c5 { left:calc((7*1.732vw + 0.5vw)*4); }
-        .c6 { left:calc((7*1.732vw + 0.5vw)*5); }
-        .c7 { left:calc((7*1.732vw + 0.5vw)*6); }
-        .c8 { left:calc((7*1.732vw + 0.5vw)*7); }
-        .c9 { left:calc((-7*1.732vw - 0.5vw)/2); top:11vw; }
-        .c10 { left:calc((7*1.732vw + 0.5vw)*1 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
-        .c11 { left:calc((7*1.732vw + 0.5vw)*2 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
-        .c12 { left:calc((7*1.732vw + 0.5vw)*3 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
-        .c13 { left:calc((7*1.732vw + 0.5vw)*4 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
-        .c14 { left:calc((7*1.732vw + 0.5vw)*5 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
-        .c15 { left:calc((7*1.732vw + 0.5vw)*6 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
-        .c16 { left:calc((7*1.732vw + 0.5vw)*7 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
-        .c17 { left:calc((7*1.732vw + 0.5vw)*8 + (-7*1.732vw - 0.5vw)/2); top:11vw; }
-        .c18 { left:0; top:22vw; }
-    </style>
+        .c1 { left:0; top:calc(-26vw*3/4 - 1vw); }
+        .c2 { left:calc(13*1.732vw + 1vw); top:calc(-26vw*3/4 - 1vw); }
+        .c3 { left:calc((13*1.732vw + 1vw)*2); top:calc(-26vw*3/4 - 1vw); }
+        .c4 { left:calc((13*1.732vw + 1vw)*3); top:calc(-26vw*3/4 - 1vw); }
+        .c5 { left:calc((13*1.732vw + 1vw)*4); top:calc(-26vw*3/4 - 1vw); }
+
+        .c6 { left:calc((-13*1.732vw - 1vw)/2); top:0; }
+        .c7 { left:calc((13*1.732vw + 1vw)*1 + (-13*1.732vw - 0.5vw)/2); top:0; }
+        .c8 { left:calc((13*1.732vw + 1vw)*2 + (-13*1.732vw - 0.5vw)/2); top:0; }
+        .c9 { left:calc((13*1.732vw + 1vw)*3 + (-13*1.732vw - 0.5vw)/2); top:0; }
+        .c10 { left:calc((13*1.732vw + 1vw)*4 + (-13*1.732vw - 0.5vw)/2); top:0; }
+
+        .c11 { left:0; top:calc(((26vw*3/4) + 1vw)*1); }
+        .c12 { left:calc((13*1.732vw + 0.5vw)*1); top:calc(((26vw*3/4) + 1vw)*1); }
+        .c13 { left:calc((13*1.732vw + 0.5vw)*2); top:calc(((26vw*3/4) + 1vw)*1); }
+        .c14 { left:calc((13*1.732vw + 0.5vw)*3); top:calc(((26vw*3/4) + 1vw)*1); }
+        .c15 { left:calc((13*1.732vw + 0.5vw)*4); top:calc(((26vw*3/4) + 1vw)*1); }
+
+        .c16 { left:calc((-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*2); }
+        .c17 { left:calc((13*1.732vw + 0.5vw)*1 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*2); }
+        .c18 { left:calc((13*1.732vw + 0.5vw)*2 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*2); }
+        .c19 { left:calc((13*1.732vw + 0.5vw)*3 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*2); }
+        .c20 { left:calc((13*1.732vw + 0.5vw)*4 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*2); }
+
+        .c21 { left:0; top:calc(((26vw*3/4) + 1vw)*3); }
+        .c22 { left:calc((13*1.732vw + 0.5vw)*1); top:calc(((26vw*3/4) + 1vw)*3); }
+        .c23 { left:calc((13*1.732vw + 0.5vw)*2); top:calc(((26vw*3/4) + 1vw)*3); }
+        .c24 { left:calc((13*1.732vw + 0.5vw)*3); top:calc(((26vw*3/4) + 1vw)*3); }
+        .c25 { left:calc((13*1.732vw + 0.5vw)*4); top:calc(((26vw*3/4) + 1vw)*3); }
+
+        .c26 { left:calc((-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*4); }
+        .c27 { left:calc((13*1.732vw + 0.5vw)*1 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*4); }
+        .c28 { left:calc((13*1.732vw + 0.5vw)*2 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*4); }
+        .c29 { left:calc((13*1.732vw + 0.5vw)*3 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*4); }
+        .c30 { left:calc((13*1.732vw + 0.5vw)*4 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*4); }
+
+        .c31 { left:0; top:calc(((26vw*3/4) + 1vw)*5); }
+        .c32 { left:calc((13*1.732vw + 0.5vw)*1); top:calc(((26vw*3/4) + 1vw)*5); }
+        .c33 { left:calc((13*1.732vw + 0.5vw)*2); top:calc(((26vw*3/4) + 1vw)*5); }
+        .c34 { left:calc((13*1.732vw + 0.5vw)*3); top:calc(((26vw*3/4) + 1vw)*5); }
+        .c35 { left:calc((13*1.732vw + 0.5vw)*4); top:calc(((26vw*3/4) + 1vw)*5); }
+        .c36 { left:calc((-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*6); }
+        .c37 { left:calc((13*1.732vw + 0.5vw)*1 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*6); }
+        .c38 { left:calc((13*1.732vw + 0.5vw)*2 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*6); }
+        .c39 { left:calc((13*1.732vw + 0.5vw)*3 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*6); }
+        .c40 { left:calc((13*1.732vw + 0.5vw)*4 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*6); }
+
+        .c41 { left:0; top:calc(((26vw*3/4) + 1vw)*7); }
+        .c42 { left:calc((13*1.732vw + 0.5vw)*1); top:calc(((26vw*3/4) + 1vw)*7); }
+        .c43 { left:calc((13*1.732vw + 0.5vw)*2); top:calc(((26vw*3/4) + 1vw)*7); }
+        .c44 { left:calc((13*1.732vw + 0.5vw)*3); top:calc(((26vw*3/4) + 1vw)*7); }
+        .c45 { left:calc((13*1.732vw + 0.5vw)*4); top:calc(((26vw*3/4) + 1vw)*7); }
+        .c46 { left:calc((-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*8); }
+        .c47 { left:calc((13*1.732vw + 0.5vw)*1 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*8); }
+        .c48 { left:calc((13*1.732vw + 0.5vw)*2 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*8); }
+        .c49 { left:calc((13*1.732vw + 0.5vw)*3 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*8); }
+        .c50 { left:calc((13*1.732vw + 0.5vw)*4 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*8); }
+
+        .c51 { left:0; top:calc(((26vw*3/4) + 1vw)*9); }
+        .c52 { left:calc((13*1.732vw + 0.5vw)*1); top:calc(((26vw*3/4) + 1vw)*9); }
+        .c53 { left:calc((13*1.732vw + 0.5vw)*2); top:calc(((26vw*3/4) + 1vw)*9); }
+        .c54 { left:calc((13*1.732vw + 0.5vw)*3); top:calc(((26vw*3/4) + 1vw)*9); }
+        .c55 { left:calc((13*1.732vw + 0.5vw)*4); top:calc(((26vw*3/4) + 1vw)*9); }
+        </style>
     <script>
         // const a = prompt('첫번째 숫자를 입력해주세요.')
         // const b = prompt('두번째 숫자를 입력해주세요.')
@@ -145,6 +191,27 @@
         <div class="hex c32"><img class="img"></div>
         <div class="hex c33"><img class="img"></div>
         <div class="hex c34"><img class="img"></div>
+        <div class="hex c35"><img class="img"></div>
+        <div class="hex c36"><img class="img"></div>
+        <div class="hex c37"><img class="img"></div>
+        <div class="hex c38"><img class="img"></div>
+        <div class="hex c39"><img class="img"></div>
+        <div class="hex c40"><img class="img"></div>
+        <div class="hex c41"><img class="img"></div>
+        <div class="hex c42"><img class="img"></div>
+        <div class="hex c43"><img class="img"></div>
+        <div class="hex c44"><img class="img"></div>
+        <div class="hex c45"><img class="img"></div>
+        <div class="hex c46"><img class="img"></div>
+        <div class="hex c47"><img class="img"></div>
+        <div class="hex c48"><img class="img"></div>
+        <div class="hex c49"><img class="img"></div>
+        <div class="hex c50"><img class="img"></div>
+        <div class="hex c51"><img class="img"></div>
+        <div class="hex c52"><img class="img"></div>
+        <div class="hex c53"><img class="img"></div>
+        <div class="hex c54"><img class="img"></div>
+        <div class="hex c55"><img class="img"></div>
     </div>
 </body>
 </html>

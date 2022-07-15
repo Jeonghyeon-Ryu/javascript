@@ -47,6 +47,25 @@
     // test('와우');
     // test('이런기능이?');
 
+    // function orderSet(burger){
+    //   return function(beverage){
+    //     return function(side){
+    //       return function(yn){
+    //         return function(count){
+    //           if(yn=='y') yn='케첩O';
+    //           else yn='케첩X';
+    //           console.log(`${burger}에 ${beverage}, ${side}, ${yn} 옵션, ${count}개`);
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    // orderSet('치즈버거')('콜라')('감튀')('y')('2');
+
+    // const order = burger=>beverage=>side=>yn=>count=>{ if(yn=='y') yn='케첩O'; else yn='케첩X';
+    //           console.log(`${burger}에 ${beverage}, ${side}, ${yn} 옵션, ${count}개`);};
+
+    // order('치즈버거')('콜라')('감튀')('y')('2');
     /******************* Scope Chain ********************/
     // var a=1;
     // var b=5;
@@ -54,12 +73,13 @@
     //   function innerfunc() {
     //     a=b;
     //   }
+      
     //   console.log(a);
     //   a=3;
     //   b=4;
     //   innerfunc();
-    //   console.log(a);
     //   var b=2;
+    //   console.log(b);
     // }
     // console.log(b);
     // func();
@@ -130,28 +150,49 @@
 
     /******************** This 접근 연습 ***********************/
     // let obj = {};
+    
     // obj.act = function() {
-    //   this.value = 'default value';
+    //   this.value = 'default value';   // Object
+    //   console.log(this.value);
     //   // console.log(this.value);
     //   function innerAct() {
     //     console.log(`1. this.value : ${this.value}`);
-    //     this.value = 'innerAct value';
+    //     this.value = 'innerAct value';        /// Window 
     //     console.log(`2. this.value : ${this.value}`);
     //   }
     //   function innerReact(caller){
-    //     caller.value = 'innerReact value';
+    //     caller.value = 'innerReact value';     
     //     console.log(`4. this.value : ${this.value}`);
-    //     console.log(`5. caller.value : ${caller.value}`);
+    //     console.log(`5. caller.value : ${caller.value}`); // Object
     //   }
     //   innerAct();
-    //   console.log(`3. obj 객체의 this.value : ${this.value}`);
+    //   console.log(`3. obj 객체의 this.value : ${this.value}`);  // Object
 
     //   innerReact(this);
-    //   console.log(`6. obj 객체의 this.value : ${this.value}`);
+    //   console.log(`6. obj 객체의 this.value : ${this.value}`);  // Object
     // }
     // obj.act();
-    // console.log(`7. this.value : ${this.value}`);
+    // console.log(`7. this.value : ${this.value}`); // Window
 
+
+
+    // function product(name) {
+    //   this.value = 'aaa';
+    //   this.name = name;
+    // }
+
+    // console.log(`${this.name} ??`);
+
+    // let obj1 = new product('첫번째');
+    // let obj2 = new product('두번째');
+    // let obj3 = new product('세번째');
+    // product('네번째'); // var
+
+    // console.log(`${obj1.name} ??`);
+    // console.log(`${obj2.name} ??`);
+    // console.log(`${obj3.name} ??`);
+    // console.log(`${this.name} ??`);
+    // console.log(`${name} ??`);
 
     // console.log(''); /**********************************************/
 
@@ -276,6 +317,59 @@
     // arr1.splice(0,arr1.length);
     // console.log(arr1);
 
+    // let calc = function(x,y, ...arr) {
+    //   return x + y + arr.reduce(function(sum,x){ return sum+x });
+    // }
+    // let arr=[0,1];
+    // console.log(calc(-1,...arr,2,...[3,4]));
+
+    // let friends = {brand:"카카오",original:[{name:"프로도",age:5},{name:"라이언",age:4},{name:"어피치",age:3}], newbee:{name:"네온",age:2}};
+    // console.log(friends);
+
+    // friends.newbee['sex'] = 'female';
+    // friends.newbee.sex = 'female';
+    // friends["newbee"] = [friends["newbee"],{name:"콘",age:1}];
+    // console.log(friends.newbee);
+
+    // friends.newbee[0]['sex'] = 'male';
+    // friends.newbee.sex = 'unknown'; // 속성이 추가되어버림.
+
+    // console.log(friends.newbee);
+
+    // delete friends.newbee[0].sex;
+    // friends.newbee.pop();
+    // delete friends.brand;
+    // delete friends.sex;
+    // console.log(friends);
+
+
+    /**************** 배열 복사 ***************/
+    
+
+    // function clone(obj){
+    //   let output={};
+    //   for(let i in obj){
+    //     output[i] = obj[i];
+    //   }
+    //   return output
+    // }
+    // let arr2 = clone(arr1);
+    // console.log(arr2);
+    // let arr3 = Object.assign({},arr1);
+    // console.log(arr3);
+
+    // let arr = { number:10,
+    //   string:'text',
+    //   boolean: true
+    // }
+
+    // let arr1 = {};
+    // for(let key in arr){
+    //   arr1[key] = arr[key];
+    // }
+    // console.log(arr1);
+
+
     /**************** 배열 합계 ***************/
 
     // let arr1 = [1,2,3,4,5]; // reduce((누적변수,현재변수)=>{return 누적+현재},누적초기값) -> 하나씩 순차 서칭 후 더함(용례 외우기)
@@ -283,8 +377,75 @@
     // console.log(result);
 
     /**************** 배열 모든 요소 순차검색 *****************/
+    // let xml = new XMLHttpRequest();
+    // const url = 'https://jsonplaceholder.typicode.com/posts';
+
+    // xml.onreadystatechange = function() {
+    //   let json= '';
+    //   if(xml.readyState == 4){
+    //     if(xml.status == 200){
+    //       json = JSON.parse(xml.responseText);
+    //       console.log(json);
+    //     }
+    //   }
+    // };
+    // xml.open("GET",url);
+    // xml.send();
+    // let index=-1;
+    // do{
+    //   index = arr.indexOf(' ');
+    // }while(index>=0);
     
-  </script>
+    /*********************************** 콜백함수 ******************************************/
+    // function callTenTimes(callback){
+    //   for(let i=0; i<10; i++){
+    //     callback();
+    //   }
+    // }
+    // let callback = function() {
+    //   console.log('Call Back Function \n');
+    // }
+    // callTenTimes(callback);
+
+    /*********************************** 리턴함수 ****************************************/
+    // function returnFunction() {
+    //   return function(){
+    //     console.log('Return Method');
+    //   }
+    // }
+    // returnFunction()();
+    
+
+    /*********************************** 생성자 함수 및 프로토타입 ***************************************/
+    // function Student(name,korean,math){
+    //   this.name = name;
+    //   this.korean = korean;
+    //   this.math = math;
+    // }
+    // Student.prototype.getName = function() { // 프로토타입 생성
+    //   return this.name;
+    // }
+    // let me = new Student('류정현',100,90);
+    // console.log(me.getName());   // 프로토타입 사용
+
+    /******************************* 클래스의 Getter Setter ********************************/
+    // class Rectangle {
+    //   constructor(){
+    //     // this._width = width;
+    //     // this._height = height;
+    //   }
+    //   get width(){
+    //     return this._width;
+    //   }
+    //   set width(input){
+    //     this._width = input;
+    //   }
+    // }
+    // let a = new Rectangle();
+    // console.log(a.width);
+    /********************************  ********************************/
+    
+</script>
 </head>
 <body>
   

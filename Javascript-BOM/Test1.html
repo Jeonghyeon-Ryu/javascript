@@ -5,15 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./signup.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script>
     </script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Jua&display=swap');
         *{
             box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+            text-decoration: none;
+            font-family: 'Jua', sans-serif;
         }
         body{
             width:100%;
-            margin:0;
+            margin:0 auto;
             overflow: hidden;
         }
         #container {
@@ -22,138 +29,96 @@
             position:relative;
             overflow: hidden;
             margin:0 auto;
-            background: linear-gradient(45deg,black,white);
+            background: black;
         }
         .hex {
             position:absolute;
-        }
-        .img{
-            width : calc(13*1.732vw);
-            height : 26vw;
-            background : yellow;
+            width : calc(15*1.732vw);
+            height : 30vw;
+            background : linear-gradient(315deg, yellow, coral);
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
         }
+        .hex:hover{
+            /* filter: drop-shadow(-3px -3px 2px rgb(255, 255, 255)) drop-shadow(5px 5px 5px white) drop-shadow(15px 15px 15px white); */
+            background: white;
+            transform:scale(1.2);
+            z-index: 1;
+        }
+        .hex:hover~div{
+            z-index: 0;
+        }
+        button{
+            position:absolute;
+            display:block;
+            width:100%;
+            height:100%;
+            text-align: center;
+            text-decoration: none;
+            color:#000000;
+            font-weight: bold;
+            font-size: 4.5vw;
+            background: none;
+            border:none;
+            cursor: pointer;
+        }
         
-        .c1 { left:0; top:calc(-26vw*3/4 - 1vw); }
-        .c2 { left:calc(13*1.732vw + 1vw); top:calc(-26vw*3/4 - 1vw); }
-        .c3 { left:calc((13*1.732vw + 1vw)*2); top:calc(-26vw*3/4 - 1vw); }
-        .c4 { left:calc((13*1.732vw + 1vw)*3); top:calc(-26vw*3/4 - 1vw); }
-        .c5 { left:calc((13*1.732vw + 1vw)*4); top:calc(-26vw*3/4 - 1vw); }
+        
+        .c1 { left:0;                          top:calc(-30vw*3/4); }
+        .c2 { left:calc(15*1.732vw*1 + 2vw);   top:calc(-30vw*3/4); }
+        .c3 { left:calc((15*1.732vw*2 + 4vw)); top:calc(-30vw*3/4); }
+        .c4 { left:calc((15*1.732vw*3 + 6vw)); top:calc(-30vw*3/4); }
 
-        .c6 { left:calc((-13*1.732vw - 1vw)/2); top:0; }
-        .c7 { left:calc((13*1.732vw + 1vw)*1 + (-13*1.732vw - 0.5vw)/2); top:0; }
-        .c8 { left:calc((13*1.732vw + 1vw)*2 + (-13*1.732vw - 0.5vw)/2); top:0; }
-        .c9 { left:calc((13*1.732vw + 1vw)*3 + (-13*1.732vw - 0.5vw)/2); top:0; }
-        .c10 { left:calc((13*1.732vw + 1vw)*4 + (-13*1.732vw - 0.5vw)/2); top:0; }
+        .c5 { left:                       calc((-15*1.732vw/2 - 1vw)); top:2vw; }
+        .c6 { left:calc((15*1.732vw*1 + 2vw) + (-15*1.732vw/2 - 1vw)); top:2vw; }
+        .c7 { left:calc((15*1.732vw*2 + 4vw) + (-15*1.732vw/2 - 1vw)); top:2vw; }
+        .c8 { left:calc((15*1.732vw*3 + 6vw) + (-15*1.732vw/2 - 1vw)); top:2vw; }
+        .c9 { left:calc((15*1.732vw*4 + 8vw) + (-15*1.732vw/2 - 1vw)); top:2vw; }
 
-        .c11 { left:0; top:calc(((26vw*3/4) + 1vw)*1); }
-        .c12 { left:calc((13*1.732vw + 0.5vw)*1); top:calc(((26vw*3/4) + 1vw)*1); }
-        .c13 { left:calc((13*1.732vw + 0.5vw)*2); top:calc(((26vw*3/4) + 1vw)*1); }
-        .c14 { left:calc((13*1.732vw + 0.5vw)*3); top:calc(((26vw*3/4) + 1vw)*1); }
-        .c15 { left:calc((13*1.732vw + 0.5vw)*4); top:calc(((26vw*3/4) + 1vw)*1); }
+        .c10 { left:0;                          top:calc(30vw*3/4 + 4vw); }
+        .c11 { left:calc(15*1.732vw*1 + 2vw);   top:calc(30vw*3/4 + 4vw); }
+        .c12 { left:calc((15*1.732vw*2 + 4vw)); top:calc(30vw*3/4 + 4vw); }
+        .c13 { left:calc((15*1.732vw*3 + 6vw)); top:calc(30vw*3/4 + 4vw); }
+        
+        .c14 { left:                       calc((-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*2 + 6vw); }
+        .c15 { left:calc((15*1.732vw*1 + 2vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*2 + 6vw); }
+        .c16 { left:calc((15*1.732vw*2 + 4vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*2 + 6vw); }
+        .c17 { left:calc((15*1.732vw*3 + 6vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*2 + 6vw); }
+        .c18 { left:calc((15*1.732vw*4 + 8vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*2 + 6vw); }
 
-        .c16 { left:calc((-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*2); }
-        .c17 { left:calc((13*1.732vw + 0.5vw)*1 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*2); }
-        .c18 { left:calc((13*1.732vw + 0.5vw)*2 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*2); }
-        .c19 { left:calc((13*1.732vw + 0.5vw)*3 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*2); }
-        .c20 { left:calc((13*1.732vw + 0.5vw)*4 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*2); }
+        .c19 { left:0;                          top:calc(30vw*3/4*3 + 8vw); }
+        .c20 { left:calc(15*1.732vw*1 + 2vw);   top:calc(30vw*3/4*3 + 8vw); }
+        .c21 { left:calc((15*1.732vw*2 + 4vw)); top:calc(30vw*3/4*3 + 8vw); }
+        .c22 { left:calc((15*1.732vw*3 + 6vw)); top:calc(30vw*3/4*3 + 8vw); }
 
-        .c21 { left:0; top:calc(((26vw*3/4) + 1vw)*3); }
-        .c22 { left:calc((13*1.732vw + 0.5vw)*1); top:calc(((26vw*3/4) + 1vw)*3); }
-        .c23 { left:calc((13*1.732vw + 0.5vw)*2); top:calc(((26vw*3/4) + 1vw)*3); }
-        .c24 { left:calc((13*1.732vw + 0.5vw)*3); top:calc(((26vw*3/4) + 1vw)*3); }
-        .c25 { left:calc((13*1.732vw + 0.5vw)*4); top:calc(((26vw*3/4) + 1vw)*3); }
+        .c23 { left:                       calc((-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*4 + 10vw); }
+        .c24 { left:calc((15*1.732vw*1 + 2vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*4 + 10vw); }
+        .c25 { left:calc((15*1.732vw*2 + 4vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*4 + 10vw); }
+        .c26 { left:calc((15*1.732vw*3 + 6vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*4 + 10vw); }
+        .c27 { left:calc((15*1.732vw*4 + 8vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*4 + 10vw); }
 
-        .c26 { left:calc((-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*4); }
-        .c27 { left:calc((13*1.732vw + 0.5vw)*1 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*4); }
-        .c28 { left:calc((13*1.732vw + 0.5vw)*2 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*4); }
-        .c29 { left:calc((13*1.732vw + 0.5vw)*3 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*4); }
-        .c30 { left:calc((13*1.732vw + 0.5vw)*4 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*4); }
+        .c28 { left:0;                          top:calc(30vw*3/4*5 + 12vw); }
+        .c29 { left:calc(15*1.732vw*1 + 2vw);   top:calc(30vw*3/4*5 + 12vw); }
+        .c30 { left:calc((15*1.732vw*2 + 4vw)); top:calc(30vw*3/4*5 + 12vw); }
+        .c31 { left:calc((15*1.732vw*3 + 6vw)); top:calc(30vw*3/4*5 + 12vw); }
 
-        .c31 { left:0; top:calc(((26vw*3/4) + 1vw)*5); }
-        .c32 { left:calc((13*1.732vw + 0.5vw)*1); top:calc(((26vw*3/4) + 1vw)*5); }
-        .c33 { left:calc((13*1.732vw + 0.5vw)*2); top:calc(((26vw*3/4) + 1vw)*5); }
-        .c34 { left:calc((13*1.732vw + 0.5vw)*3); top:calc(((26vw*3/4) + 1vw)*5); }
-        .c35 { left:calc((13*1.732vw + 0.5vw)*4); top:calc(((26vw*3/4) + 1vw)*5); }
-        .c36 { left:calc((-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*6); }
-        .c37 { left:calc((13*1.732vw + 0.5vw)*1 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*6); }
-        .c38 { left:calc((13*1.732vw + 0.5vw)*2 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*6); }
-        .c39 { left:calc((13*1.732vw + 0.5vw)*3 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*6); }
-        .c40 { left:calc((13*1.732vw + 0.5vw)*4 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*6); }
+        .c32 { left:                       calc((-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*6 + 14vw); }
+        .c33 { left:calc((15*1.732vw*1 + 2vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*6 + 14vw); }
+        .c34 { left:calc((15*1.732vw*2 + 4vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*6 + 14vw); }
+        .c35 { left:calc((15*1.732vw*3 + 6vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*6 + 14vw); }
+        .c36 { left:calc((15*1.732vw*4 + 8vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*6 + 14vw); }
 
-        .c41 { left:0; top:calc(((26vw*3/4) + 1vw)*7); }
-        .c42 { left:calc((13*1.732vw + 0.5vw)*1); top:calc(((26vw*3/4) + 1vw)*7); }
-        .c43 { left:calc((13*1.732vw + 0.5vw)*2); top:calc(((26vw*3/4) + 1vw)*7); }
-        .c44 { left:calc((13*1.732vw + 0.5vw)*3); top:calc(((26vw*3/4) + 1vw)*7); }
-        .c45 { left:calc((13*1.732vw + 0.5vw)*4); top:calc(((26vw*3/4) + 1vw)*7); }
-        .c46 { left:calc((-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*8); }
-        .c47 { left:calc((13*1.732vw + 0.5vw)*1 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*8); }
-        .c48 { left:calc((13*1.732vw + 0.5vw)*2 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*8); }
-        .c49 { left:calc((13*1.732vw + 0.5vw)*3 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*8); }
-        .c50 { left:calc((13*1.732vw + 0.5vw)*4 + (-13*1.732vw - 0.5vw)/2); top:calc(((26vw*3/4) + 1vw)*8); }
+        .c37 { left:0;                          top:calc(30vw*3/4*7 + 16vw); }
+        .c38 { left:calc(15*1.732vw*1 + 2vw);   top:calc(30vw*3/4*7 + 16vw); }
+        .c39 { left:calc((15*1.732vw*2 + 4vw)); top:calc(30vw*3/4*7 + 16vw); }
+        .c40 { left:calc((15*1.732vw*3 + 6vw)); top:calc(30vw*3/4*7 + 16vw); }
 
-        .c51 { left:0; top:calc(((26vw*3/4) + 1vw)*9); }
-        .c52 { left:calc((13*1.732vw + 0.5vw)*1); top:calc(((26vw*3/4) + 1vw)*9); }
-        .c53 { left:calc((13*1.732vw + 0.5vw)*2); top:calc(((26vw*3/4) + 1vw)*9); }
-        .c54 { left:calc((13*1.732vw + 0.5vw)*3); top:calc(((26vw*3/4) + 1vw)*9); }
-        .c55 { left:calc((13*1.732vw + 0.5vw)*4); top:calc(((26vw*3/4) + 1vw)*9); }
+        .c41 { left:                       calc((-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*8 + 18vw); }
+        .c42 { left:calc((15*1.732vw*1 + 2vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*8 + 18vw); }
+        .c43 { left:calc((15*1.732vw*2 + 4vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*8 + 18vw); }
+        .c44 { left:calc((15*1.732vw*3 + 6vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*8 + 18vw); }
+        .c45 { left:calc((15*1.732vw*4 + 8vw) + (-15*1.732vw/2 - 1vw)); top:calc(30vw*3/4*8 + 18vw); }
+
         </style>
-    <script>
-        // const a = prompt('첫번째 숫자를 입력해주세요.')
-        // const b = prompt('두번째 숫자를 입력해주세요.')
-        // alert('${a} + ${b} = ${a+b}')
-        // document.write("innerWidth : " + window.innerWidth +'<br>');
-        // document.write("outerWidth : " + window.outerWidth +'<br>');
-        
-        ////////////////////////////////////////////// Mobile 기기 접속 확인
-        // var mobile_keys = new Array('iPhone','iPad','Android','BlackBerry','Windows Phone','Windows CE','LG','MOT','SAMSUNG','SonyEricsson','Nokia');
-        // for(var i in mobile_keys){
-        //     if(navigator.userAgent.match(mobile_keys[i])){
-        //         alert('모바일 기기에 접속하였습니다.');
-        //         location.href = 'http://m.daum.net';
-        //     }
-        // }
-        ////////////////////////////////////////////// navigator
-        // var txt = '';
-        // txt += '<p> Browser Codename : ' + navigator.appCodeName + '</p>';
-        // txt += '<p> Browser Name : ' + navigator.appName + '</p>';
-        // txt += '<p> Browser Version : ' + navigator.appVersion + '</p>';
-        // txt += '<p> Browser Languige : ' + navigator.language + '</p>';
-        // txt += '<p> User-agent Header : ' + navigator.userAgent + '</p>';
-        // txt += '<p> Java Enabled : ' + navigator.javaEnabled() + '</p>';
-        // document.write(txt);
-        ///////////////////////////////////////////// window Full Screen
-        // var newWindow = window.open('','','width=300,height=300');
-        // var w = screen.width;
-        // var h = screen.height;
-        // setTimeout(function(){
-        //     newWindow.resizeTo(w,h);
-        // },3000)
-        /////////////////////////////////////////////
-        // var num = 1;
-        // setInterval(function() {
-        //     document.write('<p>' + num + '초가 지났습니다</p>');
-        //     num++
-        // },1000);
-        // setTimeout(function(){
-        //     location.reload();
-        // },10001);
-        //////////////////////////////////////////////
-        // var url = location.href;
-        // document.write(url);
-
-        // setTimeout(function(){
-        //     location.href = 'http://youtube.com';
-        // },3000);
-        //////////////////////////////////////////////
-        // function forward() {
-        //     history.forward();
-        // }
-        // function num() {
-        //     alert(history.length);
-        // }
-        ///////////////////////////////////////////////
-    </script>
 </head>
 <body>
     <div id="container">
@@ -164,11 +129,11 @@
         <div class="hex c5"><img class="img"></div>
         <div class="hex c6"><img class="img"></div>
         <div class="hex c7"><img class="img"></div>
-        <div class="hex c8"><img class="img"></div>
+        <div class="hex c8"><button id="signup-btn" onclick="clickSignupBtn()"><img class="img">회원가입</button></div>
         <div class="hex c9"><img class="img"></div>
         <div class="hex c10"><img class="img"></div>
         <div class="hex c11"><img class="img"></div>
-        <div class="hex c12"><img class="img"></div>
+        <div class="hex c12"><button id="login-btn" onclick="clickLoginBtn()"><img class="img">로그인</button></div>
         <div class="hex c13"><img class="img"></div>
         <div class="hex c14"><img class="img"></div>
         <div class="hex c15"><img class="img"></div>
@@ -202,16 +167,76 @@
         <div class="hex c43"><img class="img"></div>
         <div class="hex c44"><img class="img"></div>
         <div class="hex c45"><img class="img"></div>
-        <div class="hex c46"><img class="img"></div>
-        <div class="hex c47"><img class="img"></div>
-        <div class="hex c48"><img class="img"></div>
-        <div class="hex c49"><img class="img"></div>
-        <div class="hex c50"><img class="img"></div>
-        <div class="hex c51"><img class="img"></div>
-        <div class="hex c52"><img class="img"></div>
-        <div class="hex c53"><img class="img"></div>
-        <div class="hex c54"><img class="img"></div>
-        <div class="hex c55"><img class="img"></div>
     </div>
+    <!-- 회원가입 -->
+    <form action="signup" method="POST" class="signup-form" onsubmit="DoJoinForm__submit(this); return false;">
+        <div>
+            <legend>회원가입</legend>
+            <span class="material-symbols-outlined" onclick="clickSignupCloseBtn()">close</span>
+        </div>
+        <ul>
+            <li><input name="loginId" type="text" class="id" placeholder="아이디" maxlength="12"></input></li>
+            <li><input name="loginPw" type="password" class="pw" placeholder="비밀번호" maxlength="16"></li>
+            <li><input name="loginPwConfirm" type="password" class="pw" placeholder="비밀번호 확인"></li>
+            <li><input name="name" type="text" class="name" placeholder="이름"></li>
+            <li><input name="birthday" type="text" class="birthday" placeholder="생년월일(901111)"></li>
+            <li><input name="email" type="email" class="email" placeholder="이메일"></li>
+            <li><input name="cellphoneNo" type="cel" class="cellphoneNo" placeholder="전화번호"></li>
+            <input type="submit" class="btn" value="J O I N" />
+        </ul>
+    </form>
+    <!-- 로그인 -->
+    <form action="login" method="POST" class="login-form" onsubmit="">
+        <div>
+            <legend>로그인</legend>
+            <span class="material-symbols-outlined" onclick="clickLoginCloseBtn()">close</span>
+        </div>
+        <ul>
+            <li><input name="loginId" type="text" class="id" placeholder="아이디" maxlength="12"></input></li>
+            <li><input name="loginPw" type="password" class="pw" placeholder="비밀번호" maxlength="16"></li>
+            <input type="submit" class="btn" value="L O G I N" />
+        </ul>
+    </form>
+
+    <script>
+        function clickSignupBtn(){
+            var signupForm = document.querySelector(".signup-form");
+            var container = document.querySelector("#container");
+            if(getComputedStyle(signupForm).display=='block'){
+                signupForm.reset();
+                signupForm.style.display = 'none';
+            } else {
+                container.style.filter = 'blur(5px)';
+                signupForm.style.display = 'block';
+            }
+        }
+        function clickSignupCloseBtn(){
+            var signupForm = document.querySelector(".signup-form");
+            // caller.reset()
+            // caller.style.display='none';
+            container.style.filter = '';
+            signupForm.reset();
+            signupForm.style.display = 'none';
+        }
+        function clickLoginBtn(){
+            var loginForm = document.querySelector(".login-form");
+            var container = document.querySelector("#container");
+            if(getComputedStyle(loginForm).display=='block'){
+                loginForm.reset();
+                loginForm.style.display = 'none';
+            } else {
+                container.style.filter = 'blur(5px)';
+                loginForm.style.display = 'block';
+            }
+        }
+        function clickLoginCloseBtn(){
+            var loginForm = document.querySelector(".login-form");
+            // caller.reset()
+            // caller.style.display='none';
+            container.style.filter = '';
+            loginForm.reset();
+            loginForm.style.display = 'none';
+        }
+    </script>
 </body>
 </html>

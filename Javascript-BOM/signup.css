@@ -1,0 +1,78 @@
+.signup-form, .login-form {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top:40%;
+    left:50%;
+    width:70%;
+    background-color:rgba(255,255,255,0.9);
+    text-align:center;
+    margin:10vw auto;
+    padding: 7vw;
+    border-radius: 3vw;
+    display:none;
+    z-index: 3;
+    transition : all 0.3s ease-in-out;
+}
+
+.signup-form>div, .login-form>div{
+    display:flex;
+}
+.signup-form legend, .login-form legend{
+    text-align: center;
+    color:#000000;
+    font-weight: 500;
+    font-size: 5vw;
+    margin-bottom: 3vw;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto;
+    padding-left: 2vw;
+}
+.material-symbols-outlined {
+    font-weight: bold;
+    cursor: pointer;
+    margin:auto 0;
+}
+.material-symbols-outlined:hover {
+    color:rgb(255, 200, 25);
+}
+.signup-form ul li, .login-form ul li{
+    list-style: none;
+    border-bottom: 2px solid #adadad;
+    padding:10px;
+    margin:4vw 2vw;
+}
+.signup-form ul li input, .login-form ul li input{
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #000000;
+    font-size:0.9rem;
+    height:1.5rem;
+    background: none;
+}
+.signup-form ul li input::placeholder, .login-form ul li input::placeholder{
+    color:#636e72;
+}
+.btn {
+    position:relative;
+    left:40%;
+    transform: translateX(-50%);
+    margin-bottom: 40px;
+    width:80%;
+    height:40px;
+    background: linear-gradient(125deg,yellow,white,rgb(255, 200, 25));
+    background-position: left;
+    background-size: 200%;
+    color:#000000;
+    font-weight: bold;
+    border:none;
+    cursor:pointer;
+    transition: 0.4s;
+    display:inline;
+}
+
+.btn:hover {
+    background-position: right;
+    color:black;
+}

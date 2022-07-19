@@ -28,12 +28,12 @@
     margin:0 auto;
     padding-left: 2vw;
 }
-.material-symbols-outlined {
+.material-symbols-outlined.close {
     font-weight: bold;
     cursor: pointer;
     margin:auto 0;
 }
-.material-symbols-outlined:hover {
+.material-symbols-outlined.close:hover {
     color:rgb(255, 200, 25);
 }
 .signup-form ul li, .login-form ul li{
@@ -43,13 +43,20 @@
     margin:4vw 2vw;
 }
 .signup-form ul li input, .login-form ul li input{
-    width: 100%;
+    width: 90%;
     border:none;
     outline:none;
     color: #000000;
     font-size:0.9rem;
     height:1.5rem;
     background: none;
+}
+.signup-form ul li .material-symbols-outlined {
+    width:10%;
+    display:block;
+    float:right;
+    color:red;
+    visibility: hidden;
 }
 .signup-form ul li input::placeholder, .login-form ul li input::placeholder{
     color:#636e72;

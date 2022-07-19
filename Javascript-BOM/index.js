@@ -1,6 +1,6 @@
 function clickMainBtn(btn){
-  var container = document.querySelector("#container");
-  var elseBtn = document.querySelectorAll("#container button");
+  let container = document.querySelector("#container");
+  let elseBtn = document.querySelectorAll("#container button");
   container.style.filter = 'blur(5px)';
   elseBtn.forEach(x => x.setAttribute('onclick','return false;') );
   
@@ -13,26 +13,10 @@ function clickMainBtn(btn){
   }
 }
 function  clickCloseBtn(btn){
+  let elseBtn = document.querySelectorAll("#container button");
   container.style.filter='';
   console.log(btn.parentElement.parentElement);
   btn.parentElement.parentElement.reset();
   btn.parentElement.parentElement.style.display = 'none';
-  elseBtn.forEach(x => x.setAttribute('onclick','return false;') );
-}
-
-function clickSignupCloseBtn(){
-  var signupForm = document.querySelector(".signup-form");
-  // caller.reset()
-  // caller.style.display='none';
-  container.style.filter = '';
-  signupForm.reset();
-  signupForm.style.display = 'none';
-}
-function clickLoginCloseBtn(){
-  var loginForm = document.querySelector(".login-form");
-  // caller.reset()
-  // caller.style.display='none';
-  container.style.filter = '';
-  loginForm.reset();
-  loginForm.style.display = 'none';
+  elseBtn.forEach(x => x.setAttribute('onclick','clickMainBtn(this)') );
 }

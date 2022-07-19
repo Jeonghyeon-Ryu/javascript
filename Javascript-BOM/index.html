@@ -140,13 +140,13 @@
         <div class="hex c17"><img class="img"></div>
         <div class="hex c18"><img class="img"></div>
         <div class="hex c19"><img class="img"></div>
-        <div class="hex c20"><button onclick=""><img class="img"></button></div>
-        <div class="hex c21"><button onclick=""><img class="img"></button></div>
+        <div class="hex c20"><button onclick=""><img class="img">추천 여행코스</button></div>
+        <div class="hex c21"><button onclick=""><img class="img">여행코스 짜기</button></div>
         <div class="hex c22"><img class="img"></div>
         <div class="hex c23"><img class="img"></div>
         <div class="hex c24"><img class="img"></div>
         <div class="hex c25"><img class="img"></div>
-        <div class="hex c26"><button onclick=""><img class="img"></button></div>
+        <div class="hex c26"><button onclick=""><img class="img">나의계획</button></div>
         <div class="hex c27"><img class="img"></div>
         <div class="hex c28"><img class="img"></div>
         <div class="hex c29"><img class="img"></div>
@@ -171,24 +171,24 @@
     <form action="signup" method="POST" class="signup-form" onsubmit="DoJoinForm__submit(this); return false;">
         <div>
             <legend>회원가입</legend>
-            <span class="material-symbols-outlined" onclick="clickCloseBtn(this)">close</span>
+            <span class="material-symbols-outlined close" onclick="clickCloseBtn(this)">close</span>
         </div>
         <ul>
-            <li><input name="loginId" type="text" class="id" placeholder="아이디" maxlength="12"></input></li>
-            <li><input name="loginPw" type="password" class="pw" placeholder="비밀번호" maxlength="16"></li>
-            <li><input name="loginPwConfirm" type="password" class="pw" placeholder="비밀번호 확인"></li>
-            <li><input name="name" type="text" class="name" placeholder="이름"></li>
-            <li><input name="birthday" type="text" class="birthday" placeholder="생년월일(901111)"></li>
-            <li><input name="email" type="email" class="email" placeholder="이메일"></li>
-            <li><input name="cellphoneNo" type="cel" class="cellphoneNo" placeholder="전화번호"></li>
-            <input type="submit" class="btn" value="J O I N" />
+            <li><input name="loginId" type="text" class="id" placeholder="아이디" onchange="isId(this)"></input><span class="material-symbols-outlined">warning</span></li>
+			<li><input name="loginPw" type="password" class="pw" placeholder="비밀번호" onchange="isPassword(this)"><span class="material-symbols-outlined">error</span></li>
+			<li><input name="loginPwConfirm" type="password" class="pw" placeholder="비밀번호 확인" onchange="isPasswordConfirm(this)"><span class="material-symbols-outlined">error</span></li>
+			<li><input name="name" type="text" class="name" placeholder="이름"><span class="material-symbols-outlined">error</span></li>
+			<li><input name="birthday" type="text" class="birthday" placeholder="생년월일(901111)" onchange="isId(this)"><span class="material-symbols-outlined">error</span></li>
+			<li><input name="email" type="text" class="email" placeholder="이메일" onchange="isEmail(this)"><span class="material-symbols-outlined">error</span></li>
+			<li><input name="cellphoneNo" type="text" class="cellphoneNo" placeholder="전화번호" onchange="isPhoneNumber(this)"><span class="material-symbols-outlined">error</span></li>
+			<input type="submit" class="btn" value="J O I N" />
         </ul>
     </form>
     <!-- 로그인 -->
     <form action="login" method="POST" class="login-form" onsubmit="">
         <div>
             <legend>로그인</legend>
-            <span class="material-symbols-outlined" onclick="clickCloseBtn(this)">close</span>
+            <span class="material-symbols-outlined close" onclick="clickCloseBtn(this)">close</span>
         </div>
         <ul>
             <li><input name="loginId" type="text" class="id" placeholder="아이디" maxlength="12"></input></li>
@@ -196,5 +196,6 @@
             <input type="submit" class="btn" value="L O G I N" />
         </ul>
     </form>
+	<script src="signup.js"></script>
 </body>
 </html>

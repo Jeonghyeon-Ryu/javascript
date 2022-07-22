@@ -12,6 +12,8 @@ function clickMainBtn(btn){
     loginForm.style.display = 'block';
   }
 }
+
+
 function  clickCloseBtn(btn){
   let elseBtn = document.querySelectorAll("#container button");
   container.style.filter='';

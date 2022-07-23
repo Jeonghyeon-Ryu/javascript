@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Jua&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    font-family: 'Jua', sans-serif;
+}
+body{
+    width:100%;
+    margin:0 auto;
+    overflow: hidden;
+}
+#container {
+    width:100vw;
+    height: 100vh;
+    position:relative;
+    overflow: hidden;
+    margin:0 auto;
+    background: black;
+}

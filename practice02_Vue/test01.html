@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <div id="app1">
+        <my-component class="baz boo"></my-component>
+        {{ msg }}
+    </div>
+    <script>
+        Vue.component('my-component',{
+            template: '<div class="first">Hi</div>'
+        })
+        new Vue({
+            el:"#app1",
+            data:{
+                msg:"으아아"
+            }
+        })
+        // BRB5Kl7XJb3VCfApO8UoqWsFOQ9imylwMX0a99I6ewMwpxVIt8qX2Ua2Xy3uG4tYWyowsrI0H5KT2LeysDQ%2FVQ%3D%3D
+        // http://apis.data.go.kr/6480000/gyeongnamlodgeinfo/gyeongnamlodgeinfolist?serviceKey=서비스키&pageNo=1&numOfRows=10&resultType=json
+        let data = { serviceKey : "BRB5Kl7XJb3VCfApO8UoqWsFOQ9imylwMX0a99I6ewMwpxVIt8qX2Ua2Xy3uG4tYWyowsrI0H5KT2LeysDQ%2FVQ%3D%3D", pageNo:1, numOfRows:10, resultType:"json"};
+        let data2 = "serviceKey=BRB5Kl7XJb3VCfApO8UoqWsFOQ9imylwMX0a99I6ewMwpxVIt8qX2Ua2Xy3uG4tYWyowsrI0H5KT2LeysDQ%2FVQ%3D%3D&pageNo=1&numOfRows=10&resultType=json";
+        $.ajax({
+            type:"get",
+            url:"https://apis.data.go.kr/6480000/gyeongnamlodgeinfo/gyeongnamlodgeinfolist",
+            contentType: "application/x-www-form-urlencoded",
+            data:data2,
+            success: function(result){
+                console.log(result);
+            },
+            error:function(error){
+                console.log(error);
+            }
+        })
+    </script>
+</body>
+</html>

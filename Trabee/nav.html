@@ -6,26 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/Nav.css">
+    <style>
+        #header-container{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:70px;
+            background: #fff;
+        }
+        #header-logo{
+            display: flex;
+            align-items: center;
+            position:absolute;
+            top:10px;
+            left:10px;
+            cursor: pointer;
+        }
+        #header-logo span {
+            font-size: 25px;
+            font-weight: bold;
+            color:rgb(255, 229, 81);
+        }
+        #header-search-box {
+            display:flex;
+            align-items: center;
+            position:absolute;
+            top:10px;
+            right:10px;
+            cursor: pointer;
+        }
+        #header-search-box input {
+            width:200px;
+            height:10px;
+            margin:10px;
+            padding:10px;
+            border-radius: 20px;
+            cursor: pointer;
+            border : 2px solid black;
+        }
+        #header-search-box input:disabled{
+            background-color: white;
+            border-color:black;
+        }
+    </style>
 </head>
 <body>
     <div id="nav-container">
-        <div id="navbar">
-            <div id="bubbleWrapper">
-                <div id="bubble1" class="bubble"><span class="icon"><img src="img/icons8-login-24.png"></span></div>
-                <div id="bubble2" class="bubble"><span class="icon"><img src="img/icons8-home-24.png"></span></div>
-                <div id="bubble3" class="bubble"><span class="icon"><img src="img/icons8-airplane-24.png"></span></div>
-                <div id="bubble4" class="bubble"><span class="icon"><img src="img/icons8-user-24.png"></span></div>
+        <div id="header-container">
+            <div id="header-logo">
+                <img src="img/littledeep_bee_style1.png" width="50px">
+                <span>업체명</span>
             </div>
-            <div id="menuWrapper">
-                <div id="menu1" class="menuElement" onclick="moveNav('1')"><img src="img/icons8-login-24.png"></div>
-                <div id="menu2" class="menuElement" onclick="moveNav('2')"><img src="img/icons8-home-24.png"></div>
-                <div id="menu3" class="menuElement" onclick="moveNav('3')"><img src="img/icons8-airplane-24.png"></div>
-                <div id="menu4" class="menuElement" onclick="moveNav('4')"><img src="img/icons8-user-24.png"></div>
+            <div id="header-search-box">
+                <input type="text" placeholder="장소 검색하기" disabled>
+                <img src="img/icons8-search-24.png">
             </div>
         </div>
-        <div id="bgWrapper">
-            <div id="bg"></div>
-            <div id="bgBubble"></div>
+        <div id="bottom-navbar">
+            <div id="bubbleWrapper">
+                <div id="bubble1" class="bubble"><span class="icon"><img src="img/icons8-home-24.png"></span></div>
+                <div id="bubble2" class="bubble"><span class="icon"><img src="img/icons8-heart-24.png"></span></div>
+                <div id="bubble3" class="bubble"><span class="icon"><img src="img/icons8-airplane-24.png"></span></div>
+                <div id="bubble4" class="bubble"><span class="icon"><img src="img/icons8-good-24.png"></span></div>
+                <div id="bubble5" class="bubble"><span class="icon"><img src="img/icons8-user-24.png"></span></div>
+            </div>
+            <div id="menuWrapper">
+                <div id="menu1" class="menuElement" onclick="moveNav('1')"><img src="img/icons8-home-24.png"></div>
+                <div id="menu2" class="menuElement" onclick="moveNav('2')"><img src="img/icons8-heart-24.png"></div>
+                <div id="menu3" class="menuElement" onclick="moveNav('3')"><img src="img/icons8-airplane-24.png"></div>
+                <div id="menu4" class="menuElement" onclick="moveNav('4')"><img src="img/icons8-good-24.png"></div>
+                <div id="menu5" class="menuElement" onclick="moveNav('5')"><img src="img/icons8-user-24.png"></div>
+            </div>
+            <div id="bgWrapper">
+                <div id="bg"></div>
+                <div id="bgBubble"></div>
+            </div>
         </div>
     </div>
     <svg width="0" height="0" >

@@ -14,8 +14,9 @@
             <a href=""><img src="img/plus-24.png">일정추가</a>
             <a href="" class="plan-left-active">
                 <img src="img/1.png">
-                <small class="category-name">계획 : <span></span></small>
-                <br><small class="location-name">장소 : </small>
+                <small class="location-id" style="display:none">11</small>
+                <small class="category-name">계획 : <span>22</span></small><br>
+                <small class="location-name">장소 : <span>33</span></small>
                 <div>
                     <button class="modify-plan">수정</button>
                     <button class="delete-plan">삭제</button>
@@ -46,17 +47,38 @@
                         <span>놀이</span>
                     </a>
                 </div>
-                <button>지역 검색</button>
-                <button>장소 검색</button>
-                <button>추천 장소</button>
+                <div class="search-button-container">
+                    <button>지역 검색</button>
+                    <button>장소 검색</button>
+                    <button>추천 장소</button>
+                </div>
+                <div class="plan-search-container">
+                    <div class="plan-search-location">
+                        <div class="col-xs-5 materialSelect inline empty">
+                            <ul class="select">
+                                <li data-selected="true">Choose something...</li>
+                                <li data-value="0">First option</li>
+                                <li data-value="1">Second option</li>
+                                <li data-value="2">Third option</li>
+                            </ul>
+                            <div class="message">Please select something</div>
+                        </div>
+                        <div class="col-xs-5 materialSelect inline empty">
+                            <ul class="select">
+                                <li data-selected="true">Choose something...</li>
+                                <li data-value="0">First option</li>
+                                <li data-value="1">Second option</li>
+                                <li data-value="2">Third option</li>
+                            </ul>
+                            <div class="message">Please select something</div>
+                        </div>
+                    </div>
+                    <a><input type="text"><img src="img/icons8-search-24.png"></a>
+                </div>
+                <div class="card-container">
+                    <!-- Card -->
+                </div>
             </div>
-            <div class="plan-search-container">
-                <a><input type="text"><img src="img/icons8-search-24.png"></a>
-            </div>
-            <div class="card-container">
-
-            </div>
-            <!-- Card -->
         </div>
     </div>
     <script src="js/planPage.js"></script>

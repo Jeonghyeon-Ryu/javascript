@@ -9,5 +9,5 @@ function moveNav(id) {
     let clickedButton = document.querySelector(`#bubble${id}`);
     clickedButton.classList.add("bubble-active");
     clickedButton.querySelector("span").classList.add("bubble-span-active");
-    document.querySelector("#bgBubble").style.left = `calc(( 100% / 8 ) * ( 2 * ${id} - 1)`;
+    document.querySelector("#bgBubble").style.left = `calc(( 100% / 10 ) * ( 2 * ${id} - 1)`;
 }

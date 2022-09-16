@@ -1,10 +1,12 @@
 import tableComponent from './components/table.js'
+import navComponent from './components/nav.js'
 
 let app = new Vue({
     el:"#app",
     template: `<div>
-        <table-component v-bind:tableTitle="tableTitle" v-bind:tableData="tableData"></table-component>
-    </div>`,
+                  <nav-component></nav-component>
+                  <table-component v-bind:tableTitle="tableTitle" v-bind:tableData="tableData"></table-component>
+              </div>`,
     data: {
         tableData:[],
         tableTitle:'테이블 제목'
@@ -25,6 +27,7 @@ let app = new Vue({
       })
     },
     components:{
-        "table-component" : tableComponent
+        "table-component" : tableComponent,
+        "nav-component" : navComponent
     },
 })

@@ -1,6 +1,5 @@
 {
-  "dependencies": {
-    "swiper": "^8.4.2",
-    "vue": "^3.2.39"
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }

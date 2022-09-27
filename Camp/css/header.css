@@ -1,5 +1,10 @@
 header { 
+    
+}
+.header-top-container {
     position:fixed;
+    top:0;
+    left:0;
     width:100vw;
     height:fit-content;
     background: rgb(6,68,32);

@@ -9,13 +9,17 @@
 import HelloWorld from './components/HelloWorld.vue'
 import HeaderNav from './components/HeaderNav.vue'
 import MainSwiper from './components/MainSwiper.vue'
+import Sns from './components/SNS.vue'
+import NodeMenu from './components/NoteMenu.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
     HeaderNav,
-    MainSwiper
+    MainSwiper,
+    Sns,
+    NodeMenu
 }
 }
 </script>

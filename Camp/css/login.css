@@ -2,15 +2,12 @@
 ---------------------------------------
 */
 
-* {
+/* * {
     margin: 0px auto;
     padding: 0px;
     text-align: center;
     font-family: "Open Sans", sans-serif;
-  }
-  @media screen (min-width: 1024px){
-    
-  }
+  } */
   .login_container {
     position: absolute;
     width: 100%;

@@ -89,7 +89,7 @@
   <div>
   </div>
   <main>
-    <div class="login_container">
+    <!-- <div class="login_container">
       <div class="cont_centrar">
         <div class="cont_login">
           <div class="cont_info_log_sign_up">
@@ -140,6 +140,44 @@
           </div>
         </div>
       </div>
+    </div> -->
+    <!-- 캠핑장 등록페이지 -->
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <link rel="stylesheet" href="css/campRegister.css">
+    <div class="camp-register">
+      <h2>캠핑장 등록</h2> 
+      <form class="camp-register-form" action="" onsubmit="return false">
+        <label>캠핑장 이름<input type="text" class="camp-register-name"></label>
+        <label>주소<input type="text" class="camp-register-address"></label>
+        <label>사이트 수<input type="text" class="camp-register-site"></label>
+        <label>가격<input type="text" class="camp-register-price"></label>
+        <div>정보
+          <button type="button">화장실</button>
+          <button type="button">주차장</button>
+          <button type="button">샤워장</button>
+          <button type="button">쓰레기장</button>
+          <button type="button">데크</button>
+          <button type="button">수영장</button>
+          <button type="button">바비큐</button>
+          <button type="button">장비대여</button>
+          <button type="button">조리도구</button>
+        </div>
+        <div>
+          <label>사진
+            <div class="camp-register-preview-image"></div>
+          </label>
+          <label>사진등록
+            <input type="file" multiple style="display:none;">
+          </label>
+        </div>
+        <label>기타정보
+          <input type="text">
+        </label>
+        <div>
+          <button type="submit">등록</button>
+          <button type="reset">취소</button>
+        </div>
+      </form>
     </div>
   </main>
   <script src="js/login.js"></script>

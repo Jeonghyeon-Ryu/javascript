@@ -1,12 +1,12 @@
 <template>
   <div>
     <HeaderNav></HeaderNav>
-    <MainSwiper></MainSwiper>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView } from 'vue-router'
 import HeaderNav from './components/HeaderNav.vue'
 import MainSwiper from './components/MainSwiper.vue'
 import Sns from './components/SNS.vue'
@@ -15,12 +15,11 @@ import NodeMenu from './components/NoteMenu.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     HeaderNav,
     MainSwiper,
     Sns,
     NodeMenu
-}
+  }
 }
 </script>
 

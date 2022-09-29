@@ -1,0 +1,35 @@
+{
+  "name": "@yazan.alnughnugh/file-upload",
+  "version": "1.0.10",
+  "description": "File upload component is created to help you upload files using  vuejs and ajax",
+  "main": "Index.vue",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yazan-alnugnugh/file-upload.git"
+  },
+  "keywords": [
+    "javascript",
+    "vue",
+    "vue.js",
+    "component",
+    "file",
+    "uploader",
+    "multiple",
+    "upload",
+    "chunk",
+    "drag",
+    "vue-component",
+    "vue-upload-component",
+    "tailwindcss",
+    "ajax"
+  ],
+  "author": "Yazan Alnughnugh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yazan-alnugnugh/file-upload/issues"
+  },
+  "homepage": "https://github.com/yazan-alnugnugh/file-upload#readme"
+}

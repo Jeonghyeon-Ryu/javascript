@@ -10,7 +10,7 @@
       return {
         file : '',
       }
-    }
+    },
     methods : {
       deleteFile : function(ev){
         let ele = ev.srcElement;

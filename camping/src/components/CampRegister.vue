@@ -2,7 +2,10 @@
   <div class="camp-register">
       <h2>캠핑장 등록</h2>
       <div class="camp-register-image-container">
-        <div class="camp-register-image-preview"></div>
+        <div class="camp-register-image-preview">
+          <div v-for="img of images">
+          </div>
+        </div>
         <label>사진등록
           <input @change="changeImage($event)" @dragenter.prevent @dragover.prevent @dragdrop="dropImage($event)" type="file" multiple style="display:none;">
         </label>
@@ -36,6 +39,7 @@
 
 <script>
   import { reactive, computed } from 'vue';
+
   export default {
     // setup() {
     //   const state = reactive({
@@ -47,6 +51,16 @@
         images : []
       }
     },
+    computed : {
+      imagesUrl : function(){
+        let result = [];
+        for(let image of this.images) {
+          result.add(URL.createObjectURL(image));
+        }
+        console.log(result);
+        return this.imagesUrl.add(result);
+      }
+    },
     methods : {
       changeImage(e) {
         this.images = e.target.files;
@@ -55,7 +69,6 @@
         }
       },
       imageLoader(file) {
-        console.log(file);
         let reader = new FileReader();
           reader.onload = e => {
             var img_style = 'width:100%;height:100%;z-index:none';

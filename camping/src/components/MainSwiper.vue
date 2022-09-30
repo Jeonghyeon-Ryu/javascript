@@ -1,10 +1,10 @@
 <template>
-    <swiper :navigation="true" :modules="modules" class="mySwiper">
-      <swiper-slide>Slide 1</swiper-slide><swiper-slide>Slide 2</swiper-slide
-      ><swiper-slide>Slide 3</swiper-slide><swiper-slide>Slide 4</swiper-slide
-      ><swiper-slide>Slide 5</swiper-slide><swiper-slide>Slide 6</swiper-slide
-      ><swiper-slide>Slide 7</swiper-slide><swiper-slide>Slide 8</swiper-slide
-      ><swiper-slide>Slide 9</swiper-slide>
+    <swiper :autoplay="{ delay:2000, disableOnInteraction:false }" :navigation="true" :modules="modules" class="mySwiper">
+      <swiper-slide><img src="../assets/img/main-image/main_1.jpg"/></swiper-slide>
+      <swiper-slide><img src="../assets/img/main-image/main_2.jpg"/></swiper-slide>
+      <swiper-slide><img src="../assets/img/main-image/main_3.jpg"/></swiper-slide>
+      <swiper-slide><img src="../assets/img/main-image/main_4.jpg"/></swiper-slide
+      ><swiper-slide><img src="../assets/img/main-image/main_5.jpg"/></swiper-slide>
     </swiper>
   </template>
   <script>
@@ -16,7 +16,7 @@
   import "swiper/css/navigation";
   
   // import required modules
-  import { Navigation } from "swiper";
+  import { Autoplay, Navigation } from "swiper";
   
   export default {
     components: {
@@ -25,7 +25,7 @@
     },
     setup() {
       return {
-        modules: [Navigation],
+        modules: [ Autoplay, Navigation],
       };
     },
   };
@@ -33,9 +33,8 @@
   
   <style>
     .swiper {
-        margin-top:150px;
         width: 100%;
-        height: 500px;
+        height: 650px;
     }
 
     .swiper-slide {

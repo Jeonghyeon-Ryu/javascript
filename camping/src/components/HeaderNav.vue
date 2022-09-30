@@ -1,9 +1,9 @@
 <template>
-  <header>
+  <div class="header-container">
     <div class="header-top-container">
       <div class="header-title">
-        <img src="../assets/img/camp-icon.png" class="header-logo">
-        <span class="header-name">캠핑 가자 !</span> 
+        <img src="../assets/img/logo.png" class="header-logo">
+        <!-- <span class="header-name">캠핑 가자 !</span>  -->
       </div>
       <div class="header-top-button">
         <div><img src="../assets/img/login-30.png" alt=""></div>
@@ -18,7 +18,7 @@
       <div>캠핑장</div> 
       <div>캠핑장</div> 
     </div>
-  </header>
+  </div>
 </template>
 
 <script>

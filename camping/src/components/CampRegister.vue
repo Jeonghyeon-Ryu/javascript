@@ -3,16 +3,22 @@
       <h2>캠핑장 등록</h2>
       <div class="camp-register-image-container">
         <div class="camp-register-image-preview">
-          <div v-for="img of images">
+          <div v-for="(img,index) of imagesUrl" :id="index" class="image-preview-div">
+            <img :src="img"/>
+            <input type="button" value="X" @click="deletePreview($event)" class="image-preview-delete-button"/>
           </div>
         </div>
         <label>사진등록
-          <input @change="changeImage($event)" @dragenter.prevent @dragover.prevent @dragdrop="dropImage($event)" type="file" multiple style="display:none;">
+          <input @change="changeImage($event)" @dragenter.prevent @dragover.prevent @drop.prevent="dropImage($event)" type="file" multiple style="display:none;">
         </label>
       </div>
       <form class="camp-register-form" action="" onsubmit="return false">
         <label>캠핑장 이름<input type="text" class="camp-register-name"></label>
-        <label>주소<input type="text" class="camp-register-address"></label>
+        <label>주소
+          <input @keyup.enter="campAddress()" type="text" class="camp-register-address">
+          <img @click="campAddress()" class="address-search-button" src="../assets/img/icons/search-20.png"/>
+          <div v-if="search!=''" class="camp-register-kakaomap"><KakaoMap :search="search"></KakaoMap></div>
+        </label>
         <label>사이트 수<input type="text" class="camp-register-site"></label>
         <label>가격<input type="text" class="camp-register-price"></label>
         <div>정보
@@ -30,7 +36,7 @@
         </div>
         <label>기타정보<textarea class="camp-register-info"></textarea></label>
         <div class="camp-register-form-button-container">
-          <button type="submit">등록</button>
+          <button type="button" @click="campRegister()">등록</button>
           <button type="reset">취소</button>
         </div>
       </form>
@@ -39,27 +45,18 @@
 
 <script>
   import { reactive, computed } from 'vue';
+  import KakaoMap from './KakaoMap.vue';
 
   export default {
-    // setup() {
-    //   const state = reactive({
-    //     images:[]
-    //   })
-    // },
     data(){
       return {
-        images : []
+        images : [],
+        imagesUrl : [],
+        search: ''
       }
     },
-    computed : {
-      imagesUrl : function(){
-        let result = [];
-        for(let image of this.images) {
-          result.add(URL.createObjectURL(image));
-        }
-        console.log(result);
-        return this.imagesUrl.add(result);
-      }
+    components:{
+      KakaoMap
     },
     methods : {
       changeImage(e) {
@@ -69,16 +66,7 @@
         }
       },
       imageLoader(file) {
-        let reader = new FileReader();
-          reader.onload = e => {
-            var img_style = 'width:100%;height:100%;z-index:none';
-            let img = document.createElement('img');
-            img.setAttribute('style', img_style);
-            img.src = e.target.result;
-
-            document.querySelector('.camp-register-image-preview').append(this.makeDiv(img, file));;
-          }
-          reader.readAsDataURL(file);
+        this.imagesUrl.push(URL.createObjectURL(file));
       },
       dropImage(e) {
         let files = {};
@@ -90,46 +78,61 @@
           this.imageLoader(f);
         }
       },
-      makeDiv(img, file) {
-        // 이미지안에 표시되는 체크박스의 속성
-        let chk_style = 'width:30px;height:30px;position:absolute;font-size:24px;'
-                    + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00; border:none; cursor:pointer';
-        let div_style = 'display:inline-block;position:relative;'
-                    + 'width:150px;height:120px;margin:5px;border:1px solid #00f;z-index:1';
-        let div = document.createElement('div')
-        div.setAttribute('style', div_style)
-        
-        let btn = document.createElement('input')
-        btn.setAttribute('type', 'button')
-        btn.setAttribute('value', 'x')
-        btn.setAttribute('delFile', file.name);
-        btn.setAttribute('style', chk_style);
-        btn.onclick = function(ev){
-          let ele = ev.srcElement;
-          let delFile = ele.getAttribute('delFile');
-          console.log(this.images);
-          console.log(this.images.length);
-          for(let i=0 ;i<this.images.length; i++){
-            if(delFile== this.images[i].name){
-              this.images.splice(i, 1);      
-            }
+      deletePreview(e) {
+        let parentDiv = e.target.parentElement;
+        let tempimages = [];
+        let tempimagesUrl = [];
+
+        for(let i=0; i<this.images.length; i++){
+          if(i != parentDiv.getAttribute('id')) {
+            tempimages.push(this.images[i]);
+            tempimagesUrl.push(this.imagesUrl[i]);
           }
-          
-          let dt = new DataTransfer();
-          for(let f in this.images) {
-            let file = this.images[f];
-            dt.items.add(file);
-          }
-          btnAtt.files = dt.files;
-          let p = ele.parentNode;
-          attZone.removeChild(p)
         }
-        div.appendChild(img)
-        div.appendChild(btn)
-        return div
+        this.images = tempimages;
+        this.imagesUrl = tempimagesUrl;
+      },
+      campAddress(){
+        let search = document.querySelector('.camp-register-address').value;
+        console.log(search);
+        if(search==null || search==''){
+          alert('검색할 장소를 입력하세여');
+        } else {
+          this.search = search;
+        }
+        
       }
     }
   }
 </script>
 
 <style scoped src="@/assets/css/campRegister.css"></style>
+<style scoped>
+  .image-preview-div {
+    display:inline-block;
+    position:relative;
+    width:150px;
+    height:120px;
+    margin:5px;
+    border:1px solid #00f;
+    z-index:1;
+  }
+  .image-preview-div img {
+    width:100%;
+    height:100%;
+    z-index:none;
+  }
+  .image-preview-delete-button {
+    width:30px;
+    height:30px;
+    position:absolute;
+    font-size:24px;
+    right:0px;
+    bottom:0px;
+    z-index:999;
+    background-color:rgba(255,255,255,0.1);
+    color:#f00;
+    border:none;
+    cursor:pointer;
+  }
+</style>

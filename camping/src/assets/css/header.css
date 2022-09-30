@@ -10,6 +10,7 @@ header {
     position:fixed;
     top:0;
     left:0;
+    z-index: 1000;
     width:100vw;
     height:fit-content;
     background: rgb(6,68,32);
@@ -27,7 +28,7 @@ header {
     cursor:pointer;
 }
 .header-title img {
-    width:50px;
+    width:auto;
     height:50px;
     filter:drop-shadow(1px 1px 5px #ffffff);
 }
@@ -68,7 +69,8 @@ header {
     border-radius: 25px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly
+    justify-content: space-evenly;
+    z-index: 1000;
 }
 
 .header-middle-button > div {

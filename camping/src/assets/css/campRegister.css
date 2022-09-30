@@ -60,6 +60,7 @@
     font-size: 0.8rem;
     margin:5px;
     cursor: pointer;
+    
 }
 .camp-register-image-container label:hover {
     background-color: rgb(228,239,231);
@@ -78,6 +79,18 @@
     display: flex;
     justify-content: space-between;
     cursor:pointer;
+    position: relative;
+}
+.address-search-button {
+    width:20px;
+    height:20px;
+    position: absolute;
+    right:25px;
+    top:13px; 
+}
+.camp-register-kakaomap {
+    left:100%;
+    position:absolute;
 }
 .camp-register-form label input {
     width:50%;

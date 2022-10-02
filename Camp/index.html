@@ -17,16 +17,14 @@
   <style>
     /* 공통 부분 */
     * {
-      margin: 0;
+      margin: 0 auto;
       padding: 0;
       list-style: none;
       font-style: none;
       box-sizing: border-box;
+      font-family: "Open Sans", sans-serif;
     }
 
-    body {
-      height: 2000px;
-    }
 
     /* main top 부분 */
     .main-top-container {
@@ -86,8 +84,126 @@
     </div>
     <div class="aside-title"><span>메뉴</span></div>
   </aside>
-  <div>
+  <!-- ----------------------------------------------------------------------------------------------------- -->
+  <style>
+    .camp-detail-container {
+      margin-top:150px;
+      width:100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .camp-detail-title-container {
+      width:50%;
+      display: flex;
+      flex-direction: column;
+    }
+    .camp-detail-title {
+      width:100%;
+      text-align: left;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding:10px;
+    }
+    .camp-detail-title-info {
+      width:100%;
+      font-size: 0.9rem;
+      padding: 0 0 10px 10px;
+    }
+    .camp-detail-review-count {
+      display: inline-block;
+      text-align: left;
+      padding: 0 10px 0 0;
+      text-underline-offset: 3px;
+    }
+    .camp-detail-review-count a:visited {
+      color:#000;
+    }
+    .camp-detail-address {
+      display: inline-block;
+      text-align: left;
+      text-underline-offset: 3px;
+    }
+    .camp-detail-address a:visited {
+      color:#000;
+    }
+    .camp-detail-image-container {
+      width:50%;
+      height:300px;
+      border:1px solid rgb(220,220,220);
+    }
+    /* total width */
+    .camp-detail-image-container::-webkit-scrollbar {
+        background-color:#fff;
+        width:16px
+    }
+    /* background of the scrollbar except button or resizer */
+    .camp-detail-image-container::-webkit-scrollbar-track {
+        background-color:#fff
+    }
+    .camp-detail-image-container::-webkit-scrollbar-track:hover {
+        background-color:#f4f4f4
+    }
+    /* scrollbar itself */
+    .camp-detail-image-container::-webkit-scrollbar-thumb {
+        background-color:rgb(228,239,231) ;
+        border-radius:16px;
+        border:5px solid #fff
+    }
+    .camp-detail-image-container::-webkit-scrollbar-thumb:hover {
+        background-color:rgb(6,68,32);
+        border:4px solid #f4f4f4
+    }
+    /* set button(top and bottom of the scrollbar) */
+    .camp-detail-image-container::-webkit-scrollbar-button {display:none}
+    .camp-detail-info-container {
+      width:50%;
+      display:flex;
+    }
+    .camp-detail-info-left {
+      width:50%;
+      border-right:1px solid rgb(220,220,220);
+    }
+    @import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext");
+
+
+
+
+.container .btn {
+  width: 130px;
+  height: 40px;
+  position: absolute;
+  left: 550px;
+  font-size: 16px;
+  border: 0;
+  outline: none;
+  transition: 0.5s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+  </style>
+  <div class="camp-detail-container">
+    <div class="camp-detail-title-container">
+      <div class="camp-detail-title">캠핑가자 캠핑장</div>
+      <div class="camp-detail-title-info">
+        <div class="camp-detail-review-count"><a href="#">후기(30)</a></div>
+        <div class="camp-detail-address"><a href="#">대구광역시 중구 중구</a></div>
+      </div>
+    </div>
+    <div class="camp-detail-image-container">
+
+    </div>
+    <div class="camp-detail-info-container">
+      <div class="camp-detail-info-left">
+        <div class="camp-detail-map"></div>
+        <div class="camp-detail-site"></div>
+        <div class="camp-detail-price"></div>
+        <div class="camp-detail-info">
+          
+        </div>
+      </div>
+      <div class="camp-detail-info-right"></div>
+    </div>
   </div>
+  <!-- ----------------------------------------------------------------------------------------------------- -->
   <main>
     <!-- <div class="login_container">
       <div class="cont_centrar">
@@ -131,131 +247,19 @@
             <div class="cont_form_sign_up">
               <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
               <h2>SIGN UP</h2>
-              <input type="text" placeholder="Email" />
-              <input type="text" placeholder="User" />
-              <input type="password" placeholder="Password" />
-              <input type="password" placeholder="Confirm Password" />
+              <input type="text" placeholder="이메일" />
+              <input type="text" placeholder="닉네임" />
+              <input type="password" placeholder="비밀번호" />
+              <input type="password" placeholder="비밀번호 확인" />
+              <input type="text" placeholder="주민등록번호(900101-1)" />
+              <input type="text" placeholder="연락처" />
               <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
             </div>
           </div>
         </div>
       </div>
     </div> -->
-    <!-- 캠핑장 등록페이지 -->
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <link rel="stylesheet" href="css/campRegister.css">
-    <div class="camp-register">
-      <h2>캠핑장 등록</h2>
-      <div class="camp-register-image-container">
-        <div class="camp-register-image-preview"></div>
-        <label>사진등록
-          <input type="file" multiple style="display:none;">
-        </label>
-      </div>
-      <form class="camp-register-form" action="" onsubmit="return false">
-        <label>캠핑장 이름<input type="text" class="camp-register-name"></label>
-        <label>주소<input type="text" class="camp-register-address"></label>
-        <label>사이트 수<input type="text" class="camp-register-site"></label>
-        <label>가격<input type="text" class="camp-register-price"></label>
-        <div>정보
-          <div>
-            <button type="button">화장실</button>
-            <button type="button">주차장</button>
-            <button type="button">샤워장</button>
-            <button type="button">쓰레기장</button>
-            <button type="button">데크</button>
-            <button type="button">수영장</button>
-            <button type="button">바비큐</button>
-            <button type="button">장비대여</button>
-            <button type="button">조리도구</button>
-          </div>
-        </div>
-        <label>기타정보<textarea class="camp-register-info"></textarea></label>
-        <div class="camp-register-form-button-container">
-          <button type="submit">등록</button>
-          <button type="reset">취소</button>
-        </div>
-      </form>
-    </div>
   </main>
-  <script>
-    document.querySelector('input[type="file"]').addEventListener('change', function () {
-      // console.log(document.querySelector('input[type="file"]').files);
-      // console.log(this.files)
-      for(file of this.files){
-        imageLoader(file);
-      }
-    })
-    function imageLoader(file) {
-      let reader = new FileReader();
-        reader.onload = e => {
-          let img_style = 'width:100%;height:100%;z-index:none';
-          let img = document.createElement('img');
-          img.setAttribute('style', img_style);
-          img.src = e.target.result;
-
-          document.querySelector('.camp-register-image-preview').append(makeDiv(img, file));;
-        }
-        reader.readAsDataURL(file);
-    }
-    document.querySelector('.camp-register-image-preview').addEventListener('dragenter', function(e){
-      e.preventDefault();
-      e.stopPropagation();
-    }, false)
-    document.querySelector('.camp-register-image-preview').addEventListener('dragover', function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      
-    }, false)
-
-    document.querySelector('.camp-register-image-preview').addEventListener('drop', function(e){
-      var files = {};
-      e.preventDefault();
-      e.stopPropagation();
-      var dt = e.dataTransfer;
-      files = dt.files;
-      for(f of files){
-        imageLoader(f);
-      }
-      
-    }, false)
-    function makeDiv(img, file){
-      // 이미지안에 표시되는 체크박스의 속성
-      let chk_style = 'width:30px;height:30px;position:absolute;font-size:24px;'
-                  + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00; border:none; cursor:pointer';
-      let div_style = 'display:inline-block;position:relative;'
-                  + 'width:150px;height:120px;margin:5px;border:1px solid #00f;z-index:1';
-      let div = document.createElement('div')
-      div.setAttribute('style', div_style)
-      
-      let btn = document.createElement('input')
-      btn.setAttribute('type', 'button')
-      btn.setAttribute('value', 'x')
-      btn.setAttribute('delFile', file.name);
-      btn.setAttribute('style', chk_style);
-      btn.onclick = function(ev){
-        var ele = ev.srcElement;
-        var delFile = ele.getAttribute('delFile');
-        for(var i=0 ;i<sel_files.length; i++){
-          if(delFile== sel_files[i].name){
-            sel_files.splice(i, 1);      
-          }
-        }
-        
-        dt = new DataTransfer();
-        for(f in sel_files) {
-          var file = sel_files[f];
-          dt.items.add(file);
-        }
-        btnAtt.files = dt.files;
-        var p = ele.parentNode;
-        attZone.removeChild(p)
-      }
-      div.appendChild(img)
-      div.appendChild(btn)
-      return div
-    }
-  </script>
   <script src="js/login.js"></script>
 </body>
 

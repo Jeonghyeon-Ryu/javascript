@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-  import CampRegister from '../components/CampRegister.vue';
+  import CampRegister from '../components/Camping/CampRegister.vue';
 </script>

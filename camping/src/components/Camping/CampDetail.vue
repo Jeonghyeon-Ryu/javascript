@@ -3,12 +3,12 @@
         <div class="camp-detail-title-container">
             <div class="camp-detail-title">캠핑가자 캠핑장</div>
             <div class="camp-detail-title-info">
-                <div class="camp-detail-review-count"><a href="#">후기(30)</a></div>
+                <div class="camp-detail-review-count"><a href="#camp-detail-sns-container">후기(30)</a></div>
                 <div class="camp-detail-address"><a href="#">대구광역시 중구 중구</a></div>
             </div>
         </div>
         <div class="camp-detail-image-container">
-
+            <CampDetailImage></CampDetailImage>
         </div>
         <div class="camp-detail-info-container">
             <div class="camp-detail-info-left">
@@ -104,11 +104,15 @@
                 <button type="button" @click="reportItem()">신고하기</button>
             </div>
         </div>
+        <div id="camp-detail-sns-container" class="camp-detail-sns-container">
+
+        </div>
     </div>
 </template>
 
 <script>
 import KakaoMap from "../KakaoMap.vue";
+import CampDetailImage from "./CampDetailImage.vue";
 export default {
     data : function() { 
         return {
@@ -117,8 +121,9 @@ export default {
         }
     },
     components: {
-        KakaoMap
-    },
+    KakaoMap,
+    CampDetailImage
+},
     methods :{
         // 후기 셋팅 필요
         // 주소 카카오맵 할당 필요

@@ -1,4 +1,4 @@
 .row {
-    display:flex;
-    justify-content: baseline;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }

@@ -2,16 +2,16 @@
     <div class="table">
         <ul>
             <li class="table-header row">
-                <input type="checkbox" name="checkedUser" value="" />
-                <div class="table-column" v-for="column of columns">{{column.name}}<Sort v-if="column.sortable"></Sort>
+                <input @click="checkAll($event)" type="checkbox" name="checkedUser" value="" />
+                <div class="table-column" v-for="column of columns">{{column.name}}<Sort v-if="column.sortable" :column="column.prop" @sort="getSortData"></Sort>
                 </div>
             </li>
-            <li v-for="data of userData" class="table-body row">
+            <li v-for="data of rows" class="table-body row">
                 <input type="checkbox" name="checkedUser" value="" />
                 <div class="table-column" v-for="column of columns">{{data[column.prop]}}</div>
             </li>
         </ul>
-        <Pagination :totalPage="totalPage"></Pagination>
+        <Pagination @changePage="changePage" :startPage="startPage" :endPage="endPage" :totalPage="totalPage"></Pagination>
     </div>
 </template>
 
@@ -31,7 +31,8 @@ export default {
                 },
                 {
                     name: "이메일",
-                    prop: "email"
+                    prop: "email",
+                    sortable: true
                 },
                 {
                     name: "성별",
@@ -46,27 +47,33 @@ export default {
     created: function () {
         let total = Object.keys(this.userData).length;
         this.totalPage = Math.ceil(total / this.perPage);
-        if ((this.currentPage / 10 + 1) * 10 < this.totalPage) {
-            this.endPage = this.totalPage;
-        } else {
-            this.endPage = (this.currentPage / 10 + 1) * 10;
+        for(let i=0; i<this.perPage; i++){
+            this.rows.push(this.userData[i]);
         }
     },
     computed: {
         endPage: function () {
-            if ((this.currentPage / 10 + 1) * 10 < this.totalPage) {
+            if (((this.currentPage / 10) + 1) * 10 > this.totalPage) {
                 return this.totalPage;
             } else {
-                return (this.currentPage / 10 + 1) * 10;
+                return (Math.trunc(this.currentPage/10)+1)*10;
             }
         },
         startPage: function () {
-            return this.endPage - 10;
+            if(this.endPage == this.totalPage){
+                return (this.endPage - this.endPage%10)
+            } else {
+                return this.endPage - 10;
+            }
         }
     },
     // 페이징 함수 rows로 보여줌,
     // 페이징 번호 저장 필요
     methods: {
+        getSortData: function(column, type) {
+            console.log(column, type);
+            this.sortJSON(this.userData, column, type);
+        },
         // JSON데이터 / 키값 / asc 또는 desc
         sortJSON: function (data, key, type) {
             if (type == undefined) {
@@ -85,6 +92,20 @@ export default {
         },
         test: function () {
             console.log(this.sortJSON(this.userData, "name", "asc"));
+        },
+        checkAll: function (e) {
+            if(e.target.checked){
+                for(let checkBoxItem of document.querySelectorAll('input[type="checkbox"]')){
+                    checkBoxItem.checked=true;
+                }
+            } else {
+                for(let checkBoxItem of document.querySelectorAll('input[type="checkbox"]')){
+                    checkBoxItem.checked=false;
+                }
+            }
+        },
+        changePage: function(pageNum) {
+            this.currentPage = pageNum;
         }
     },
     components: { Pagination, Sort }

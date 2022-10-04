@@ -22,14 +22,15 @@
                 } else {
                     this.type = 'asc';
                 }
+                this.$emit('sort', this.column,this.type)
             }
         },
         computed: {
             source : function() {
                 if(this.type == 'asc'){
-                    return desc;
-                } else {
                     return asc;
+                } else {
+                    return desc;
                 }
             }
         }
@@ -38,7 +39,12 @@
 
 <style scoped>
     .sort-container {
-        width: 40px;
-        height: 40px;
+        width: 18px;
+        height: 18px;
+        overflow: hidden;
+    }
+    .sort-container img {
+        width:100%;
+        object-fit: cover;
     }
 </style>

@@ -33,14 +33,14 @@
   border-top-color: rgba(0, 0, 0, 0.35);
   border-bottom-color: rgba(0, 0, 0, 0.5);
 }
-.pagination li a:focus,
-.pagination li a:active {
+/* .pagination li a:focus, */
+/* .pagination li a:active {
   padding-top: 4px;
   border-left-width: 1px;
   background: rgb(6,68,32);
   color:#fff;
   box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.25);
-}
+} */
 .pagination li.icon a {
   min-width: 120px;
 }
@@ -49,4 +49,11 @@
 }
 .pagination li:last-child span {
   padding-left: 8px;
+}
+.pagination .active {
+  padding-top: 4px;
+  border-left-width: 1px;
+  background: rgb(6,68,32);
+  color:#fff;
+  box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.25);
 }

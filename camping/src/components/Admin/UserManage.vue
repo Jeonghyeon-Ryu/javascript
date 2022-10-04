@@ -16,7 +16,7 @@
         data : function () {
             return {
                 userData : users,
-                perPage : 10
+                perPage : 20
             }
         },  
         components : {

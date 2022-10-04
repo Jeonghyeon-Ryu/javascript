@@ -3,14 +3,15 @@
         <ul>
             <li class="table-header row">
                 <input type="checkbox" name="checkedUser" value="" />
-                <div class="table-column" v-for="column of columns">{{column.name}}<Sort v-if="column.sortable"></Sort></div>
+                <div class="table-column" v-for="column of columns">{{column.name}}<Sort v-if="column.sortable"></Sort>
+                </div>
             </li>
             <li v-for="data of userData" class="table-body row">
                 <input type="checkbox" name="checkedUser" value="" />
                 <div class="table-column" v-for="column of columns">{{data[column.prop]}}</div>
             </li>
         </ul>
-        <Pagination></Pagination>        
+        <Pagination :totalPage="totalPage"></Pagination>
     </div>
 </template>
 
@@ -19,14 +20,14 @@ import Pagination from "./Pagination.vue";
 import Sort from "./Sort.vue";
 
 export default {
-    props: ["userData"],
+    props: ["userData", "perPage"],
     data: function () {
         return {
             columns: [
                 {
                     name: "이름",
                     prop: "name",
-                    sortable : true
+                    sortable: true
                 },
                 {
                     name: "이메일",
@@ -38,9 +39,30 @@ export default {
                 }
             ],
             rows: [],
+            totalPage: 0,
             currentPage: 1,
-            totalPage: 0
         };
+    },
+    created: function () {
+        let total = Object.keys(this.userData).length;
+        this.totalPage = Math.ceil(total / this.perPage);
+        if ((this.currentPage / 10 + 1) * 10 < this.totalPage) {
+            this.endPage = this.totalPage;
+        } else {
+            this.endPage = (this.currentPage / 10 + 1) * 10;
+        }
+    },
+    computed: {
+        endPage: function () {
+            if ((this.currentPage / 10 + 1) * 10 < this.totalPage) {
+                return this.totalPage;
+            } else {
+                return (this.currentPage / 10 + 1) * 10;
+            }
+        },
+        startPage: function () {
+            return this.endPage - 10;
+        }
     },
     // 페이징 함수 rows로 보여줌,
     // 페이징 번호 저장 필요
@@ -62,11 +84,13 @@ export default {
             });
         },
         test: function () {
-            console.log(this.sortJSON(this.userData, "name","asc"));
+            console.log(this.sortJSON(this.userData, "name", "asc"));
         }
     },
     components: { Pagination, Sort }
 }
 </script>
 
-<style scoped src="./UserTable.css"></style>
+<style scoped src="./UserTable.css">
+
+</style>

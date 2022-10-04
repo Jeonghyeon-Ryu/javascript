@@ -4,7 +4,7 @@
 
         </div>
         <div class="user-manage-table">
-            <UserTable :userData="userData"></UserTable>
+            <UserTable :userData="userData" :perPage="perPage"></UserTable>
         </div>
     </div>
 </template>
@@ -15,7 +15,8 @@
     export default {
         data : function () {
             return {
-                userData : users
+                userData : users,
+                perPage : 10
             }
         },  
         components : {

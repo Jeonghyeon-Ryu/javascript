@@ -9,7 +9,7 @@
         <router-link to="/" tag="div" class="aside-right-button" style="font-weight:bold">저장 목록</router-link>
         <hr>
         <router-link to="/" tag="div" class="aside-right-button">나의 신고</router-link>
-        <router-link to="/" tag="div" class="aside-right-button">나의 정보</router-link>
+        <router-link to="/MyInfo" tag="div" class="aside-right-button">나의 정보</router-link>
         <router-link to="/" tag="div" class="aside-right-button">로그아웃</router-link>
     </div>
 </template>

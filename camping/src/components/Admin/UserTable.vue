@@ -5,7 +5,15 @@
                 <input @click="checkAll($event)" type="checkbox" name="checkedUser" value="" />
                 <div class="table-column" v-for="column of columns">{{column.name}}
                     <Sort v-if="column.sortable" :column="column.prop" @sort="getSortData"></Sort>
-                    <Filtering></Filtering>
+                    <Filtering :datas="userData" :column="column.prop" :type="column.type"></Filtering>
+                    <!-- 필터할때 필요한거 :     
+                        1. 검색할 모든 데이터
+                        2. 검색할 컬럼
+                        3. 검색할 컬럼 타입
+                        - 타입에 따라
+                        - 문자 : 같음 포함 시작 끝
+                        - 숫자 : 같음 큼 작음 포함*2
+                        - 날짜 : 같음 큼 작음 기간  -->
                 </div>
             </li>
             <li v-for="data of rows" class="table-body row">
@@ -18,8 +26,15 @@
                 <TableButton :type="'active'" @active="active(data)"></TableButton>
             </li>
         </ul>
-        <Pagination @changePage="changePage" :startPage="startPage" :endPage="endPage" :totalPage="totalPage"></Pagination>
-        <ModifyModal v-if="isModify" :columns="columns" :modifyData="modifyData"></ModifyModal>
+        <Pagination :startPage="startPage" :endPage="endPage" :totalPage="totalPage" 
+            @changePage="changePage">
+        </Pagination>
+        <ModifyModal v-if="isModify" 
+            :columns="columns" 
+            :modifyData="modifyData" 
+            @cancelModify="cancelModify"
+            @confirmModify="confirmModify">
+        </ModifyModal>
     </div>
 </template>
 
@@ -53,6 +68,11 @@ export default {
                     name: "성별",
                     prop: "gender",
                     type: String
+                },
+                {
+                    name: "메일확인",
+                    prop: "email_verified_at",
+                    type: Date
                 }
             ],
             rows: [],
@@ -159,28 +179,44 @@ export default {
                 title: '회원정보를 삭제하시겠습니까?',
                 text: '회원정보가 영구히 삭제됩니다.',
                 showCancelButton: true,
-                confirmButtonText: '취소',
-                cancelButtonText: '삭제'
+                confirmButtonText: '삭제',
+                cancelButtonText: '취소'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Swal.fire('취소 !', '', 'success')
+                    Swal.fire('삭제 취소 !', '', 'success')
                 }
             })
         },
         limit: function(data) {
             Swal.fire({
                 title: '회원 접근을 제한하시겠습니까?',
-                text: '회원정보가 영구히 삭제됩니다.',
+                text: '회원의 접근이 제한됩니다.',
                 showCancelButton: true,
-                confirmButtonText: '취소',
-                cancelButtonText: '제한'
+                confirmButtonText: '제한',
+                cancelButtonText: '취소'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Swal.fire('취소 !', '', 'success')
+                    Swal.fire('접근제한 완료 !', '', 'success')
                 }
             })
         },
-        
+        active: function(data) {
+            Swal.fire({
+                title: '회원 접근을 허용하시겠습니까?',
+                text: '회원의 접근제한이 해제됩니다.',
+                showCancelButton: true,
+                confirmButtonText: '해제',
+                cancelButtonText: '취소'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('접근제한 해제 완료 !', '', 'success')
+                }
+            })
+        },
+        cancelModify: function() {
+            this.modifyData = [];
+            this.isModify = false;
+        }
     },
     watch: {
         currentPage: function () {

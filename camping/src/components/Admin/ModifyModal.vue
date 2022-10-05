@@ -6,8 +6,8 @@
       <input type="text" :value="modifiedData[column.prop]"/>
     </div>
     <div class="modify-button-container">
-      <RButton :inputColor="'lightGreen'" :inputSize="'lg'" :inputValue="'수정'"></RButton>
-      <RButton :inputColor="'cream'" :inputSize="'md'" :inputValue="'완료'"></RButton>
+      <RButton :inputColor="'lightGreen'" :inputSize="'lg'" :inputValue="'수정'" @clickBtn="confirm()"></RButton>
+      <RButton :inputColor="'cream'" :inputSize="'lg'" :inputValue="'취소'" @clickBtn="cancel()"></RButton>
     </div>
   </div>
 </template>
@@ -20,6 +20,14 @@ export default {
             modifiedData: this.modifyData,
         };
     },
+    methods: {
+      cancel: function() {
+        this.$emit('cancelModify');
+      },
+      confirm: function() {
+        this.$emit('confirmModify')
+      }
+    }, 
     components: { RButton }
 }
 </script>
@@ -44,8 +52,13 @@ export default {
     justify-content: space-between;
   }
   .modify-row input {
+    width:70%;
     padding:5px;
     border:1px solid rgb(220,220,220);
     border-radius: 5px;
+  }
+  .modify-button-container {
+    display:flex;
+    justify-content: space-around;
   }
 </style>

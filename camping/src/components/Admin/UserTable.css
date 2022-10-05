@@ -12,6 +12,9 @@
     border-radius: 20px;
     align-items: center;
 }
+.table-header .table-column{
+    display:flex;
+}
 .table-header input[type="checkbox"],.table-body input[type="checkbox"] {
     height:15px;
 }
@@ -22,7 +25,7 @@
     padding : 2.5px;
     align-items: center;
 }
-.table-column {
+.table-body .table-column {
     display:flex;
     overflow: hidden;
     white-space: nowrap;

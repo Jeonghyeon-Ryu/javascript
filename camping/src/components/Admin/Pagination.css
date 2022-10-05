@@ -10,6 +10,14 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+.pagination li:first-child, .pagination li:first-child>a{
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.pagination li:last-child, .pagination li:last-child>a{
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
 .pagination li {
   background: rgb(250,241,230) ;
   list-style: none;

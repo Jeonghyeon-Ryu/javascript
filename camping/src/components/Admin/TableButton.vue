@@ -41,7 +41,7 @@ export default {
       } else if(type=='limit'){
         this.$emit('limit');
       } else if(type=='active'){
-        this.$emit('emit');
+        this.$emit('active');
       }
     }
   }

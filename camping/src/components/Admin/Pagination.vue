@@ -3,7 +3,7 @@
         <li class="icon" @click="clickPrev()">
             <a href="#" @click.prevent><span class="fas fa-angle-left"></span>Prev</a>
         </li>
-        <li v-for="i of pageCount" :pageNum="startPage + i" @click="clickPage(i)"><a href="#" :class="{active : currentPage==i}"
+        <li v-for="i of pageCount" :pageNum="i" @click="clickPage(i)"><a href="#" 
                 @click.prevent>{{startPage + i}}</a></li>
         <li class="icon" @click="clickNext()">
             <a href="#" @click.prevent>Next<span class="fas fa-angle-right"></span></a>
@@ -15,34 +15,24 @@ export default {
     props: ['startPage', 'endPage', 'totalPage'],
     data: function () {
         return {
-            currentPage: 1,
+            currentPage: '',
             pageCount:10
         }
     },
-    mounted: function () {
+    created: function () {
         this.currentPage = this.startPage + 1;
-        if (this.currentPage == 1) {
-            document.querySelector('.fa-angle-left').parentElement.style.pointerEvents = 'none';
-        }
-        document.querySelector('li[pageNum="' + this.currentPage + '"]').querySelector('a').classList.add('active');
     },
     methods: {
         clickPrev: function () {
-            if (this.currentPage % 10 == 0) {
-                this.currentPage = this.currentPage - 10;
-            } else {
-                this.currentPage = this.currentPage - this.currentPage % 10;
-            }
-            if (this.currentPage <= 0) {
-                this.currentPage = 1;
-            }
+            // 현재페이지 - 10 해서 / 10  -> ceil -> *10
+            this.currentPage = (Math.trunc((this.currentPage-10)/10)+1)*10;
         },
         clickPage: function (pageNum) {
-            this.currentPage = pageNum;
+            this.currentPage = this.startPage + pageNum;
         },
         clickNext: function () {
-            if (this.currentPage % 10 == 1) {
-                this.currentPage = this.currentPage + 10;
+            if (this.currentPage % 10 == 0) {
+                this.currentPage = this.currentPage + 1;
             } else {
                 this.currentPage = this.currentPage - this.currentPage % 10 + 11;
             }
@@ -65,12 +55,12 @@ export default {
 
             // Current 페이지가 범위 안에 있을 경우.
             // Current 페이지에 Active 클래스 토글
-            if (newVal <= this.endPage && newVal > this.startPage) {
-                if (oldVal > this.startPage && oldVal <= this.endPage) {
-                    document.querySelector('li[pageNum="' + oldVal + '"]').querySelector('a').classList.remove('active');
-                }
-                document.querySelector('li[pageNum="' + newVal + '"]').querySelector('a').classList.add('active');
+            for(let aTag of document.querySelectorAll('.pagination li a')) {
+                aTag.classList.remove('active');
             }
+            this.$nextTick(function() {
+                document.querySelector('li[pageNum="' + (newVal - this.startPage) + '"]').querySelector('a').classList.add('active');
+            })
 
             this.$emit('changePage', this.currentPage);
         },

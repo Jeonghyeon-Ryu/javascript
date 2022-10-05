@@ -39,12 +39,13 @@
 
 <style scoped>
     .sort-container {
-        width: 18px;
-        height: 18px;
+        width: 21px;
+        height: 21px;
         overflow: hidden;
+        margin-left:10px;
     }
     .sort-container img {
-        width:100%;
+        height: 100%;
         object-fit: cover;
     }
 </style>

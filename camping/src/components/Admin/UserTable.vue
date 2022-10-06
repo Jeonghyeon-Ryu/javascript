@@ -6,14 +6,6 @@
                 <div class="table-column" v-for="column of columns">{{column.name}}
                     <Sort v-if="column.sortable" :column="column.prop" @sort="getSortData"></Sort>
                     <Filtering :datas="userData" :column="column.prop" :type="column.type"></Filtering>
-                    <!-- 필터할때 필요한거 :     
-                        1. 검색할 모든 데이터
-                        2. 검색할 컬럼
-                        3. 검색할 컬럼 타입
-                        - 타입에 따라
-                        - 문자 : 같음 포함 시작 끝
-                        - 숫자 : 같음 큼 작음 포함*2
-                        - 날짜 : 같음 큼 작음 기간  -->
                 </div>
             </li>
             <li v-for="data of rows" class="table-body row">

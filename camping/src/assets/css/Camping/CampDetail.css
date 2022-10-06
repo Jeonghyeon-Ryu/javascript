@@ -107,9 +107,16 @@
     padding:10px;
 }
 .camp-detail-info-left > div > input {
-    padding:5px 5px 5px 25px;
+    margin-bottom: 5px;
+    padding:10px 5px 10px 25px;
     background: #fff;
-    border: none;
+    border: 1px solid #d2d6da;
+    outline: none;
+}
+.camp-detail-info-left > div > input:focus{
+    border-color: #4caf50 !important;
+    /* border-top-color: transparent !important; */
+    box-shadow: inset 1px 0 #4caf50, inset -1px 0 #4caf50, inset 0 -1px #4caf50;
 }
 .camp-detail-map { 
     width:100%;
@@ -185,4 +192,14 @@
 .camp-detail-info-right button[type="button"]:hover {
     background-color: rgb(228,239,231);
     box-shadow: 1px 1px 2px gray;
+}
+
+
+/* 캠핑 수정 CSS */
+.prev {
+    margin-bottom: 5px;
+    padding:10px 5px 10px 25px;
+    background: rgb(220, 220, 220);
+    border: none;
+    font-size: 0.8rem;
 }

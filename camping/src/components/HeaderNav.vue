@@ -17,11 +17,14 @@
       <div class="aside-right-container">
         <AsideRight></AsideRight>
       </div>
-      <div class="header-middle-button" >
-        <div>캠핑장</div> 
-        <div>캠핑장</div> 
-        <div>캠핑장</div> 
-        <div>캠핑장</div> 
+      <div class="header-middle-container">
+        <!-- <NavbarDefault dark transparent></NavbarDefault> -->
+        <div class="header-middle-button" >
+          <div>캠핑장</div> 
+          <div>캠핑장</div> 
+          <div>캠핑장</div> 
+          <div>캠핑장</div> 
+        </div>
       </div>
     </div>
   </div>
@@ -29,6 +32,7 @@
 
 <script>
   import AsideRight from '@/components/AsideRight.vue'
+// import NavbarDefault from '@/examples/navbars/NavbarDefault.vue';
     export default {
     name: "HeaderNav",
     props: ["category"],

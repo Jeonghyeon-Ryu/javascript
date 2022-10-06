@@ -2,9 +2,9 @@ header {
     
 }
 .header-top-container {
-    position:fixed;
+    /* position:fixed;
     top:0;
-    left:0;
+    left:0; */
     width:100vw;
     height:fit-content;
     background: rgb(6,68,32);
@@ -55,12 +55,12 @@ header {
 .header-middle-button {
     position: fixed;
     top:90px;
-    left: 5%;
-    width: 90%;
+    left: calc(25%);
+    width: 50%;
     height: 50px;
     /* background: rgba(253,250,246,0.7); */
-    background: rgba(250,241,230,0.7);
-    border-radius: 25px;
+    background: rgba(223, 223, 223, 0.9);
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: space-evenly
@@ -76,7 +76,7 @@ header {
     cursor: pointer;
 }
 .header-middle-button > div:hover {
-    background: rgba(228,239,231,0.7);
+    /* background: rgba(228,239,231,0.7); */
     /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

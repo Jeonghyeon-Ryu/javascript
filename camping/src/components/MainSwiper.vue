@@ -1,5 +1,5 @@
 <template>
-    <swiper :autoplay="{ delay:2000, disableOnInteraction:false }" :navigation="true" :modules="modules" class="mySwiper">
+    <swiper :autoplay="{ delay:2000, disableOnInteraction:false }" :pagination="true" :navigation="true" :modules="modules" class="mySwiper">
       <swiper-slide><img src="../assets/img/main-image/main_1.jpg"/></swiper-slide>
       <swiper-slide><img src="../assets/img/main-image/main_2.jpg"/></swiper-slide>
       <swiper-slide><img src="../assets/img/main-image/main_3.jpg"/></swiper-slide>
@@ -14,9 +14,10 @@
   // Import Swiper styles
   import "swiper/css";
   import "swiper/css/navigation";
+  import "swiper/css/pagination";
   
   // import required modules
-  import { Autoplay, Navigation } from "swiper";
+  import { Autoplay, Navigation,Pagination } from "swiper";
   
   export default {
     components: {
@@ -25,13 +26,13 @@
     },
     setup() {
       return {
-        modules: [ Autoplay, Navigation],
+        modules: [ Autoplay, Navigation, Pagination],
       };
     },
   };
   </script>
   
-  <style>
+  <style scoped>
     .swiper {
         width: 100%;
         height: 60vh;

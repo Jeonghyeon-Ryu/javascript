@@ -1,6 +1,6 @@
 <template>
-  <!-- <MainSwiper></MainSwiper> -->
-  <UserManage></UserManage>
+  <MainSwiper></MainSwiper>
+  <!-- <UserManage></UserManage> -->
   <!-- <CampDetail></CampDetail> -->
   <!-- <CampRegister></CampRegister> -->
   <!-- <UserInfo></UserInfo> -->

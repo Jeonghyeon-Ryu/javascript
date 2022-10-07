@@ -4,7 +4,8 @@
   <!-- <CampDetail></CampDetail> -->
   <!-- <CampRegister></CampRegister> -->
   <!-- <UserInfo></UserInfo> -->
-  <CampModify></CampModify>
+  <!-- <CampModify></CampModify> -->
+  <CampList></CampList>
 </template>
 
 <script setup>
@@ -14,5 +15,6 @@ import CampDetail from '../components/Camping/CampDetail.vue';
 import UserManage from '@/components/Admin/UserManage.vue';
 import UserInfo from '../components/User/UserInfo.vue';
 import CampModify from '@/components/Camping/CampModify.vue';
+import CampList from '../components/Camping/CampList.vue';
   // import LoginSignup from '@/components/LoginSignup.vue';
 </script>

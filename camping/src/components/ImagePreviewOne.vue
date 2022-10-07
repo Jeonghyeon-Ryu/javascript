@@ -25,8 +25,8 @@
  
 <template>
     <div class="image-preview-container">
-        <div v-for="(img,index) of imagesUrl" :id="index" class="image-preview-div">
-            <img :src="img" />
+        <div class="image-preview-div">
+            <img :src="imagesUrl" />
             <input type="button" value="X" @mouseover="mouseoverImage($event)" @mouseout="mouseoutImage($event)" @click="deleteImage($event)" class="image-preview-delete-button" />
         </div>
     </div>
@@ -34,11 +34,11 @@
 
 <script>
     export default {
-        props : ['images'],
+        props : ['image'],
         data() {
             return {
                 imageFiles : [],
-                imagesUrl : []
+                imagesUrl : ''
             }
         },
         methods : {
@@ -69,7 +69,7 @@
                 }
                 this.imageFiles = dt.files;
                 for(let image of this.imageFiles){
-                    this.imagesUrl.push(URL.createObjectURL(image));
+                    this.imagesUrl = URL.createObjectURL(image);
                 }
             },
             mouseoverImage(e) {
@@ -82,9 +82,9 @@
             }
         },
         watch : {
-            images(newImages, oldImages) {
-                if(newImages.length >= oldImages.length){
-                    this.insertImage(newImages);
+            image(newImage, oldImage) {
+                if(newImage.length >= oldImage.length){
+                    this.insertImage(newImage);
                 }
             }
         }
@@ -140,12 +140,11 @@
 .image-preview-div {
     display: inline-block;
     position: relative;
-    width: 150px;
-    height: 120px;
-    margin: 5px;
-    border: 1px solid #00f;
+    width: 100%;
+    height: 100%;
     z-index: 1;
     cursor: pointer;
+    border:none;
 }
 
 .image-preview-div img {
@@ -173,6 +172,6 @@
     color: rgba(255, 145, 0, 0.9);
     border: none;
     cursor: pointer;
-    opacity: 0.3;
+    opacity: 0;
 }
 </style>

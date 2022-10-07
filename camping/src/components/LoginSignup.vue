@@ -36,7 +36,7 @@
               <h2>LOGIN</h2>
               <input type="text" placeholder="Email" />
               <input type="password" placeholder="Password" />
-              <button class="btn_login" @click="clickLogin()">LOGIN</button>
+              <button class="btn_login" @click="clickLogin($event)">LOGIN</button>
               <button class="btn_login">KAKAO</button>
               <button class="btn_login">NAVER</button>
             </div>
@@ -84,8 +84,21 @@
                     document.querySelector('.cont_form_login').style.display = "none";
                 }, 400);
             },
-            clickLogin : () => {
-                console.log("로그인 서버 통신");
+            clickLogin : (e) => {
+                let loginData = {
+                  "memberEmail" : e.target.parentElement.querySelector('input[type="text"]').value,
+                  "password" : e.target.parentElement.querySelector('input[type="password"]').value
+                };
+                console.log(loginData);
+                fetch('http://localhost:8087/java/login',{
+                  method:'POST',
+                  headers: {
+                    'Content-Type' : 'application/json'
+                  },
+                  body: JSON.stringify(loginData)
+                })
+                  .then(result => console.log(result))
+                  .catch(error => console.log(error));
             },
             clickSignup : () => {
                 console.log("회원가입 서버 통신");

@@ -15,85 +15,85 @@
                 <div class="camp-detail-map">
                     <span>위치 정보</span>
                     <div class="prev">대구광역시 중구 중구</div>
-                    <input type="text" placeholder="" />
+                    <input type="text" name="camp_address" placeholder="" />
                     <KakaoMap :search="search" :isNotList="isNotList"></KakaoMap>
                 </div>
                 <div class="camp-detail-site">
                     <span>사이트 수</span>
                     <div class="prev">2개</div>
-                    <input type="text" value="2개" />
+                    <input type="text" name="camp_site" value="2개" />
                 </div>
                 <div class="camp-detail-price">
                     <span>가격</span>
                     <div class="prev">50,000원</div>
-                    <input type="text" value="가격정보 없음" />
+                    <input type="text" name="camp_price" value="가격정보 없음" />
                 </div>
                 <div class="camp-detail-info">
                     <span>정보</span>
                     <div class="camp-detail-info-buttons">
                         <div class="row">
-                            <label>
-                                <input type="checkbox" name="toilet" />
-                                <div class="icon-box">
-                                    <img src="@/assets/img/Camping/toilet-50.png" />
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="camp_info" value="toilet"/>
+                                <div class="icon-box" @click="clickCheckBox($event)">
+                                    <img src="@/assets/img/Camping/toilet.png" />
                                     <span>화장실</span>
                                 </div>
                             </label>
-                            <label>
-                                <input type="checkbox" name="parking" />
-                                <div class="icon-box">
-                                    <img src="@/assets/img/Camping/parking-50.png">
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="camp_info" value="parking"/>
+                                <div class="icon-box" @click="clickCheckBox($event)">
+                                    <img src="@/assets/img/Camping/parking.png">
                                     <span>주차장</span>
                                 </div>
                             </label>
-                            <label>
-                                <input type="checkbox" name="shower" />
-                                <div class="icon-box">
-                                    <img src="@/assets/img/Camping/shower-50.png" />
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="camp_info" value="shower"/>
+                                <div class="icon-box" @click="clickCheckBox($event)">
+                                    <img src="@/assets/img/Camping/shower.png" />
                                     <span>샤워장</span>
                                 </div>
                             </label>
-                            <label>
-                                <input type="checkbox" name="disposal" />
-                                <div class="icon-box">
-                                    <img src="@/assets/img/Camping/disposal-50.png" />
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="camp_info" value="disposal"/>
+                                <div class="icon-box" @click="clickCheckBox($event)">
+                                    <img src="@/assets/img/Camping/disposal.png" />
                                     <span>쓰레기장</span>
                                 </div>
                             </label>
 
-                            <label>
-                                <input type="checkbox" name="deck" />
-                                <div class="icon-box">
-                                    <img src="@/assets/img/Camping/deck-50.png" />
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="camp_info" value="deck"/>
+                                <div class="icon-box" @click="clickCheckBox($event)">
+                                    <img src="@/assets/img/Camping/deck.png" />
                                     <span>데크</span>
                                 </div>
                             </label>
 
-                            <label>
-                                <input type="checkbox" name="bbq" />
-                                <div class="icon-box">
-                                    <img src="@/assets/img/Camping/grill-50.png" />
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="camp_info" value="bbq"/>
+                                <div class="icon-box" @click="clickCheckBox($event)">
+                                    <img src="@/assets/img/Camping/bbq.png" />
                                     <span>바비큐</span>
                                 </div>
                             </label>
-                            <label>
-                                <input type="checkbox" name="pool" />
-                                <div class="icon-box">
-                                    <img src="@/assets/img/Camping/swimming-pool-50.png" />
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="camp_info" value="swim"/>
+                                <div class="icon-box" @click="clickCheckBox($event)">
+                                    <img src="@/assets/img/Camping/swim.png" />
                                     <span>수영장</span>
                                 </div>
                             </label>
-                            <label>
-                                <input type="checkbox" name="cooking" />
-                                <div class="icon-box">
-                                    <img src="@/assets/img/Camping/spoon-50.png" />
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="camp_info" value="kitchen"/>
+                                <div class="icon-box" @click="clickCheckBox($event)">
+                                    <img src="@/assets/img/Camping/spoon.png" />
                                     <span>조리도구</span>
                                 </div>
                             </label>
-                            <label>
-                                <input type="checkbox" name="lease" />
-                                <div class="icon-box">
-                                    <img src="@/assets/img/Camping/lease-50.png" />
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="camp_info" value="lease"/>
+                                <div class="icon-box" @click="clickCheckBox($event)">
+                                    <img src="@/assets/img/Camping/lease.png" />
                                     <span>장비대여</span>
                                 </div>
                             </label>
@@ -103,7 +103,7 @@
             </form>
             <div class="camp-detail-info-right">
                 <RButton :inputColor="'lightGreen'" :inputSize="'md'" :inputValue="'수정신청'" @clickBtn="confirm()"></RButton>
-      <RButton :inputColor="'cream'" :inputSize="'md'" :inputValue="'취소'" @clickBtn="cancel()"></RButton>
+                <RButton :inputColor="'cream'" :inputSize="'md'" :inputValue="'취소'" @clickBtn="cancel()"></RButton>
             </div>
         </div>
         <div id="camp-detail-sns-container" class="camp-detail-sns-container">
@@ -121,7 +121,7 @@ export default {
     data : function() { 
         return {
             isNotList : true,
-            search : '대구광역시 달서구 달서대로 719'
+            search : '대구광역시 달서구 달서대로 719',
         }
     },
     components: {
@@ -134,17 +134,36 @@ export default {
         // 주소 카카오맵 할당 필요
         // 기타 정보 할당 필요
         // 사진 Swiper 적용하기
-        saveItem() {
-            console.log(new FormData(document.querySelector()))
-        },
-        getCompanion() {
+        clickCheckBox(e) {
+            e.preventDefault();
+            let checkItem = e.target.parentElement;
+            while(!checkItem.classList.contains('checkboxLabel')){
+                checkItem = checkItem.parentElement;
+            }
+            checkItem = checkItem.querySelector('input');
             
+            console.log(checkItem.checked);
+            if(checkItem.checked){
+                checkItem.checked = false;
+            } else {
+                checkItem.checked = true;
+            }
         },
-        modifyItem() {
-
+        confirm() {
+            let fetchData = {};
+            new FormData(document.querySelector('.camp-detail-info-left')).forEach((value,key) => fetchData[key]=value);
+            console.log(fetchData);
+            for(let aa of document.querySelectorAll('input[type="checkbox"]')){
+                if(aa.checked){
+                    fetchData.camp_info = fetchData.camp_info + ',' + aa.value;
+                }
+            }
+            console.log(fetchData);
+            
+           
         },
-        reportItem() {
-
+        cancel() {
+            
         }
     }
 }

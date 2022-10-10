@@ -7,18 +7,14 @@
 
 <script>
 import { RouterLink, RouterView } from 'vue-router'
-import HeaderNav from './components/HeaderNav.vue'
-import MainSwiper from './components/MainSwiper.vue'
-import Sns from './components/SNS.vue'
-import NodeMenu from './components/NoteMenu.vue'
+import HeaderNav from './components/Main/HeaderNav.vue'
+import MainSwiper from './components/Main/MainSwiper.vue'
 
 export default {
   name: 'App',
   components: {
     HeaderNav,
     MainSwiper,
-    Sns,
-    NodeMenu
   }
 }
 </script>

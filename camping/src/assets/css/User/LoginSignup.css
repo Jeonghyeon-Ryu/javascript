@@ -1,128 +1,9 @@
-<template>
-    <div class="login_container">
-      <div class="cont_centrar">
-        <div class="cont_login">
-          <div class="cont_info_log_sign_up">
-            <div class="col_md_login">
-              <div class="cont_ba_opcitiy">
-                <h2>Login</h2>
-                <p>드루와드루와</p>
-                <button class="btn_login" @click="click_login()">LOGIN</button>
-              </div>
-            </div>
-            <div class="col_md_sign_up">
-              <div class="cont_ba_opcitiy">
-                <h2>Sign Up</h2>
-                <p>캠핑 가족이 되어주세요 !</p>
-                <button class="btn_sign_up" @click="click_sign_up()">SIGN UP</button>
-              </div>
-            </div>
-          </div>
-          <div class="cont_back_info">
-            <div class="cont_img_back_grey">
-              <img
-                src="@/assets/img/login/login_background.jpg"
-                alt="" />
-            </div>
-          </div>
-          <div class="cont_forms">
-            <div class="cont_img_back_">
-              <img
-                src="@/assets/img/login/login_background.jpg"
-                alt="" />
-            </div>
-            <div class="cont_form_login">
-              <a href="#" @render-tracked="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
-              <h2>LOGIN</h2>
-              <input type="text" placeholder="Email" />
-              <input type="password" placeholder="Password" />
-              <button class="btn_login" @click="clickLogin($event)">LOGIN</button>
-              <button class="btn_login">KAKAO</button>
-              <button class="btn_login">NAVER</button>
-            </div>
-            <div class="cont_form_sign_up">
-              <a href="#" @click="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
-              <h2>SIGN UP</h2>
-              <input type="text" placeholder="이메일" />
-              <input type="text" placeholder="닉네임" />
-              <input type="password" placeholder="비밀번호" />
-              <input type="password" placeholder="비밀번호 확인" />
-              <input type="text" placeholder="주민등록번호(900101-1)" />
-              <input type="text" placeholder="연락처" />
-              <button class="btn_sign_up" @click="clickSignup()">SIGN UP</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-</template>
-
-<script>
-    export default {
-        methods : {
-            click_login : () => {
-                document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";
-                document.querySelector('.cont_form_login').style.display = "block";
-                document.querySelector('.cont_form_sign_up').style.opacity = "0";
-
-                setTimeout(function () { document.querySelector('.cont_form_login').style.opacity = "1"; }, 400);
-
-                setTimeout(function () {
-                    document.querySelector('.cont_form_sign_up').style.display = "none";
-                }, 200);
-            },
-            click_sign_up : () => {
-                document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_sign_up";
-                document.querySelector('.cont_form_sign_up').style.display = "block";
-                document.querySelector('.cont_form_login').style.opacity = "0";
-
-                setTimeout(function () {
-                    document.querySelector('.cont_form_sign_up').style.opacity = "1";
-                }, 100);
-
-                setTimeout(function () {
-                    document.querySelector('.cont_form_login').style.display = "none";
-                }, 400);
-            },
-            clickLogin : (e) => {
-                let loginData = {
-                  "memberEmail" : e.target.parentElement.querySelector('input[type="text"]').value,
-                  "password" : e.target.parentElement.querySelector('input[type="password"]').value
-                };
-                console.log(loginData);
-                fetch('http://localhost:8087/java/login',{
-                  method:'POST',
-                  headers: {
-                    'Content-Type' : 'application/json'
-                  },
-                  body: JSON.stringify(loginData)
-                })
-                  .then(result => console.log(result))
-                  .catch(error => console.log(error));
-            },
-            clickSignup : () => {
-                console.log("회원가입 서버 통신");
-            },
-            ocultar_login_sign_up : () => {
-                document.querySelector('.cont_forms').className = "cont_forms";
-                document.querySelector('.cont_form_sign_up').style.opacity = "0";
-                document.querySelector('.cont_form_login').style.opacity = "0";
-
-                setTimeout(function () {
-                    document.querySelector('.cont_form_sign_up').style.display = "none";
-                    document.querySelector('.cont_form_login').style.display = "none";
-                }, 500);
-            }
-        }
-    }
-</script>
-
-<style scoped>
-    .login_container {
+.login_container {
     /* position: absolute; 뷰로 옮기면 없애야됨. */
     width: 100vw;
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     background: rgb(253,250,246);
     background: linear-gradient(120deg, rgba(253,250,246,1) 0%, rgba(250,241,230,1) 50%, rgba(6,68,32,1) 100%);
     text-align: center;
@@ -132,7 +13,9 @@
     display: flex;
     justify-content: center;
     align-self: center;
+    padding-top:100px;
     width: 100%;
+    height:100%;
   }
   
   .cont_login {
@@ -431,7 +314,9 @@
     border: none;
     color: #757575;
   }
-  
+  .cont_form_sign_up > input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+  }
   .cont_form_sign_up > h2 {
     margin-top: 50px;
     font-weight: 400;
@@ -461,4 +346,3 @@
     margin: 10px;
     margin-left: 30px;
   }
-</style>

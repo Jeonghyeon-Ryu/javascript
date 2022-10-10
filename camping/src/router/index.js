@@ -9,7 +9,7 @@ const routes = [
   {
     path: '/Login',
     name: 'LoginSignup',
-    component: () => import ('@/components/LoginSignup.vue'),
+    component: () => import ('@/components/User/LoginSignup.vue'),
   },
   {
     path: '/MyInfo',

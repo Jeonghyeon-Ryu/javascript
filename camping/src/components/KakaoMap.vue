@@ -45,7 +45,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.isNotList);
     if (window.kakao && window.kakao.maps) {
       this.initMap();
     } else {
@@ -166,7 +165,6 @@ export default {
       this.map.setBounds(bounds);
     },
     placeListClick(e){
-      console.log(e.target);
       // 마커 번호, 이름 받아오기
       let result = this.getMarkerAndName(e.target);
       this.$emit('setAddress',result.address);
@@ -178,7 +176,6 @@ export default {
       this.displayInfowindow(result.marker, result.title);
     },
     mouseOutList() {
-      console.log('mouseOut');
       this.infowindow.close();
     },  
     getMarkerAndName(el){

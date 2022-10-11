@@ -85,21 +85,39 @@ export default {
         document.querySelector('.cont_form_login').style.display = "none";
       }, 400);
     },
-    clickLogin: (e) => {
+    clickLogin: function(e) {
       let loginForm = e.target.parentElement;
-      let loginData = {
+      let member = {
         "email": loginForm.querySelector('input[type="text"]').value,
         "password": loginForm.querySelector('input[type="password"]').value
       };
-      console.log(loginData);
+      
       fetch('http://localhost:8087/java/login', {
-        method: 'POST',
+        method: "POST",
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(loginData)
-      })
-        .then(result => console.log(result))
+        body: JSON.stringify(member)
+      }).then(result => result.text())
+        .then(result => {
+          if (result == "true") {
+            console.log(this);
+            this.$router.replace('/');
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: '아이디 또는 비밀번호가 일치하지 않습니다.',
+              toast: true,
+              showConfirmButton: false,
+              timer: 2000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              }
+            })
+          }
+        })
         .catch(error => console.log(error));
     },
     clickSignup: (e) => {
@@ -136,49 +154,49 @@ export default {
       IMP.init("imp77170587");
       IMP.certification({
         merchant_uid: `${new Date().getTime()}`,
-      }, function(result){
-        if(result.success){
+      }, function (result) {
+        if (result.success) {
           console.log("성공", result.imp_uid);
           imp_uid = result.imp_uid;
           console.log(imp_uid);
-          fetch('http://localhost:8087/java/auth?impUid='+imp_uid)
+          fetch('http://localhost:8087/java/auth?impUid=' + imp_uid)
             .then(result => result.json())
             .then(result => {
-              if(result.name != signupForm.querySelector('input[name="name"]').value){
-                document.querySelector('input[name="name"]').value=result.name;
+              if (result.name != signupForm.querySelector('input[name="name"]').value) {
+                document.querySelector('input[name="name"]').value = result.name;
               }
-              if(result.phoneNumber != signupForm.querySelector('input[name="phone_number"]').value){
-                document.querySelector('input[name="name"]').value=result.phoneNumber;
+              if (result.phoneNumber != signupForm.querySelector('input[name="phone_number"]').value) {
+                document.querySelector('input[name="name"]').value = result.phoneNumber;
               }
               // 본인인증 성공 후, 회원가입 자동 요청
-              fetch('http://localhost:8087/java/member',{
-                method:"PUT",
+              fetch('http://localhost:8087/java/member', {
+                method: "POST",
                 headers: {
                   'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(signupData)
               }).then(result => result.text())
-              .then(result => {
-                if(result == "true"){
-                  this.$router.replace('Home');
-                } else {
-                  Swal.fire({
-                    icon: 'error',
-                    title: '알수없는 오류로 회원가입에 실패하였습니다.',
-                    toast: true,
-                    showConfirmButton: false,
-                    timer: 2000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                      toast.addEventListener('mouseenter', Swal.stopTimer)
-                      toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                  })
-                }
-              }).catch(err => console.log("회원가입 오류", err))
+                .then(result => {
+                  if (result == "true") {
+                    this.$router.push({path: '/', name: 'Home'});
+                  } else {
+                    Swal.fire({
+                      icon: 'error',
+                      title: '알수없는 오류로 회원가입에 실패하였습니다.',
+                      toast: true,
+                      showConfirmButton: false,
+                      timer: 2000,
+                      timerProgressBar: true,
+                      didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                      }
+                    })
+                  }
+                }).catch(err => console.log("회원가입 오류", err))
             }).catch(err => console.log("본인인증 오류", err));
-          
-        }else {
+
+        } else {
           console.log("실패", result);
         }
       })

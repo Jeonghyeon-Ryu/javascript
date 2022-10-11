@@ -173,7 +173,7 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-.camp-register-form .camp-register-info button[type="button"] {
+/* .camp-register-form .camp-register-info button[type="button"] {
     width:60px;
     margin:3px 2px;
     height:50px;
@@ -184,7 +184,56 @@
 .camp-register-form .camp-register-info button[type="button"]:hover{
     background-color: rgb(228,239,231);
     box-shadow: 1px 1px 2px gray;
+} */
+
+.row {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
+
+.row label {
+    width:fit-content;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+}
+
+.row label input[type="checkbox"] {
+    display: none;
+}
+
+.row label .icon-box {
+    position: relative;
+    display: flex;
+    width: 60px;
+    padding: 5px;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+    font-size: 10px;
+    transition: 0.5s;
+    user-select: none;
+}
+
+.row label input[type="checkbox"]:checked~.icon-box {
+    box-shadow: 2px 2px 5px rgb(180, 180, 180);
+    background: linear-gradient(160deg, rgb(250,241,230),rgb(228,239,231), rgb(6,68,32));
+    color: #fff;
+}
+.row label .icon-box>img {
+    width:40px;
+    height:40px;
+}
+.row label .icon-box span {
+    margin-top: 5px;
+    font-size: 10px;
+}
+
 .camp-register-etc-info {
     width:50%;
     height:150px;

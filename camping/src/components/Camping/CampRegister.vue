@@ -205,7 +205,6 @@ export default {
           camp.campInfo = camp.campInfo + ',' + aa.value;
         }
       }
-      console.log(camp.campInfo);
       if (camp.campInfo != null) {
         if (camp.campInfo.indexOf(',') == 0) {
           camp.campInfo = camp.campInfo.substring(1, camp.campInfo.length);
@@ -223,15 +222,22 @@ export default {
       // .catch(err => console.log(err))
 
       // console.log(new FormData(document.querySelector('#camp-register-image-form')));
-
-      let imageData = new FormData();
+      console.log(this.images);
+      let imageDatas = new FormData();
       for (let image of this.images) {
-        imageData.append(image.name, image);
+        console.log(image);
+        imageDatas.append("files", image);
       }
+
+      console.log(imageDatas);
+      imageDatas.forEach(function(value,key){
+        console.log(value);
+      })
 
       fetch('http://localhost:8087/java/campImage', {
         method:"POST",
-        body:imageData
+        headers:{ },
+        body:imageDatas
       }).then(result => result.text())
       .then(result => console.log(result))
       .catch(err => console.log(err))

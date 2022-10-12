@@ -129,6 +129,7 @@ import { reactive, computed } from 'vue';
 import KakaoMap from '../KakaoMap.vue';
 import Swal from 'sweetalert2';
 import ImagePreview from '../ImagePreview.vue';
+import { html } from 'dom7';
 
 export default {
   data() {
@@ -198,66 +199,133 @@ export default {
       document.querySelector('.camp-register-address').value = address;
     },
     insertRegister() {
-      let camp = {};
-      new FormData(document.querySelector('.camp-register-form')).forEach((value, key) => camp[key] = value);
-      for (let aa of document.querySelectorAll('input[type="checkbox"]')) {
-        if (aa.checked) {
-          camp.campInfo = camp.campInfo + ',' + aa.value;
-        }
+      let camp = new FormData(document.querySelector('.camp-register-form'));
+      // .forEach((value, key) => camp[key] = value)
+      // for (let aa of document.querySelectorAll('input[type="checkbox"]')) {
+      //   if (aa.checked) {
+      //     camp.campInfo = camp.campInfo + ',' + aa.value;
+      //   }
+      // }
+      // if (camp.campInfo != null) {
+      //   if (camp.campInfo.indexOf(',') == 0) {
+      //     camp.campInfo = camp.campInfo.substring(1, camp.campInfo.length);
+      //   }
+      // }
+
+      // 이미지 데이터 가져오기
+      // let imageDatas = new FormData();
+      for (let image of this.images) {
+        camp.append("files", image);
       }
-      if (camp.campInfo != null) {
-        if (camp.campInfo.indexOf(',') == 0) {
-          camp.campInfo = camp.campInfo.substring(1, camp.campInfo.length);
+      // Not NULL 인 입력정보 확인 후 등록 시작
+      Swal.fire({
+        title: '정말로 등록하시겠습니까?',
+        showCancelButton: true,
+        confirmButtonText: '등록',
+        cancelButtonText: '취소'
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          if (camp.campName == '') {
+            Swal.fire({
+              icon: 'warning',
+              title: '캠핑장 이름을 입력하세요.',
+              toast: true,
+              position: 'center-center',
+              showConfirmButton: false,
+              timer: 2000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                document.querySelector('input[name="campName"]').focus();
+              }
+            })
+          } else if (camp.campAddress == '') {
+            Swal.fire({
+              icon: 'warning',
+              title: '캠핑장 주소를 입력하세요.',
+              toast: true,
+              position: 'center-center',
+              showConfirmButton: false,
+              timer: 2000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                document.querySelector('input[name="campAddress"]').focus();
+              }
+            })
+          } else {
+            fetch('http://localhost:8087/java/camp', {
+              method: 'POST',
+              headers: {  },
+              body: camp
+            }).then(result => result.text())
+              .then(result => {
+                if (result == "true") { // 캠핑장 등록이 정상적으로 되었을때
+                  this.$router.push({name:'CampList'});
+                  
+                } else { // 캠핑장 등록이 DB에서 안되었을때
+                  Swal.fire({
+                    icon: 'error',
+                    title: '캠핑장이 정상적으로 등록되지 않았습니다.',
+                    text: '계속해서 등록되지 않으면 고객센터로 문의해주세요.',
+                    toast: true,
+                    position: 'center-center',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                  })
+                }
+              })
+              .catch(err => { // fetch 자체가 안되었을때
+                Swal.fire({
+                  icon: 'error',
+                  title: '등록을 위한 통신 연결이 되지않습니다..',
+                  text: '계속해서 등록되지 않으면 고객센터로 문의해주세요.',
+                  toast: true,
+                  position: 'center-center',
+                  showConfirmButton: false,
+                  timer: 2000,
+                  timerProgressBar: true,
+                  didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                  }
+                })
+              })
+          }
         }
-      }
+      })
+
+
       console.log(camp);
-      // fetch('http://localhost:8087/java/camp', {
-      //   method:'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body: JSON.stringify(camp)
-      // }).then(result => result.text())
-      // .then(result => console.log(result))
-      // .catch(err => console.log(err))
+
 
       // console.log(new FormData(document.querySelector('#camp-register-image-form')));
       console.log(this.images);
-      let imageDatas = new FormData();
-      for (let image of this.images) {
-        console.log(image);
-        imageDatas.append("files", image);
-      }
 
-      console.log(imageDatas);
-      imageDatas.forEach(function(value,key){
-        console.log(value);
-      })
+      // 폼 데이터 Append 된거 확인
+      // console.log(imageDatas);
+      // imageDatas.forEach(function (value, key) {
+      //   console.log(value);
+      // })
 
-      fetch('http://localhost:8087/java/campImage', {
-        method:"POST",
-        headers:{ },
-        body:imageDatas
-      }).then(result => result.text())
-      .then(result => console.log(result))
-      .catch(err => console.log(err))
+
+
+
       // const obj2 = {};
       // imageData.forEach((value, key) => obj2[key] = value);
 
       // console.log(obj2);
 
 
-      // Swal.fire({
-      //   title: '정말로 등록하시겠습니까?',
-      //   showCancelButton: true,
-      //   confirmButtonText: '등록',
-      //   cancelButtonText : '취소'
-      // }).then((result) => {
-      //   /* Read more about isConfirmed, isDenied below */
-      //   if (result.isConfirmed) {
-      //     Swal.fire('등록완료!', '', 'success')
-      //   }
-      // })
+
     },
     cancelRegister() {
       Swal.fire({

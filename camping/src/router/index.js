@@ -16,6 +16,11 @@ const routes = [
     path: '/MyInfo',
     component: () => import ('@/components/User/UserInfo.vue'),
   },
+  {
+    name: 'CampList',
+    path: '/Camp',
+    component: () => import ('@/components/Camping/CampList.vue'),
+  },
 ]
 
 const router = createRouter({

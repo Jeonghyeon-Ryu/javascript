@@ -3,7 +3,7 @@
     <li v-for="camp of camps">
       <a href="" class="card">
         <div class="card-img-container">
-          <img src="" class="card-image" alt="" />
+          <CampDetailImage :campId="camp.campId"></CampDetailImage>
         </div>
         <div class="card-overlay">
           <div class="card-header">
@@ -19,15 +19,15 @@
             </div>
           </div>
           <p class="card-description">
-            <img v-for="info of camps.camp_info" width="20" src="{{info}}" />
-            <!-- <img v-if="camp.camp_info.parking" width="20" src="@/assets/img/Camping/parking.png" />
-            <img v-if="camp.camp_info.shower" width="20" src="@/assets/img/Camping/shower.png" />
-            <img v-if="camp.camp_info.disposal" width="20" src="@/assets/img/Camping/disposal.png" />
-            <img v-if="camp.camp_info.deck" width="20" src="@/assets/img/Camping/deck.png" />
-            <img v-if="camp.camp_info.bbq" width="20" src="@/assets/img/Camping/bbq.png" />
-            <img v-if="camp.camp_info.swim" width="20" src="@/assets/img/Camping/swim.png" />
-            <img v-if="camp.camp_info.spoon" width="20" src="@/assets/img/Camping/spoon.png" />
-            <img v-if="camp.camp_info.lease" width="20" src="@/assets/img/Camping/lease.png" /> -->
+            <img v-if="camp.campInfo.toilet" width="20" src="@/assets/img/Camping/toilet.png" />
+            <img v-if="camp.campInfo.parking" width="20" src="@/assets/img/Camping/parking.png" />
+            <img v-if="camp.campInfo.shower" width="20" src="@/assets/img/Camping/shower.png" />
+            <img v-if="camp.campInfo.disposal" width="20" src="@/assets/img/Camping/disposal.png" />
+            <img v-if="camp.campInfo.deck" width="20" src="@/assets/img/Camping/deck.png" />
+            <img v-if="camp.campInfo.bbq" width="20" src="@/assets/img/Camping/bbq.png" />
+            <img v-if="camp.campInfo.swim" width="20" src="@/assets/img/Camping/swim.png" />
+            <img v-if="camp.campInfo.spoon" width="20" src="@/assets/img/Camping/spoon.png" />
+            <img v-if="camp.campInfo.lease" width="20" src="@/assets/img/Camping/lease.png" />
           </p>
         </div>
       </a>
@@ -35,37 +35,48 @@
   </ul>
 </template>
 <script>
-  import img1 from "@/assets/img/main-image/main_0.jpg"
-  import img2 from "@/assets/img/main-image/main_1.jpg"
-  import img3 from "@/assets/img/main-image/main_2.jpg"
-  import img4 from "@/assets/img/main-image/main_3.jpg"
-  import img5 from "@/assets/img/main-image/main_4.jpg"
+import CampDetailImage from './CampDetailImage.vue';
 export default {
-  data: function () {
-    return {
-      page: 1,
-      camps: [ ],
-    }
-  },
-  created : function() {
-    fetch('http://localhost:8087/java/camp/'+this.page)
-    .then(result => result.json())
-    .then(result => {
-      for(let i=0; i<result.length; i++) {
-        result[i].campInfo = result[i].campInfo.split(' ');
-        for(info of result[i].campInfo){
-          info = '@/assets/img/Camping/' + info + '.png';
-        }
-        // result[i].campInfo =  infoArr.reduce((accumulator,value, index) => {
-        //   return {...accumulator, [value]:true};
-        // },{});
-      }
-      this.camps = result;
-      console.log(this.camps);
-    })
-    .catch(err => console.log(err))
-  }
-
+    data: function () {
+        return {
+            page: 1,
+            camps: [],
+        };
+    },
+    created: function () {
+        fetch("http://localhost:8087/java/camp/" + this.page)
+            .then(result => result.json())
+            .then(result => {
+            for (let i = 0; i < result.length; i++) {
+                result[i].campInfo = result[i].campInfo.split(" ");
+                let info = {
+                    toilet: false,
+                    parking: false,
+                    shower: false,
+                    disposal: false,
+                    deck: false,
+                    bbq: false,
+                    swin: false,
+                    spoon: false,
+                    lease: false
+                };
+                for (let infoTemp of result[i].campInfo) {
+                    info[infoTemp] = true;
+                }
+                result[i].campInfo = info;
+                // for(info of result[i].campInfo){
+                //   info = '@/assets/img/Camping/' + info + '.png';
+                // }
+                // result[i].campInfo =  infoArr.reduce((accumulator,value, index) => {
+                //   return {...accumulator, [value]:true};
+                // },{});
+            }
+            this.camps = result;
+            console.log(this.camps);
+        })
+            .catch(err => console.log(err));
+    },
+    components: { CampDetailImage }
 }
 </script>
 <style scoped src="@/assets/css/Camping/CampList.css">

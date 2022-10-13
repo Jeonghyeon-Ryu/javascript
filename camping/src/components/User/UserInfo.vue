@@ -66,7 +66,6 @@ import ImagePreviewOne from '../ImagePreviewOne.vue';
     methods: {
       changeImage : function(e) {
         this.profile_image = e.target.files;
-        console.log(this.profile_image);
       },
       user_modify_confirm : function(){
         console.log(new FormData(document.querySelector('.user-info-form')).get('member_name') );

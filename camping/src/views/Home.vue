@@ -1,8 +1,8 @@
 <template>
-  <!-- <MainSwiper></MainSwiper> -->
+  <MainSwiper></MainSwiper>
   <!-- <UserManage></UserManage> -->
   <!-- <CampDetail></CampDetail> -->
-  <CampRegister></CampRegister>
+  <!-- <CampRegister></CampRegister> -->
   <!-- <UserInfo></UserInfo> -->
   <!-- <CampModify></CampModify> -->
   <!-- <CampList></CampList> -->

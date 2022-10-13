@@ -1,6 +1,6 @@
 <template>
   <ul class="cards">
-    <li v-for="camp of camps">
+    <li v-for="camp of camps" @click="getCampDetail(camp.campId)">
       <a href="" class="card">
         <div class="card-img-container">
           <CampDetailImage :campId="camp.campId"></CampDetailImage>
@@ -75,6 +75,12 @@ export default {
             console.log(this.camps);
         })
             .catch(err => console.log(err));
+    },
+    methods: {
+      getCampDetail(campId) {
+        let id = campId;
+        this.$router.push({name:'CampDetail', params: {campId : id}});
+      }
     },
     components: { CampDetailImage }
 }

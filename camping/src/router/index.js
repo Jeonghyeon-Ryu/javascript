@@ -18,8 +18,23 @@ const routes = [
   },
   {
     name: 'CampList',
-    path: '/Camp',
+    path: '/CampList',
     component: () => import ('@/components/Camping/CampList.vue'),
+  },
+  {
+    name: 'CampDetail',
+    path: '/Camp/:campId',
+    component: () => import ('@/components/Camping/CampDetail.vue'),
+  },
+  {
+    name: 'CampRegister',
+    path: '/CampRegister',
+    component: () => import ('@/components/Camping/CampRegister.vue'),
+  },
+  {
+    name: 'CampModify',
+    path: '/CampModify/:campId',
+    component: () => import ('@/components/Camping/CampModify.vue'),
   },
 ]
 

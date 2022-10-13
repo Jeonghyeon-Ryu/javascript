@@ -1,6 +1,7 @@
 .camp-detail-container {
     margin-top: 20px;
     margin-bottom : 50px;
+    padding-top:100px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -19,8 +20,11 @@
     font-size: 1.2rem;
     font-weight: bold;
     padding: 10px;
+    border:none;
 }
-
+.camp-detail-title:focus {
+    outline: none;
+}
 .camp-detail-title-info {
     width: 100%;
     font-size: 0.9rem;

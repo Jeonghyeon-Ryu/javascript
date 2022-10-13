@@ -71,16 +71,17 @@ export default {
 .swiper-slide img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
 }
-</style>
-<style>
 .swiper-button-next,
 .swiper-button-prev,
 .swiper-container-rtl .swiper-button-prev,
 .swiper-container-rtl .swiper-button-next {
     color: #F7EDDA;
+}
+.swiper-pagination {
+    top: 10px;
 }
 .swiper-pagination-bullet {
     background: #F7EDDA;

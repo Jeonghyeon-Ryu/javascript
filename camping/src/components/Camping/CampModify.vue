@@ -185,7 +185,7 @@ export default {
 
         },
         cancel() {
-
+            this.$router.push({name:"CampDetail", params:{campId:this.campId}})
         }
     }
 }

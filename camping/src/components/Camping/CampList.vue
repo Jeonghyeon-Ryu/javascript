@@ -1,6 +1,6 @@
 <template>
   <ul class="cards">
-    <li v-for="camp of camps" @click="getCampDetail(camp.campId)">
+    <li v-for="camp of camps" @click="getCampDetail(camp.campId, $event)">
       <a href="" class="card">
         <div class="card-img-container">
           <CampDetailImage :campId="camp.campId"></CampDetailImage>
@@ -77,7 +77,8 @@ export default {
             .catch(err => console.log(err));
     },
     methods: {
-      getCampDetail(campId) {
+      getCampDetail(campId, e) {
+        e.preventDefault();
         let id = campId;
         this.$router.push({name:'CampDetail', params: {campId : id}});
       }
